@@ -142,14 +142,5 @@ public class DAOMemory implements DAOInterface{
     public boolean inserirPersonagem(Personagem personagem) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    /**
-     * Retorna o Personagem.
-     * @return personagem
-     */
-    @Override
-    public Personagem getPersonagem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

@@ -42,7 +42,7 @@ public class TelaMundo extends javax.swing.JFrame {
         player.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
         player.setText("E");
         getContentPane().add(player);
-        player.setBounds(170, 40, 50, 130);
+        player.setBounds(150, 110, 50, 130);
 
         buttonCima.setText("Cima");
         buttonCima.addActionListener(new java.awt.event.ActionListener() {
@@ -51,7 +51,7 @@ public class TelaMundo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonCima);
-        buttonCima.setBounds(490, 290, 80, 23);
+        buttonCima.setBounds(540, 330, 80, 23);
 
         buttonEsquerda.setText("Esquerda");
         buttonEsquerda.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +60,7 @@ public class TelaMundo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEsquerda);
-        buttonEsquerda.setBounds(410, 320, 80, 23);
+        buttonEsquerda.setBounds(470, 360, 80, 23);
 
         buttonBaixo.setText("Baixo");
         buttonBaixo.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +69,7 @@ public class TelaMundo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonBaixo);
-        buttonBaixo.setBounds(500, 350, 59, 23);
+        buttonBaixo.setBounds(550, 390, 59, 23);
 
         buttonDireita.setText("Direito");
         buttonDireita.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +78,7 @@ public class TelaMundo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonDireita);
-        buttonDireita.setBounds(560, 320, 63, 23);
+        buttonDireita.setBounds(610, 360, 63, 23);
 
         monstro.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
         monstro.setText("s");
@@ -93,6 +93,7 @@ public class TelaMundo extends javax.swing.JFrame {
         int y = player.getY();
         for(int i = 0; i < 10; i++){
             player.setLocation(x, y - i);
+            encontroBatalha();
         }
     }//GEN-LAST:event_buttonCimaActionPerformed
 
@@ -101,6 +102,7 @@ public class TelaMundo extends javax.swing.JFrame {
         int y = player.getY();
         for(int i = 0; i < 10; i++){
             player.setLocation(x - i, y);
+            encontroBatalha();
         }
     }//GEN-LAST:event_buttonEsquerdaActionPerformed
 
@@ -109,6 +111,7 @@ public class TelaMundo extends javax.swing.JFrame {
         int y = player.getY();
         for(int i = 0; i < 10; i++){
             player.setLocation(x, y + i);
+            encontroBatalha();
         }
     }//GEN-LAST:event_buttonBaixoActionPerformed
 
@@ -117,11 +120,12 @@ public class TelaMundo extends javax.swing.JFrame {
         int y = player.getY();
         for(int i = 0; i < 10; i++){
             player.setLocation(x + i, y);
+            encontroBatalha();
         }
     }//GEN-LAST:event_buttonDireitaActionPerformed
 
     public void encontroBatalha(){
-        if(player.getLocation() == monstro.getLocation()){
+        if(player.getX() == monstro.getX() && player.getY() == monstro.getY()){
             TelaBatalha tela = new TelaBatalha();
             Main.abrir(tela);
             this.dispose();

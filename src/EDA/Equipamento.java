@@ -1,26 +1,18 @@
 
 package EDA;
 
-import java.util.Random;
-
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
 
 public class Equipamento {
     private String nome;
-    private int protecao;
-    private int valorCompra;
     private int lvl;
+    int valorCompra;
     
     public Equipamento(String nome, int lvl ){
-        Random random = new Random();
-        
         this.nome = nome;
         this.lvl = lvl;
-        
-        protecao = random.nextInt(lvl + 10) + 1;
-        valorCompra = random.nextInt(protecao + 100) + 1;
     }
 
 //=========================== GETTERS E SETTERS ================================ 
@@ -39,22 +31,6 @@ public class Equipamento {
      */
     public void setNome(String nome) {
         this.nome = nome;
-    }
-    
-    /**
-     * Retorna o valor de proteção do equipamento.
-     * @return 
-     */
-    public int getProtecao() {
-        return protecao;
-    }
-    
-    /**
-     * Define o valor de proteção do equipamento.
-     * @param protecao 
-     */
-    public void setProtecao(int protecao) {
-        this.protecao = protecao;
     }
     
     /**

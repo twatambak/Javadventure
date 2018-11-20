@@ -20,6 +20,5 @@ public interface DAOInterface {
     public boolean validarCredenciais(String usuario, String senha);
     
     public boolean inserirPersonagem(Personagem personagem);
-    public Personagem getPersonagem();
 
 }
