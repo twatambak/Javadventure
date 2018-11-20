@@ -17,107 +17,128 @@ public class TelaMundo extends javax.swing.JFrame {
     
     public TelaMundo() {
         initComponents();
-        label.getInputMap().put(KeyStroke.getKeyStroke("W"), "pressed");
+        player.getInputMap().put(KeyStroke.getKeyStroke("W"), "pressed");
+        if(player.getLocation() == monstro.getLocation()){
+            TelaBatalha tela = new TelaBatalha();
+            Main.abrir(tela);
+            this.dispose();
+        }
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        label = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        player = new javax.swing.JLabel();
+        buttonCima = new javax.swing.JButton();
+        buttonEsquerda = new javax.swing.JButton();
+        buttonBaixo = new javax.swing.JButton();
+        buttonDireita = new javax.swing.JButton();
+        monstro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        label.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
-        label.setText("E");
-        getContentPane().add(label);
-        label.setBounds(170, 40, 50, 130);
+        player.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
+        player.setText("E");
+        getContentPane().add(player);
+        player.setBounds(170, 40, 50, 130);
 
-        jButton1.setText("Cima");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonCima.setText("Cima");
+        buttonCima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonCimaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(280, 200, 80, 23);
+        getContentPane().add(buttonCima);
+        buttonCima.setBounds(490, 290, 80, 23);
 
-        jButton2.setText("Esquerda");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonEsquerda.setText("Esquerda");
+        buttonEsquerda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonEsquerdaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(203, 230, 80, 23);
+        getContentPane().add(buttonEsquerda);
+        buttonEsquerda.setBounds(410, 320, 80, 23);
 
-        jButton3.setText("Baixo");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonBaixo.setText("Baixo");
+        buttonBaixo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                buttonBaixoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(290, 260, 59, 23);
+        getContentPane().add(buttonBaixo);
+        buttonBaixo.setBounds(500, 350, 59, 23);
 
-        jButton4.setText("Direito");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        buttonDireita.setText("Direito");
+        buttonDireita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                buttonDireitaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4);
-        jButton4.setBounds(350, 230, 63, 23);
+        getContentPane().add(buttonDireita);
+        buttonDireita.setBounds(560, 320, 63, 23);
+
+        monstro.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
+        monstro.setText("s");
+        getContentPane().add(monstro);
+        monstro.setBounds(470, 30, 60, 130);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int x = label.getX();
-        int y = label.getY();
+    private void buttonCimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCimaActionPerformed
+        int x = player.getX();
+        int y = player.getY();
         for(int i = 0; i < 10; i++){
-            label.setLocation(x, y - i);
+            player.setLocation(x, y - i);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonCimaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int x = label.getX();
-        int y = label.getY();
+    private void buttonEsquerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEsquerdaActionPerformed
+        int x = player.getX();
+        int y = player.getY();
         for(int i = 0; i < 10; i++){
-            label.setLocation(x - i, y);
+            player.setLocation(x - i, y);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonEsquerdaActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        int x = label.getX();
-        int y = label.getY();
+    private void buttonBaixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBaixoActionPerformed
+        int x = player.getX();
+        int y = player.getY();
         for(int i = 0; i < 10; i++){
-            label.setLocation(x, y + i);
+            player.setLocation(x, y + i);
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_buttonBaixoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        int x = label.getX();
-        int y = label.getY();
+    private void buttonDireitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDireitaActionPerformed
+        int x = player.getX();
+        int y = player.getY();
         for(int i = 0; i < 10; i++){
-            label.setLocation(x + i, y);
+            player.setLocation(x + i, y);
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
-    
+    }//GEN-LAST:event_buttonDireitaActionPerformed
+
+    public void encontroBatalha(){
+        if(player.getLocation() == monstro.getLocation()){
+            TelaBatalha tela = new TelaBatalha();
+            Main.abrir(tela);
+            this.dispose();
+        }    
+    }    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel label;
+    private javax.swing.JButton buttonBaixo;
+    private javax.swing.JButton buttonCima;
+    private javax.swing.JButton buttonDireita;
+    private javax.swing.JButton buttonEsquerda;
+    private javax.swing.JLabel monstro;
+    private javax.swing.JLabel player;
     // End of variables declaration//GEN-END:variables
 }
+
+
 
 class Movimento extends AbstractAction{
     Component compenente;

@@ -31,11 +31,11 @@ public class TelaBatalha extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        labelInfoHP = new javax.swing.JLabel();
+        buttonDefender = new javax.swing.JButton();
+        buttonAtacar = new javax.swing.JButton();
+        buttonPocao = new javax.swing.JButton();
+        buttonFugir = new javax.swing.JButton();
         barraHP = new javax.swing.JProgressBar();
         background1 = new javax.swing.JLabel();
         background2 = new javax.swing.JLabel();
@@ -48,30 +48,30 @@ public class TelaBatalha extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel1.setText("HP:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 460, 17, 14);
+        labelInfoHP.setText("HP:");
+        getContentPane().add(labelInfoHP);
+        labelInfoHP.setBounds(20, 460, 17, 14);
 
-        jButton2.setText("Defender");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(180, 410, 80, 23);
+        buttonDefender.setText("Defender");
+        getContentPane().add(buttonDefender);
+        buttonDefender.setBounds(180, 410, 80, 23);
 
-        jButton1.setText("Atacar");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(20, 410, 65, 23);
+        buttonAtacar.setText("Atacar");
+        getContentPane().add(buttonAtacar);
+        buttonAtacar.setBounds(20, 410, 65, 23);
 
-        jButton3.setText("Usar poções");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonPocao.setText("Usar poções");
+        buttonPocao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                buttonPocaoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(360, 410, 100, 23);
+        getContentPane().add(buttonPocao);
+        buttonPocao.setBounds(360, 410, 100, 23);
 
-        jButton4.setText("Fugir");
-        getContentPane().add(jButton4);
-        jButton4.setBounds(560, 410, 57, 23);
+        buttonFugir.setText("Fugir");
+        getContentPane().add(buttonFugir);
+        buttonFugir.setBounds(560, 410, 57, 23);
 
         barraHP.setBackground(new java.awt.Color(0, 0, 0));
         barraHP.setForeground(new java.awt.Color(153, 0, 0));
@@ -97,9 +97,9 @@ public class TelaBatalha extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void buttonPocaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPocaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_buttonPocaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,10 +141,10 @@ public class TelaBatalha extends javax.swing.JFrame {
     private javax.swing.JLabel background2;
     private javax.swing.JLabel background3;
     private javax.swing.JProgressBar barraHP;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton buttonAtacar;
+    private javax.swing.JButton buttonDefender;
+    private javax.swing.JButton buttonFugir;
+    private javax.swing.JButton buttonPocao;
+    private javax.swing.JLabel labelInfoHP;
     // End of variables declaration//GEN-END:variables
 }
