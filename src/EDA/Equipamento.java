@@ -6,12 +6,12 @@ package EDA;
  */
 
 public class Equipamento {
-    private String nome;
+    String nome;
+    private String descricao;
     private int lvl;
     int valorCompra;
     
-    public Equipamento(String nome, int lvl ){
-        this.nome = nome;
+    public Equipamento(int lvl ){
         this.lvl = lvl;
     }
 
@@ -63,5 +63,19 @@ public class Equipamento {
      */
     public void setLvl(int lvl) {
         this.lvl = lvl;
+    }
+
+    /**
+     * @return the descricao
+     */
+    public String getDescricao() {
+        return descricao;
+    }
+
+    /**
+     * @param descricao the descricao to set
+     */
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }   

@@ -14,6 +14,7 @@ abstract class Ser {
     int destreza;
     int inteligencia;
     int vitalidade;
+    TipoStatus status;
 
 //=========================== GETTERS E SETTERS ================================ 
 

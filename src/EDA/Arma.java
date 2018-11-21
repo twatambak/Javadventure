@@ -1,7 +1,12 @@
 
 package EDA;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
@@ -9,11 +14,23 @@ import java.util.Random;
 public class Arma extends Equipamento{
     private int dano;
     
-    public Arma(String nome, int lvl){
-        super(nome, lvl);
+    private static ArrayList<String> arrayArmas = new ArrayList<>();
+    private File arquivoArmas = new File("Armas.txt");
+    
+    public Arma(String nome, int lvl) throws FileNotFoundException{
+        super(lvl);
         Random x = new Random();
         dano = x.nextInt(lvl + 10) + 1;
         valorCompra = x.nextInt(dano + 50) + 1;
+        
+        Scanner leitor = new Scanner(new FileReader(arquivoArmas)).useDelimiter("\n");
+        
+        while(leitor.hasNext()){
+            String aux = leitor.next();
+            arrayArmas.add(aux);
+        }
+        
+        this.nome = arrayArmas.get(x.nextInt(arrayArmas.size()));
     }
 
 //=========================== GETTERS E SETTERS ================================     
