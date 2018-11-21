@@ -23,16 +23,16 @@ public class Personagem extends Ser{
     private ArrayList<Equipamento> arrayEquipamento = new ArrayList<>();
     
     public Personagem(String nome, int vitalidade, int inteligencia, int destreza, int forca) throws FileNotFoundException{
-        Arma armaInicial = new Arma(5);
+        Arma armaInicial = new Arma("Enxada Velha", 5, 0, 1, TipoArma.CONTUNDENTE);
         arma = armaInicial;
         
-        Elmo elmoInicial = new Elmo(5);
+        Elmo elmoInicial = new Elmo("Touca de Fazendeiro", 2, 0, 1, ParteCorpo.CABECA);
         elmo = elmoInicial;
         
-        Peitoral peitoralInicial = new Peitoral(5);
+        Peitoral peitoralInicial = new Peitoral("Traje de Fazendeiro", 2, 0, 1, ParteCorpo.TORSO);
         peito = peitoralInicial;
         
-        Grevas grevasInicial = new Grevas(5);
+        Grevas grevasInicial = new Grevas("Botas de Fazendeiro", 2, 0, 1, ParteCorpo.PERNAS);
         bota = grevasInicial;
         
         protecaoTotal = elmoInicial.getProtecao() + peitoralInicial.getProtecao() + grevasInicial.getProtecao();

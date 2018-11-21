@@ -7,7 +7,6 @@ package EDA;
 
 public abstract class Equipamento {
     String nome;
-    String descricao;
     int lvl;
     int valorCompra;
     
@@ -27,22 +26,6 @@ public abstract class Equipamento {
      */
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-//========== Getters e Setters: Descrição ======================================
-    
-    /**
-     * @return the descricao
-     */
-    public String getDescricao() {
-        return descricao;
-    }
-
-    /**
-     * @param descricao the descricao to set
-     */
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
 //========== Getters e Setters: Level ==========================================

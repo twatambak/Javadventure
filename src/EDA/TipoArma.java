@@ -16,6 +16,19 @@ public enum TipoArma {
         this.tipo = tipo;
     }
     
+    public TipoArma aleatoriza(int id){
+        switch(id){
+            case 1:
+                return PERFURANTE;
+            case 2:
+                return CORTANTE;
+            case 3:
+                return CONTUNDENTE;
+            default:
+                return CORTANTE;
+        }
+    }
+    
     @Override
     public String toString(){
         return tipo;
