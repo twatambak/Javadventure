@@ -19,7 +19,7 @@ public class Grevas extends Equipamento{
     private static ArrayList<String> arrayGrevas = new ArrayList<>();
     private File arquivoGrevas = new File("Grevas.txt");
     
-    public Grevas(String nome, int lvl) throws FileNotFoundException {
+    public Grevas(int lvl) throws FileNotFoundException {
         super(lvl);
         Random x = new Random();
         protecao = x.nextInt(lvl + 10) + 1;

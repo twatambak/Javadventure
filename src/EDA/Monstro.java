@@ -27,6 +27,38 @@ public class Monstro extends Ser{
         coinDrop = lvl * 10;
         
         atk = forca * 2;
+        
+        status = TipoStatus.NORMAL;
     }
+
+    /**
+     * @return the xpDrop
+     */
+    public int getXpDrop() {
+        return xpDrop;
+    }
+
+    /**
+     * @param xpDrop the xpDrop to set
+     */
+    public void setXpDrop(int xpDrop) {
+        this.xpDrop = xpDrop;
+    }
+
+    /**
+     * @return the coinDrop
+     */
+    public int getCoinDrop() {
+        return coinDrop;
+    }
+
+    /**
+     * @param coinDrop the coinDrop to set
+     */
+    public void setCoinDrop(int coinDrop) {
+        this.coinDrop = coinDrop;
+    }
+    
+    
     
 }

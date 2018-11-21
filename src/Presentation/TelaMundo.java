@@ -29,6 +29,7 @@ public class TelaMundo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         player = new javax.swing.JLabel();
         buttonCima = new javax.swing.JButton();
         buttonEsquerda = new javax.swing.JButton();
@@ -37,12 +38,14 @@ public class TelaMundo extends javax.swing.JFrame {
         monstro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(700, 500));
+        setPreferredSize(new java.awt.Dimension(700, 500));
         getContentPane().setLayout(null);
 
         player.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
         player.setText("E");
         getContentPane().add(player);
-        player.setBounds(150, 110, 50, 130);
+        player.setBounds(150, 80, 60, 160);
 
         buttonCima.setText("Cima");
         buttonCima.addActionListener(new java.awt.event.ActionListener() {
@@ -81,9 +84,10 @@ public class TelaMundo extends javax.swing.JFrame {
         buttonDireita.setBounds(610, 360, 63, 23);
 
         monstro.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
-        monstro.setText("s");
+        monstro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/capivara.jpg"))); // NOI18N
+        monstro.setToolTipText("");
         getContentPane().add(monstro);
-        monstro.setBounds(470, 30, 60, 130);
+        monstro.setBounds(-100, 0, 860, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -137,12 +141,11 @@ public class TelaMundo extends javax.swing.JFrame {
     private javax.swing.JButton buttonCima;
     private javax.swing.JButton buttonDireita;
     private javax.swing.JButton buttonEsquerda;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel monstro;
     private javax.swing.JLabel player;
     // End of variables declaration//GEN-END:variables
 }
-
-
 
 class Movimento extends AbstractAction{
     Component compenente;

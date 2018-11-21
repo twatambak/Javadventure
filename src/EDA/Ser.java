@@ -78,7 +78,7 @@ abstract class Ser {
      * Define os pontos de vida do ser.
      */
     public void setHp() {
-        hp = vitalidade * 100;
+        setHp(vitalidade * 100);
     }
 
     /**
@@ -144,6 +144,28 @@ abstract class Ser {
     public void setVitalidade(int vitalidade) {
         this.vitalidade = vitalidade;
     }
+
+    /**
+     * @param hp the hp to set
+     */
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    /**
+     * @return the status
+     */
+    public TipoStatus getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(TipoStatus status) {
+        this.status = status;
+    }
+    
     
 }
 

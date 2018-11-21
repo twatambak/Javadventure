@@ -18,18 +18,19 @@ public class Personagem extends Ser{
     private int protecaoTotal;
     private int skillpoints;
     private int xp;
+    private ClassePersonagem classe;
     
     public Personagem(String nome, int vitalidade, int inteligencia, int destreza, int forca) throws FileNotFoundException{
-        Arma armaInicial = new Arma("Espada do Aventureiro Pobre", 5);
+        Arma armaInicial = new Arma(5);
         arma = armaInicial;
         
         Elmo elmoInicial = new Elmo(5);
         elmo = elmoInicial;
         
-        Peitoral peitoralInicial = new Peitoral("Peitoral do Aventureiro Pobre", 5);
+        Peitoral peitoralInicial = new Peitoral(5);
         peito = peitoralInicial;
         
-        Grevas grevasInicial = new Grevas("Grevas do Aventureiro Pobre", 5);
+        Grevas grevasInicial = new Grevas(5);
         bota = grevasInicial;
         
         protecaoTotal = elmoInicial.getProtecao() + peitoralInicial.getProtecao() + grevasInicial.getProtecao();
@@ -182,7 +183,7 @@ public class Personagem extends Ser{
      * consequentemente o HP será aumentado também.
      */
     public void atualizarHp(){
-        hp = vitalidade * 100;
+        setHp(vitalidade * 100);
     }
     
     /**
@@ -191,7 +192,7 @@ public class Personagem extends Ser{
      */
     public void curar(){
         if(hp < vitalidade * 100 && getQtdPot() >= 1){
-            hp = hp + (vitalidade * 50);
+            setHp(hp + (vitalidade * 50));
         } else if(hp > vitalidade * 100){
             JOptionPane.showMessageDialog(null, "Sua vida está cheia", "Calma meu querido. Tu não precisa usar poções no momento.", JOptionPane.PLAIN_MESSAGE);
         } else if(getQtdPot() < 1){

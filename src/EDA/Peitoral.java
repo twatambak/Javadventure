@@ -19,7 +19,7 @@ public class Peitoral extends Equipamento{
     private static ArrayList<String> arrayPeitorais = new ArrayList<>();
     private File arquivoPeitorais = new File("Peitorais.txt");
     
-    public Peitoral(String nome, int lvl) throws FileNotFoundException {
+    public Peitoral(int lvl) throws FileNotFoundException {
         super(lvl);
         Random x = new Random();
         protecao = x.nextInt(lvl + 10) + 1;

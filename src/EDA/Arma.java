@@ -11,13 +11,14 @@ import java.util.Scanner;
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
+
 public class Arma extends Equipamento{
     private int dano;
     
     private static ArrayList<String> arrayArmas = new ArrayList<>();
     private File arquivoArmas = new File("Armas.txt");
     
-    public Arma(String nome, int lvl) throws FileNotFoundException{
+    public Arma(int lvl) throws FileNotFoundException{
         super(lvl);
         Random x = new Random();
         dano = x.nextInt(lvl + 10) + 1;
@@ -50,21 +51,4 @@ public class Arma extends Equipamento{
     public void setDano(int dano) {
         this.dano = dano;
     }
-
-    /**
-     * Retorna o valor de compra da arma.
-     * @return the valorCompra
-     */
-    public int getValorCompra() {
-        return valorCompra;
-    }
-
-    /**
-     * Define o valor de compra da arma.
-     * @param valorCompra the valorCompra to set
-     */
-    public void setValorCompra(int valorCompra) {
-        this.valorCompra = valorCompra;
-    }
-   
 }

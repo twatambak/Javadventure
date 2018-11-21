@@ -4,6 +4,9 @@ package Presentation;
 import Business.BusinessFacade;
 import EDA.Personagem;
 import EDA.Usuario;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 
@@ -139,12 +142,18 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
         int destreza = (Integer) spinnerDestreza.getValue();
         int vitalidade = (Integer) spinnerVitalidade.getValue();
         
-        Personagem persona = new Personagem(nome, vitalidade, inteligencia, destreza, forca);
-        usuarioLogado.setPersonagem(persona);
+        Personagem persona;
+        try {
+            persona = new Personagem(nome, vitalidade, inteligencia, destreza, forca);
+            usuarioLogado.setPersonagem(persona);
         
-        TelaSelecaoPersonagem telasepe = new TelaSelecaoPersonagem();
-        Main.abrir(telasepe);
-        this.dispose();
+            TelaSelecaoPersonagem telasepe = new TelaSelecaoPersonagem();
+            Main.abrir(telasepe);
+            this.dispose();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(TelaCriacaoPersonagem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
