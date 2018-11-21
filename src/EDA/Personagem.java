@@ -2,6 +2,7 @@
 package EDA;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +20,7 @@ public class Personagem extends Ser{
     private int skillpoints;
     private int xp;
     private ClassePersonagem classe;
+    private ArrayList<Equipamento> arrayEquipamento = new ArrayList<>();
     
     public Personagem(String nome, int vitalidade, int inteligencia, int destreza, int forca) throws FileNotFoundException{
         Arma armaInicial = new Arma(5);
@@ -42,7 +44,8 @@ public class Personagem extends Ser{
         this.forca = forca;
         this.inteligencia = inteligencia;
         
-        hp = vitalidade * 100;
+        hpMaximo = vitalidade * 100;
+        hp = hpMaximo;
         atk = arma.getDano() + forca;
         
         lvl = 1;
@@ -51,40 +54,8 @@ public class Personagem extends Ser{
         status = TipoStatus.NORMAL;
     }
     
-//=========================== GETTERS E SETTERS ================================ 
+//========== Getters e Setters: Armas ==========================================
     
-    /**
-     * Retorna a quantidade de poções de cura do jogador.
-     * @return 
-     */
-    public int getQtdPot() {
-        return qtdPot;
-    }
-    
-    /**
-     * Define a quantidade de poções de cura do jogador.
-     * @param qtdPot 
-     */
-    public void setQtdPot(int qtdPot) {
-        this.qtdPot = qtdPot;
-    }
-    
-    /**
-     * Retorna o dinheiro do jogador.
-     * @return 
-     */
-    public int getDinheiro() {
-        return dinheiro;
-    }
-
-    /**
-     * Define o dinheiro do jogador.
-     * @param dinheiro 
-     */
-    public void setDinheiro(int dinheiro) {
-        this.dinheiro = dinheiro;
-    }
-
     /**
      * Retorna a arma equipada.
      * @return the arma
@@ -100,8 +71,10 @@ public class Personagem extends Ser{
     public void setArma(Arma arma) {
         this.arma = arma;
         atk = arma.getDano() + forca;
-    }
+    }    
 
+//========== Getters e Setters: Elmo ===========================================
+    
     /**
      * Retorna o elmo equipado.
      * @return the elmo
@@ -118,6 +91,8 @@ public class Personagem extends Ser{
         this.elmo = elmo;
         protecaoTotal = protecaoTotal + this.elmo.getProtecao();
     }
+    
+//========== Getters e Setters: Peitoral =======================================
 
     /**
      * Retorna o peitoral equipado.
@@ -136,6 +111,8 @@ public class Personagem extends Ser{
         protecaoTotal = protecaoTotal + this.peito.getProtecao();
     }
 
+//========== Getters e Setters: Grevas =========================================    
+    
     /**
      * Retorna as grevas equipadas.
      * @return the bota
@@ -154,6 +131,8 @@ public class Personagem extends Ser{
         protecaoTotal = protecaoTotal + this.bota.getProtecao();
     }
 
+//========== Getters e Setters: Proteção Total =================================
+    
     /**
      * Retorna a proteção total.
      * @return the protecaoTotal
@@ -170,52 +149,17 @@ public class Personagem extends Ser{
         this.protecaoTotal = protecaoTotal;
     }
     
+//========== Getters e Setters: Ataque =========================================
+    
     /**
-     * Define o ataque.
+     * Atualiza o ataque com base na Força e no dano da arma.
      */
     public void atualizaAtk(){
         atk = arma.getDano() + forca;
     }
-    
-    /**
-     * Atualiza a quantidade de pontos de vida do jogador baseando-se na skill
-     * de Vitalidade do mesmo. Se o jogador aumentar os pontos de Vitalidade,
-     * consequentemente o HP será aumentado também.
-     */
-    public void atualizarHp(){
-        setHp(vitalidade * 100);
-    }
-    
-    /**
-     * Adiciona o valor passado aos pontos de vida do Jogador. Como o prórpio 
-     * nome da função já diz se trata de um método de cura. 
-     */
-    public void curar(){
-        if(hp < vitalidade * 100 && getQtdPot() >= 1){
-            setHp(hp + (vitalidade * 50));
-        } else if(hp > vitalidade * 100){
-            JOptionPane.showMessageDialog(null, "Sua vida está cheia", "Calma meu querido. Tu não precisa usar poções no momento.", JOptionPane.PLAIN_MESSAGE);
-        } else if(getQtdPot() < 1){
-            JOptionPane.showMessageDialog(null, "Você não possui nenhum item de cura no momento.", "Opa meu patrão. Tu devia comprar uns itens de cura aí. Vai que o caldo engrossa.", JOptionPane.PLAIN_MESSAGE);
-        }
-    }
-    
-    /**
-     * Define os pontos de habilidade do jogador.
-     * @param skillpoints
-     */
-    public void setSkillpoints(int skillpoints){
-        this.skillpoints = skillpoints;
-    }
-    
-    /**
-     * Retorna os pontos de habilidade do jogador.
-     * @return skillpoints
-     */
-    public int getSkillpoints(){
-        return skillpoints;
-    }
 
+//========== Getters e Setters: XP =============================================
+    
     /**
      * @return the xp
      */
@@ -229,4 +173,41 @@ public class Personagem extends Ser{
     public void setXp(int xp) {
         this.xp = xp;
     }
+
+//========== Getters e Setters: Dinheiro =======================================
+    
+    /**
+     * Retorna o dinheiro do jogador.
+     * @return 
+     */
+    public int getDinheiro() {
+        return dinheiro;
+    }
+
+    /**
+     * Define o dinheiro do jogador.
+     * @param dinheiro 
+     */
+    public void setDinheiro(int dinheiro) {
+        this.dinheiro = dinheiro;
+    }
+
+//========== Getters e Setters: Skillpoints ====================================
+    
+    /**
+     * Retorna os pontos de habilidade do jogador.
+     * @return skillpoints
+     */
+    public int getSkillpoints(){
+        return skillpoints;
+    }
+    
+    /**
+     * Define os pontos de habilidade do jogador.
+     * @param skillpoints
+     */
+    public void setSkillpoints(int skillpoints){
+        this.skillpoints = skillpoints;
+    }
+    
 }

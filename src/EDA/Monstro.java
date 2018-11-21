@@ -31,6 +31,8 @@ public class Monstro extends Ser{
         status = TipoStatus.NORMAL;
     }
 
+//========== Getters e Setters: Drop de XP =====================================    
+    
     /**
      * @return the xpDrop
      */
@@ -45,6 +47,8 @@ public class Monstro extends Ser{
         this.xpDrop = xpDrop;
     }
 
+//========== Getters e Setters: Drop de Dinheiro ===============================
+    
     /**
      * @return the coinDrop
      */
@@ -58,7 +62,5 @@ public class Monstro extends Ser{
     public void setCoinDrop(int coinDrop) {
         this.coinDrop = coinDrop;
     }
-    
-    
     
 }

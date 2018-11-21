@@ -19,7 +19,7 @@ public class Arma extends Equipamento{
     private File arquivoArmas = new File("Armas.txt");
     
     public Arma(int lvl) throws FileNotFoundException{
-        super(lvl);
+        this.lvl = lvl;
         Random x = new Random();
         dano = x.nextInt(lvl + 10) + 1;
         valorCompra = x.nextInt(dano + 50) + 1;
@@ -34,7 +34,7 @@ public class Arma extends Equipamento{
         this.nome = arrayArmas.get(x.nextInt(arrayArmas.size()));
     }
 
-//=========================== GETTERS E SETTERS ================================     
+//========== Getters e Setters: Dano ===========================================    
     
     /**
      * Retorna o dano da arma.

@@ -20,7 +20,7 @@ public class Grevas extends Equipamento{
     private File arquivoGrevas = new File("Grevas.txt");
     
     public Grevas(int lvl) throws FileNotFoundException {
-        super(lvl);
+        this.lvl = lvl;
         Random x = new Random();
         protecao = x.nextInt(lvl + 10) + 1;
         valorCompra = x.nextInt(protecao + 100) + 1;

@@ -5,17 +5,13 @@ package EDA;
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
 
-public class Equipamento {
+public abstract class Equipamento {
     String nome;
-    private String descricao;
-    private int lvl;
+    String descricao;
+    int lvl;
     int valorCompra;
     
-    public Equipamento(int lvl ){
-        this.lvl = lvl;
-    }
-
-//=========================== GETTERS E SETTERS ================================ 
+//========== Getters e Setters: Nome ===========================================
     
     /**
      * Retorna o nome do equipamento.
@@ -32,22 +28,24 @@ public class Equipamento {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+//========== Getters e Setters: Descrição ======================================
     
     /**
-     * Retorna o valor de compra do equipamento.
-     * @return 
+     * @return the descricao
      */
-    public int getValorCompra() {
-        return valorCompra;
+    public String getDescricao() {
+        return descricao;
     }
-    
+
     /**
-     * Define o valor de compra do equipamento.
-     * @param valorCompra 
+     * @param descricao the descricao to set
      */
-    public void setValorCompra(int valorCompra) {
-        this.valorCompra = valorCompra;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
+
+//========== Getters e Setters: Level ==========================================
     
     /**
      * Retorna o nível do equipamento.
@@ -64,18 +62,23 @@ public class Equipamento {
     public void setLvl(int lvl) {
         this.lvl = lvl;
     }
-
+    
+//========== Getters e Setters: Valor Compra ===================================
+    
     /**
-     * @return the descricao
+     * Retorna o valor de compra do equipamento.
+     * @return 
      */
-    public String getDescricao() {
-        return descricao;
+    public int getValorCompra() {
+        return valorCompra;
+    }
+    
+    /**
+     * Define o valor de compra do equipamento.
+     * @param valorCompra 
+     */
+    public void setValorCompra(int valorCompra) {
+        this.valorCompra = valorCompra;
     }
 
-    /**
-     * @param descricao the descricao to set
-     */
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 }   

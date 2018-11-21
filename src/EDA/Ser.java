@@ -9,6 +9,7 @@ abstract class Ser {
     String nome;
     int lvl;
     int atk;
+    int hpMaximo;
     int hp;
     int forca;
     int destreza;
@@ -16,7 +17,7 @@ abstract class Ser {
     int vitalidade;
     TipoStatus status;
 
-//=========================== GETTERS E SETTERS ================================ 
+//========== Getters e Setters: Nome ===========================================
 
     /**
      * Define o nome do ser.
@@ -33,6 +34,8 @@ abstract class Ser {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+//========== Getters e Setters: Level ==========================================
     
     /**
      * Retorna o nível do ser.
@@ -49,6 +52,8 @@ abstract class Ser {
     public void setLvl(int lvl) {
         this.lvl = lvl;
     }
+
+//========== Getters e Setters: Ataque =========================================
     
     /**
      * Retorna a força de ataque do ser.
@@ -66,6 +71,8 @@ abstract class Ser {
         this.atk = atk;
     }
 
+//========== Getters e Setters: HP =============================================
+    
     /**
      * Retorna os pontos de vida do ser.
      * @return 
@@ -75,12 +82,31 @@ abstract class Ser {
     }
     
     /**
-     * Define os pontos de vida do ser.
+     * @param hp the hp to set
      */
-    public void setHp() {
-        setHp(vitalidade * 100);
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
+//========== Getters e Setters: HP Máximo ======================================
+    
+    /**
+     * 
+     * @return 
+     */
+    public int getHpMaximo(){
+        return hpMaximo;
+    }
+    
+    /**
+     * Define os pontos de vida do ser.
+     */
+    public void setHpMaximo() {
+        hpMaximo = vitalidade * 100;
+    }
+
+//========== Getters e Setters: Força ==========================================
+    
     /**
      * Retorna o nível de força do ser.
      * @return 
@@ -97,6 +123,8 @@ abstract class Ser {
         this.forca = forca;
     }
 
+//========== Getters e Setters: Destreza =======================================    
+    
     /**
      * Retorna o nível de destreza do ser.
      * @return 
@@ -112,6 +140,8 @@ abstract class Ser {
     public void setDestreza(int destreza) {
         this.destreza = destreza;
     }
+
+//========== Getters e Setters: Inteligência ===================================
     
     /**
      * Retorna o nível de inteligência do ser.
@@ -129,6 +159,8 @@ abstract class Ser {
         this.inteligencia = inteligencia;
     }
 
+//========== Getters e Setters: Vitalidade =====================================    
+    
     /**
      * Retorna o nível de vitalidade do ser.
      * @return 
@@ -145,12 +177,7 @@ abstract class Ser {
         this.vitalidade = vitalidade;
     }
 
-    /**
-     * @param hp the hp to set
-     */
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
+//========== Getetrs e Setters: Status =========================================
 
     /**
      * @return the status

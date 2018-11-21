@@ -20,7 +20,7 @@ public class Peitoral extends Equipamento{
     private File arquivoPeitorais = new File("Peitorais.txt");
     
     public Peitoral(int lvl) throws FileNotFoundException {
-        super(lvl);
+        this.lvl = lvl;
         Random x = new Random();
         protecao = x.nextInt(lvl + 10) + 1;
         valorCompra = x.nextInt(protecao + 100) + 1;
