@@ -98,6 +98,5 @@ public class Arma extends Equipamento{
     public void setDano(int dano) {
         this.dano = dano;
     }
-    Oid ;
     
 }
