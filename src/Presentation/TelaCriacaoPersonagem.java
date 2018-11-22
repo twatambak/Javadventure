@@ -20,7 +20,11 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
 
     public TelaCriacaoPersonagem() {
         initComponents();
-        this.setSize(1000, 667);
+        if(BusinessFacade.getUsuarioLogado().getPersonagem() == null){
+            buttonVoltar.setEnabled(false);
+        } else {
+            buttonVoltar.setEnabled(true);
+        }
         
     }
 
@@ -33,8 +37,8 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
         spinnerDestreza = new javax.swing.JSpinner();
         spinnerVitalidade = new javax.swing.JSpinner();
         inputNome = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonCriar = new javax.swing.JButton();
+        buttonVoltar = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,27 +76,27 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
         getContentPane().add(inputNome);
         inputNome.setBounds(170, 90, 360, 40);
 
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonCriar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        buttonCriar.setContentAreaFilled(false);
+        buttonCriar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonCriar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonCriarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(680, 570, 150, 70);
+        getContentPane().add(buttonCriar);
+        buttonCriar.setBounds(680, 570, 150, 70);
 
-        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonVoltar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        buttonVoltar.setContentAreaFilled(false);
+        buttonVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonVoltarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(120, 570, 150, 70);
+        getContentPane().add(buttonVoltar);
+        buttonVoltar.setBounds(120, 570, 150, 70);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/les3.jpg"))); // NOI18N
         background.setText("jLabel1");
@@ -110,7 +114,7 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_spinnerForcaMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCriarActionPerformed
         String nome = inputNome.getText();
         int forca = (Integer) spinnerForca.getValue();
         int inteligencia = (Integer) spinnerInteligencia.getValue();
@@ -129,20 +133,20 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
             Logger.getLogger(TelaCriacaoPersonagem.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonCriarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
         TelaSelecaoPersonagem telasepe = new TelaSelecaoPersonagem();
         Main.abrir(telasepe);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonVoltarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JButton buttonCriar;
+    private javax.swing.JButton buttonVoltar;
     private javax.swing.JTextField inputNome;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JSpinner spinnerDestreza;
     private javax.swing.JSpinner spinnerForca;
     private javax.swing.JSpinner spinnerInteligencia;
