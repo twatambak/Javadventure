@@ -30,7 +30,8 @@ public class Arma extends Equipamento{
             Random x = new Random();
             dano = x.nextInt(lvl + 10) + 1;
             valorCompra = x.nextInt(dano + 100) + 100;
-            tipo = TipoArma.CONTUNDENTE;       
+            
+            tipo = TipoArma.aleatoriza(x.nextInt(3));
          
         
             while(leitor.hasNext()){

@@ -16,7 +16,7 @@ public enum TipoArma {
         this.tipo = tipo;
     }
     
-    public TipoArma aleatoriza(int id){
+    public static TipoArma aleatoriza(int id){
         switch(id){
             case 1:
                 return PERFURANTE;

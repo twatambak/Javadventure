@@ -67,8 +67,10 @@ public class Peitoral extends Equipamento{
         this.lvl = lvl;
         this.areaProtecao = areaProtecao;
     }
+
+//========== Getters e Setters: Proteção =======================================
     
-        /**
+    /**
      * Retorna o valor de proteção do equipamento.
      * @return 
      */

@@ -67,6 +67,8 @@ public class Elmo extends Equipamento{
         this.lvl = lvl;
         this.areaProtecao = areaProtecao;
     }
+
+//========== Getters e Setters: Proteção =======================================
     
     /**
      * Retorna o valor de proteção do equipamento.

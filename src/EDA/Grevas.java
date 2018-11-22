@@ -68,7 +68,9 @@ public class Grevas extends Equipamento{
         this.areaProtecao = areaProtecao;
     }
     
-        /**
+//========== Getters e Setters: Proteção =======================================    
+    
+    /**
      * Retorna o valor de proteção do equipamento.
      * @return 
      */

@@ -11,38 +11,25 @@ public class TelaLogin extends javax.swing.JFrame {
 
     public TelaLogin() {
         initComponents();
-        textCreditos.setText("É meu querido, não adianta compilar o código e fazer as merdas que tu faz na sintaxe.");
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelInfoTitulo = new javax.swing.JLabel();
         buttonRegistrar = new javax.swing.JButton();
         buttonLogin = new javax.swing.JButton();
         inputSenha = new javax.swing.JPasswordField();
-        labelInfoSenha = new javax.swing.JLabel();
         inputUsuario = new javax.swing.JTextField();
-        lavelInfoUsuario = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        textCreditos = new javax.swing.JTextPane();
         labelBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Projeto: Login");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(720, 470));
+        setMinimumSize(new java.awt.Dimension(1000, 667));
+        setPreferredSize(new java.awt.Dimension(1000, 667));
         setResizable(false);
         getContentPane().setLayout(null);
-
-        labelInfoTitulo.setBackground(new java.awt.Color(0, 0, 0));
-        labelInfoTitulo.setFont(new java.awt.Font("Kingthings Spikeless", 0, 100)); // NOI18N
-        labelInfoTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelInfoTitulo.setText("Javaventura");
-        labelInfoTitulo.setToolTipText("");
-        getContentPane().add(labelInfoTitulo);
-        labelInfoTitulo.setBounds(0, 0, 710, 116);
 
         buttonRegistrar.setBackground(new java.awt.Color(0, 0, 0));
         buttonRegistrar.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
@@ -56,7 +43,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonRegistrar);
-        buttonRegistrar.setBounds(380, 370, 260, 30);
+        buttonRegistrar.setBounds(700, 580, 260, 30);
 
         buttonLogin.setBackground(new java.awt.Color(0, 0, 0));
         buttonLogin.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
@@ -79,43 +66,26 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLogin);
-        buttonLogin.setBounds(20, 370, 250, 30);
+        buttonLogin.setBounds(40, 580, 250, 30);
 
         inputSenha.setBackground(new java.awt.Color(0, 0, 0));
         inputSenha.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         inputSenha.setForeground(new java.awt.Color(255, 255, 255));
+        inputSenha.setMinimumSize(new java.awt.Dimension(6, 36));
+        inputSenha.setPreferredSize(new java.awt.Dimension(6, 36));
         getContentPane().add(inputSenha);
-        inputSenha.setBounds(10, 280, 270, 29);
-
-        labelInfoSenha.setFont(new java.awt.Font("Regalia Free", 0, 36)); // NOI18N
-        labelInfoSenha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelInfoSenha.setText("Senha:");
-        getContentPane().add(labelInfoSenha);
-        labelInfoSenha.setBounds(10, 240, 270, 40);
+        inputSenha.setBounds(360, 500, 280, 40);
 
         inputUsuario.setBackground(new java.awt.Color(0, 0, 0));
-        inputUsuario.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        inputUsuario.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
         inputUsuario.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(inputUsuario);
-        inputUsuario.setBounds(10, 180, 270, 29);
+        inputUsuario.setBounds(360, 350, 280, 40);
 
-        lavelInfoUsuario.setFont(new java.awt.Font("Regalia Free", 0, 36)); // NOI18N
-        lavelInfoUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lavelInfoUsuario.setText("Usuario:");
-        getContentPane().add(lavelInfoUsuario);
-        lavelInfoUsuario.setBounds(10, 138, 270, 40);
-
-        textCreditos.setBackground(new java.awt.Color(0, 0, 0));
-        textCreditos.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
-        jScrollPane1.setViewportView(textCreditos);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(310, 160, 390, 200);
-
-        labelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backgroundLogin.jpg"))); // NOI18N
+        labelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/les.jpg"))); // NOI18N
         labelBackground.setText("jLabel2");
         getContentPane().add(labelBackground);
-        labelBackground.setBounds(0, 0, 720, 470);
+        labelBackground.setBounds(0, 0, 1000, 667);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -164,11 +134,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JButton buttonRegistrar;
     private javax.swing.JPasswordField inputSenha;
     private javax.swing.JTextField inputUsuario;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelBackground;
-    private javax.swing.JLabel labelInfoSenha;
-    private javax.swing.JLabel labelInfoTitulo;
-    private javax.swing.JLabel lavelInfoUsuario;
-    private javax.swing.JTextPane textCreditos;
     // End of variables declaration//GEN-END:variables
 }

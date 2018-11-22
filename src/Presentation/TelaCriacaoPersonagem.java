@@ -20,6 +20,7 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
 
     public TelaCriacaoPersonagem() {
         initComponents();
+        this.setSize(1000, 667);
         Viewo seila = new Viewo(skillpoints, labelSkill, spinnerForca);
         Thread processo = new Thread(seila);
         processo.start();
@@ -30,99 +31,78 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         spinnerForca = new javax.swing.JSpinner();
         spinnerInteligencia = new javax.swing.JSpinner();
         spinnerDestreza = new javax.swing.JSpinner();
         spinnerVitalidade = new javax.swing.JSpinner();
         inputNome = new javax.swing.JTextField();
-        labelInfoFOR = new javax.swing.JLabel();
         labelSkill = new javax.swing.JLabel();
-        labelInfoFOR1 = new javax.swing.JLabel();
-        labelInfoTitulo = new javax.swing.JLabel();
-        labelInfoFOR2 = new javax.swing.JLabel();
-        labelInfoFOR3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(576, 464));
+        setMaximumSize(new java.awt.Dimension(1000, 685));
+        setMinimumSize(new java.awt.Dimension(1000, 685));
+        setPreferredSize(new java.awt.Dimension(1000, 685));
+        setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Regalia Free", 0, 18)); // NOI18N
-        jLabel1.setText("Nome:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 100, 60, 20);
-
+        spinnerForca.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
         spinnerForca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 spinnerForcaMouseClicked(evt);
             }
         });
         getContentPane().add(spinnerForca);
-        spinnerForca.setBounds(80, 140, 50, 30);
-        getContentPane().add(spinnerInteligencia);
-        spinnerInteligencia.setBounds(140, 190, 50, 30);
-        getContentPane().add(spinnerDestreza);
-        spinnerDestreza.setBounds(110, 240, 50, 30);
-        getContentPane().add(spinnerVitalidade);
-        spinnerVitalidade.setBounds(140, 290, 60, 40);
-        getContentPane().add(inputNome);
-        inputNome.setBounds(90, 100, 160, 20);
+        spinnerForca.setBounds(330, 190, 70, 40);
 
-        labelInfoFOR.setFont(new java.awt.Font("Regalia Free", 0, 18)); // NOI18N
-        labelInfoFOR.setText("Vitas lidade:");
-        getContentPane().add(labelInfoFOR);
-        labelInfoFOR.setBounds(20, 300, 110, 20);
+        spinnerInteligencia.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
+        getContentPane().add(spinnerInteligencia);
+        spinnerInteligencia.setBounds(330, 390, 70, 40);
+
+        spinnerDestreza.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
+        getContentPane().add(spinnerDestreza);
+        spinnerDestreza.setBounds(330, 290, 70, 40);
+
+        spinnerVitalidade.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
+        getContentPane().add(spinnerVitalidade);
+        spinnerVitalidade.setBounds(330, 490, 70, 40);
+
+        inputNome.setBackground(new java.awt.Color(0, 0, 0));
+        inputNome.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
+        inputNome.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(inputNome);
+        inputNome.setBounds(170, 90, 360, 40);
 
         labelSkill.setFont(new java.awt.Font("Regalia Free", 0, 36)); // NOI18N
         getContentPane().add(labelSkill);
         labelSkill.setBounds(300, 200, 70, 40);
 
-        labelInfoFOR1.setFont(new java.awt.Font("Regalia Free", 0, 18)); // NOI18N
-        labelInfoFOR1.setText("Forca:");
-        getContentPane().add(labelInfoFOR1);
-        labelInfoFOR1.setBounds(20, 150, 50, 20);
-
-        labelInfoTitulo.setFont(new java.awt.Font("Enchanted Land", 0, 60)); // NOI18N
-        labelInfoTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelInfoTitulo.setText("Criação de Personagem");
-        getContentPane().add(labelInfoTitulo);
-        labelInfoTitulo.setBounds(0, 10, 640, 60);
-
-        labelInfoFOR2.setFont(new java.awt.Font("Regalia Free", 0, 18)); // NOI18N
-        labelInfoFOR2.setText("Inteligencia:");
-        getContentPane().add(labelInfoFOR2);
-        labelInfoFOR2.setBounds(20, 200, 110, 20);
-
-        labelInfoFOR3.setFont(new java.awt.Font("Regalia Free", 0, 18)); // NOI18N
-        labelInfoFOR3.setText("Destreza:");
-        getContentPane().add(labelInfoFOR3);
-        labelInfoFOR3.setBounds(20, 250, 80, 20);
-
-        jButton1.setText("é isso aí meu parceiro");
+        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(243, 370, 230, 23);
+        jButton1.setBounds(680, 570, 150, 70);
 
-        jButton2.setText("voltar");
+        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(40, 370, 61, 23);
+        jButton2.setBounds(120, 570, 150, 70);
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backgroundCriacaoPersonagem.jpg"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/les3.jpg"))); // NOI18N
         background.setText("jLabel1");
         getContentPane().add(background);
-        background.setBounds(0, 0, 640, 490);
+        background.setBounds(0, 0, 1000, 667);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -168,12 +148,6 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
     private javax.swing.JTextField inputNome;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel labelInfoFOR;
-    private javax.swing.JLabel labelInfoFOR1;
-    private javax.swing.JLabel labelInfoFOR2;
-    private javax.swing.JLabel labelInfoFOR3;
-    private javax.swing.JLabel labelInfoTitulo;
     private javax.swing.JLabel labelSkill;
     private javax.swing.JSpinner spinnerDestreza;
     private javax.swing.JSpinner spinnerForca;
