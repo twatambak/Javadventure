@@ -24,7 +24,7 @@ public class TelaLogin extends javax.swing.JFrame {
         labelBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Projeto: Login");
+        setTitle("JAVADVENTURE");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(1000, 667));
         setPreferredSize(new java.awt.Dimension(1000, 667));

@@ -26,7 +26,7 @@ public class TelaRegistro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Projeto: Cadastro de usuário");
+        setTitle("Javadventure: Registro de Usuários");
         setMinimumSize(new java.awt.Dimension(1000, 667));
         setPreferredSize(new java.awt.Dimension(1000, 667));
         setResizable(false);
