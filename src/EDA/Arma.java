@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import org.ietf.jgss.Oid;
 
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
@@ -97,4 +98,6 @@ public class Arma extends Equipamento{
     public void setDano(int dano) {
         this.dano = dano;
     }
+    Oid ;
+    
 }
