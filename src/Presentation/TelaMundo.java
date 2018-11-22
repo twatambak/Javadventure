@@ -6,6 +6,9 @@ import EDA.Usuario;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.KeyStroke;
 
 /**
@@ -14,6 +17,11 @@ import javax.swing.KeyStroke;
 
 public class TelaMundo extends javax.swing.JFrame {
     Usuario usuarioLogado = BusinessFacade.getUsuarioLogado();
+    static int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
+    String cima = "cima";
+    String baixo = "baixo";
+    String esquerda = "esquerda";
+    String direita = "direita";
     
     public TelaMundo() {
         initComponents();
@@ -23,6 +31,19 @@ public class TelaMundo extends javax.swing.JFrame {
             Main.abrir(tela);
             this.dispose();
         }
+        
+        player.getInputMap(IFW).put(KeyStroke.getKeyStroke("W"), cima);
+        player.getActionMap().put(cima, new Movimento(player, 10, "w"));
+        
+        player.getInputMap(IFW).put(KeyStroke.getKeyStroke("S"), baixo);
+        player.getActionMap().put(baixo, new Movimento(player, 10, "s"));
+        
+        player.getInputMap(IFW).put(KeyStroke.getKeyStroke("A"), esquerda);
+        player.getActionMap().put(cima, new Movimento(player, 10, "a"));
+        
+        player.getInputMap(IFW).put(KeyStroke.getKeyStroke("D"), direita);
+        player.getActionMap().put(cima, new Movimento(player,  10, "d"));
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -49,6 +70,11 @@ public class TelaMundo extends javax.swing.JFrame {
 
         player.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
         player.setText("E");
+        player.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                playerKeyPressed(evt);
+            }
+        });
         getContentPane().add(player);
         player.setBounds(150, 80, 60, 160);
 
@@ -103,12 +129,7 @@ public class TelaMundo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCimaActionPerformed
-        int x = player.getX();
-        int y = player.getY();
-        for(int i = 0; i < 10; i++){
-            player.setLocation(x, y - i);
-            encontroBatalha();
-        }
+
     }//GEN-LAST:event_buttonCimaActionPerformed
 
     private void buttonEsquerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEsquerdaActionPerformed
@@ -139,16 +160,15 @@ public class TelaMundo extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonDireitaActionPerformed
 
     private void monstroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_monstroKeyPressed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_monstroKeyPressed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        Action cima = new AbstractAction();
-        
-        player.getInputMap().put(KeyStroke.getKeyStroke("W"), "cima");
-        
-        
     }//GEN-LAST:event_formKeyPressed
+
+    private void playerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_playerKeyPressed
+        
+    }//GEN-LAST:event_playerKeyPressed
 
     public void encontroBatalha(){
         if(player.getX() == monstro.getX() && player.getY() == monstro.getY()){
@@ -167,5 +187,38 @@ public class TelaMundo extends javax.swing.JFrame {
     private javax.swing.JLabel monstro;
     private javax.swing.JLabel player;
     // End of variables declaration//GEN-END:variables
+
+    private class Movimento extends AbstractAction{
+        JLabel player;
+        int dist;
+        String direcao;
+        int x;
+        int y;
+
+        Movimento(JLabel player, int dist, String direcao){
+            this.player = player;
+            this.dist = dist;
+            this.direcao = direcao;
+            x = player.getX();
+            y = player.getY();
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(direcao.equalsIgnoreCase("w")){
+                player.setLocation(x, y - 1);
+            } else if(direcao.equalsIgnoreCase("s")){
+                player.setLocation(x, y + 1);
+            } else if(direcao.equalsIgnoreCase("d")){
+                player.setLocation(x + 1, y);
+            } else if(direcao.equalsIgnoreCase("a")){
+                player.setLocation(x - 1, y);
+            }
+        }
+
+    }
+    
 }
+
+
 
