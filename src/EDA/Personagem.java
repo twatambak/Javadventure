@@ -19,20 +19,20 @@ public class Personagem extends Ser{
     private int protecaoTotal;
     private int skillpoints;
     private int xp;
-    private ClassePersonagem classe;
-    private ArrayList<Equipamento> arrayEquipamento = new ArrayList<>();
+    private EnumClassePersonagem classe;
+    private ArrayList<Equipamento> inventario = new ArrayList<>();
     
     public Personagem(String nome, int vitalidade, int inteligencia, int destreza, int forca) throws FileNotFoundException{
-        Arma armaInicial = new Arma("Enxada Velha", 5, 0, 1, TipoArma.CONTUNDENTE);
+        Arma armaInicial = new Arma("Enxada Velha", 5, 0, 1, EnumTipoArma.CONTUNDENTE);
         arma = armaInicial;
         
-        Elmo elmoInicial = new Elmo("Touca de Fazendeiro", 2, 0, 1, ParteCorpo.CABECA);
+        Elmo elmoInicial = new Elmo("Touca de Fazendeiro", 2, 0, 1, EnumParteCorpo.CABECA);
         elmo = elmoInicial;
         
-        Peitoral peitoralInicial = new Peitoral("Traje de Fazendeiro", 2, 0, 1, ParteCorpo.TORSO);
+        Peitoral peitoralInicial = new Peitoral("Traje de Fazendeiro", 2, 0, 1, EnumParteCorpo.TORSO);
         peito = peitoralInicial;
         
-        Grevas grevasInicial = new Grevas("Botas de Fazendeiro", 2, 0, 1, ParteCorpo.PERNAS);
+        Grevas grevasInicial = new Grevas("Botas de Fazendeiro", 2, 0, 1, EnumParteCorpo.PERNAS);
         bota = grevasInicial;
         
         protecaoTotal = elmoInicial.getProtecao() + peitoralInicial.getProtecao() + grevasInicial.getProtecao();
@@ -51,7 +51,7 @@ public class Personagem extends Ser{
         lvl = 1;
         xp = 0;
         
-        status = TipoStatus.NORMAL;
+        status = EnumStatus.NORMAL;
     }
     
 //========== Getters e Setters: Armas ==========================================
@@ -209,5 +209,8 @@ public class Personagem extends Ser{
     public void setSkillpoints(int skillpoints){
         this.skillpoints = skillpoints;
     }
-    
+
+//========== Métodos ===========================================================
+
+
 }

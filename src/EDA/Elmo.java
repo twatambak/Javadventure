@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 public class Elmo extends Equipamento{
     private int protecao;
-    private ParteCorpo areaProtecao;
+    private EnumParteCorpo areaProtecao;
     
     private static ArrayList<String> arrayNome = new ArrayList<>();
     private File arquivoElmos = new File("Elmos.txt");
@@ -30,7 +30,7 @@ public class Elmo extends Equipamento{
             Random x = new Random();
             protecao = x.nextInt(lvl + 10) + 1;
             valorCompra = x.nextInt(protecao + 100) + 100;
-            areaProtecao = ParteCorpo.CABECA;       
+            areaProtecao = EnumParteCorpo.CABECA;       
          
         
             while(leitor.hasNext()){
@@ -60,7 +60,7 @@ public class Elmo extends Equipamento{
         }
     }
     
-    public Elmo(String nome, int protecao, int valorCompra, int lvl, ParteCorpo areaProtecao){
+    public Elmo(String nome, int protecao, int valorCompra, int lvl, EnumParteCorpo areaProtecao){
         this.nome = nome;
         this.protecao = protecao;
         this.valorCompra = valorCompra;

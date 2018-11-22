@@ -5,13 +5,13 @@ package EDA;
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
 
-public enum ClassePersonagem {
+public enum EnumClassePersonagem {
     GUERREIRO(1, "Guerreiro"), ARQUEIRO(2, "Arqueiro"), MAGO(3, "Mago");
     
     int id;
     String tipo;
     
-    ClassePersonagem(int id, String tipo){
+    EnumClassePersonagem(int id, String tipo){
         this.id = id;
         this.tipo = tipo;
     }

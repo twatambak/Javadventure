@@ -28,7 +28,7 @@ public class Monstro extends Ser{
         
         atk = forca * 2;
         
-        status = TipoStatus.NORMAL;
+        status = EnumStatus.NORMAL;
     }
 
 //========== Getters e Setters: Drop de XP =====================================    
@@ -61,6 +61,21 @@ public class Monstro extends Ser{
      */
     public void setCoinDrop(int coinDrop) {
         this.coinDrop = coinDrop;
+    }
+    
+//========== Métodos =========================================================== 
+    
+    public void turno(Ser inimigo){
+        Random x = new Random();
+        if(this.getHp() == this.getHpMaximo()){
+            switch(x.nextInt()){
+                case 1:
+                    this.atacar(inimigo);
+                case 2:
+                    this.defender();
+                
+            }
+        }
     }
     
 }

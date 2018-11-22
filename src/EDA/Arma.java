@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 public class Arma extends Equipamento{
     private int dano;
-    private TipoArma tipo;
+    private EnumTipoArma tipo;
     
     private static ArrayList<String> arrayArmas = new ArrayList<>();
     private File arquivoArmas = new File("Armas.txt");
@@ -31,9 +31,6 @@ public class Arma extends Equipamento{
             dano = x.nextInt(lvl + 10) + 1;
             valorCompra = x.nextInt(dano + 100) + 100;
             
-            tipo = TipoArma.aleatoriza(x.nextInt(3));
-         
-        
             while(leitor.hasNext()){
                 String nomeS = leitor.next();
                 arrayArmas.add(nomeS);
@@ -56,12 +53,26 @@ public class Arma extends Equipamento{
             } catch (IndexOutOfBoundsException e) {
                 JOptionPane.showMessageDialog(null, "Erro crítico. Falha na integridade dos arquivos.", "Algo de errado não está certo", JOptionPane.ERROR_MESSAGE);
             }
+            
+            if(this.nome.equalsIgnoreCase("Espada")){
+                tipo = EnumTipoArma.CORTANTE;
+            } else if(this.nome.equalsIgnoreCase("Machado")){
+                tipo = EnumTipoArma.CORTANTE;
+            } else if(this.nome.equalsIgnoreCase("Lança")){
+                tipo = EnumTipoArma.PERFURANTE;
+            } else if(this.nome.equalsIgnoreCase("Punhal")){
+                tipo = EnumTipoArma.PERFURANTE;
+            } else if(this.nome.equalsIgnoreCase("Clava")){
+                tipo = EnumTipoArma.CONTUNDENTE;
+            } else if(this.nome.equalsIgnoreCase("Bastão")){
+                tipo = EnumTipoArma.CONTUNDENTE;
+            }
         } catch (HeadlessException | FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Erro crítico. Falha na integridade dos arquivos.", "Algo de errado não está certo", JOptionPane.ERROR_MESSAGE);
         }
     }
     
-    public Arma(String nome, int dano, int valorCompra, int lvl, TipoArma tipo){
+    public Arma(String nome, int dano, int valorCompra, int lvl, EnumTipoArma tipo){
         this.nome = nome;
         this.dano = dano;
         this.valorCompra = valorCompra;

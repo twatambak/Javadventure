@@ -21,9 +21,6 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
     public TelaCriacaoPersonagem() {
         initComponents();
         this.setSize(1000, 667);
-        Viewo seila = new Viewo(skillpoints, labelSkill, spinnerForca);
-        Thread processo = new Thread(seila);
-        processo.start();
         
     }
 
@@ -36,7 +33,6 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
         spinnerDestreza = new javax.swing.JSpinner();
         spinnerVitalidade = new javax.swing.JSpinner();
         inputNome = new javax.swing.JTextField();
-        labelSkill = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         background = new javax.swing.JLabel();
@@ -75,10 +71,6 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
         inputNome.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(inputNome);
         inputNome.setBounds(170, 90, 360, 40);
-
-        labelSkill.setFont(new java.awt.Font("Regalia Free", 0, 36)); // NOI18N
-        getContentPane().add(labelSkill);
-        labelSkill.setBounds(300, 200, 70, 40);
 
         jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         jButton1.setContentAreaFilled(false);
@@ -151,7 +143,6 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
     private javax.swing.JTextField inputNome;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel labelSkill;
     private javax.swing.JSpinner spinnerDestreza;
     private javax.swing.JSpinner spinnerForca;
     private javax.swing.JSpinner spinnerInteligencia;

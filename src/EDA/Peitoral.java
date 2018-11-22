@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 public class Peitoral extends Equipamento{
     private int protecao;
-    private ParteCorpo areaProtecao;
+    private EnumParteCorpo areaProtecao;
     
     private static ArrayList<String> arrayPeitorais = new ArrayList<>();
     private File arquivoPeitorais = new File("Peitorais.txt");
@@ -30,7 +30,7 @@ public class Peitoral extends Equipamento{
             Random x = new Random();
             protecao = x.nextInt(lvl + 10) + 1;
             valorCompra = x.nextInt(protecao + 100) + 100;
-            areaProtecao = ParteCorpo.TORSO;       
+            areaProtecao = EnumParteCorpo.TORSO;       
          
         
             while(leitor.hasNext()){
@@ -60,7 +60,7 @@ public class Peitoral extends Equipamento{
         }
     }
     
-    public Peitoral(String nome, int protecao, int valorCompra, int lvl, ParteCorpo areaProtecao){
+    public Peitoral(String nome, int protecao, int valorCompra, int lvl, EnumParteCorpo areaProtecao){
         this.nome = nome;
         this.protecao = protecao;
         this.valorCompra = valorCompra;

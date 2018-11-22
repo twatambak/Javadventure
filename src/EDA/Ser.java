@@ -11,11 +11,12 @@ abstract class Ser {
     int atk;
     int hpMaximo;
     int hp;
+    boolean defesa;
     int forca;
     int destreza;
     int inteligencia;
     int vitalidade;
-    TipoStatus status;
+    EnumStatus status;
 
 //========== Getters e Setters: Nome ===========================================
 
@@ -182,17 +183,25 @@ abstract class Ser {
     /**
      * @return the status
      */
-    public TipoStatus getStatus() {
+    public EnumStatus getStatus() {
         return status;
     }
 
     /**
      * @param status the status to set
      */
-    public void setStatus(TipoStatus status) {
+    public void setStatus(EnumStatus status) {
         this.status = status;
     }
     
+ //========== Métodos ==========================================================
     
+    public void atacar(Ser inimigo){
+        int hpInimigo = inimigo.getHp();
+        inimigo.setHp(hpInimigo - this.getAtk());
+    }
+    public void defender(){
+        this.defesa = true;
+    }
 }
 
