@@ -14,7 +14,7 @@ public class Personagem extends Ser{
     private Elmo elmo;
     private Peitoral peito;
     private Grevas bota;
-    public int qtdPot;
+
     public int dinheiro;
     private int protecaoTotal;
     private int skillpoints;
@@ -211,6 +211,34 @@ public class Personagem extends Ser{
     }
 
 //========== Métodos ===========================================================
+
+    /**
+     * @return the classe
+     */
+    public EnumClassePersonagem getClasse() {
+        return classe;
+    }
+
+    /**
+     * @param classe the classe to set
+     */
+    public void setClasse(EnumClassePersonagem classe) {
+        this.classe = classe;
+    }
+
+    /**
+     * @return the inventario
+     */
+    public ArrayList<Equipamento> getInventario() {
+        return inventario;
+    }
+
+    /**
+     * @param inventario the inventario to set
+     */
+    public void setInventario(ArrayList<Equipamento> inventario) {
+        this.inventario = inventario;
+    }
 
 
 }

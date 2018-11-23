@@ -16,6 +16,7 @@ abstract class Ser {
     int destreza;
     int inteligencia;
     int vitalidade;
+    int qtdPot;
     EnumStatus status;
 
 //========== Getters e Setters: Nome ===========================================
@@ -200,8 +201,37 @@ abstract class Ser {
         int hpInimigo = inimigo.getHp();
         inimigo.setHp(hpInimigo - this.getAtk());
     }
+    
     public void defender(){
-        this.defesa = true;
+        this.setDefesa(true);
+    }
+
+    /**
+     * @return the defesa
+     */
+    public boolean isDefesa() {
+        return defesa;
+    }
+
+    /**
+     * @param defesa the defesa to set
+     */
+    public void setDefesa(boolean defesa) {
+        this.defesa = defesa;
+    }
+
+    /**
+     * @return the qtdPot
+     */
+    public int getQtdPot() {
+        return qtdPot;
+    }
+
+    /**
+     * @param qtdPot the qtdPot to set
+     */
+    public void setQtdPot(int qtdPot) {
+        this.qtdPot = qtdPot;
     }
 }
 

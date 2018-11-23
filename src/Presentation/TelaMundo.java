@@ -26,11 +26,7 @@ public class TelaMundo extends javax.swing.JFrame {
     public TelaMundo() {
         initComponents();
         
-        if(player.getLocation() == monstro.getLocation()){
-            TelaBatalha tela = new TelaBatalha();
-            Main.abrir(tela);
-            this.dispose();
-        }
+
         
     }
 
@@ -40,6 +36,7 @@ public class TelaMundo extends javax.swing.JFrame {
 
         player = new javax.swing.JLabel();
         monstro = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 500));
@@ -63,63 +60,60 @@ public class TelaMundo extends javax.swing.JFrame {
         player.setBounds(150, 80, 60, 160);
 
         monstro.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
-        monstro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/capivara.jpg"))); // NOI18N
-        monstro.setToolTipText("");
-        monstro.setFocusable(false);
-        monstro.addKeyListener(new java.awt.event.KeyAdapter() {
+        monstro.setText("[");
+        getContentPane().add(monstro);
+        monstro.setBounds(310, 100, 109, 150);
+
+        background.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/capivara.jpg"))); // NOI18N
+        background.setToolTipText("");
+        background.setFocusable(false);
+        background.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                monstroKeyPressed(evt);
+                backgroundKeyPressed(evt);
             }
         });
-        getContentPane().add(monstro);
-        monstro.setBounds(-100, 0, 860, 570);
+        getContentPane().add(background);
+        background.setBounds(-100, 0, 860, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void monstroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_monstroKeyPressed
+    private void backgroundKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_backgroundKeyPressed
 
-    }//GEN-LAST:event_monstroKeyPressed
+    }//GEN-LAST:event_backgroundKeyPressed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+       int x = player.getX();
+       int y = player.getY();
         switch (evt.getKeyChar()) {
             case 'w':
-                {
-                    int x = player.getX();
-                    int y = player.getY();
                     for(int i = 0; i < 10; i++){
                         player.setLocation(x, y - i);
-                    }       break;
-                }
+                    } 
+                    encontroBatalha();
+                    break;
             case 's':
-                {
-                    int x = player.getX();
-                    int y = player.getY();
                     for(int i = 0; i < 10; i++){
                         player.setLocation(x, y + i);
-                    }       break;
-                }
+                    }       
+                    encontroBatalha();
+                    break;
             case 'a':
-                {
-                    int x = player.getX();
-                    int y = player.getY();
-                    for(int i = 0; i < 10; i++){
+                for(int i = 0; i < 10; i++){
                         player.setLocation(x - i, y);
-                    }       break;
-                }
+                    }       
+                encontroBatalha();
+                    break;
             case 'd':
-                {
-                    int x = player.getX();
-                    int y = player.getY();
                     for(int i = 0; i < 10; i++){
                         player.setLocation(x + i, y);
-                    }       break;
-                }
+                    }
+                    encontroBatalha();
+                    break;
             default:
                 break;
         }
-        
-
     }//GEN-LAST:event_formKeyPressed
 
     private void playerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_playerKeyPressed
@@ -136,6 +130,7 @@ public class TelaMundo extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background;
     private javax.swing.JLabel monstro;
     private javax.swing.JLabel player;
     // End of variables declaration//GEN-END:variables
