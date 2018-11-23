@@ -5,17 +5,36 @@
  */
 package Presentation;
 
+import EDA.Equipamento;
+import EDA.Loja;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Bencke
  */
 public class TelaLoja extends javax.swing.JFrame {
-
+    Loja lojinha = new Loja();
     /**
      * Creates new form TelaLoja
      */
     public TelaLoja() {
         initComponents();
+        DefaultTableModel modelo = new DefaultTableModel(
+            new Object [][]{},
+            new String[] {"Nome", "Lvl", "Protecao", "Dano", "Preço"}
+        );
+        
+        tabelaItens.setModel(modelo);
+        
+        if(tabelaItens.getModel() instanceof DefaultTableModel){
+            
+            while(lojinha.getIteratorLoja().hasNext()){
+                Equipamento aux = (Equipamento) lojinha.getIteratorLoja().next();
+                modelo.addRow(new Object[]{aux.getNome(), aux.getLvl(), }); //ainda arrumando
+            }
+        }
+        
     }
 
     /**
@@ -27,12 +46,37 @@ public class TelaLoja extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaItens = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Bem-Vindo a Loja");
         setPreferredSize(new java.awt.Dimension(1000, 667));
         setSize(new java.awt.Dimension(1000, 667));
         getContentPane().setLayout(null);
+
+        tabelaItens.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelaItens);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(230, 70, 452, 402);
+
+        jLabel2.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
+        jLabel2.setText("Seja-Bem Vindo a loja");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(380, 0, 260, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/capivara.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -78,5 +122,8 @@ public class TelaLoja extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabelaItens;
     // End of variables declaration//GEN-END:variables
 }
