@@ -3,8 +3,15 @@ package DAO;
 
 import EDA.Personagem;
 import EDA.Usuario;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +21,7 @@ import javax.swing.JOptionPane;
 public class DAOMemory implements DAOInterface{
     static DAOMemory instance = null;
     ArrayList<Usuario> arrayUsuario = new ArrayList<>();
+    private File arquivoUsuarios = new File("RegistroUsuarios.txt");
     ArrayList<Personagem> arrayPersonagem = new ArrayList<>();
     Usuario usuarioLogado;
     
@@ -142,5 +150,30 @@ public class DAOMemory implements DAOInterface{
     public boolean inserirPersonagem(Personagem personagem) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    
+    @Override
+    public void registrarUsuarios(){
+        try {
+            FileWriter fileUsuarios = new FileWriter(arquivoUsuarios);
+            BufferedWriter buffUsuarios = new BufferedWriter(fileUsuarios);
+            for(int i = 0; i < arrayUsuario.size(); i++){
+                JOptionPane.showMessageDialog(null, arrayUsuario.get(i).salvaString());
+                buffUsuarios.write(arrayUsuario.get(i).salvaString());
+            }
+        } catch (IOException e) {
+        }
+    }
+    
+    @Override
+    public void carregarRegistros() throws FileNotFoundException{
+        Scanner scan = new Scanner(new FileReader(arquivoUsuarios)).useDelimiter("\\;|\\n");
+        
+        while(scan.hasNext()){
+            String usuario = scan.next();
+            String senha = scan.next();
+            
+            arrayUsuario.add(new Usuario(usuario, senha));
+        }
+    }
 }

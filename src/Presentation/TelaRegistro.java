@@ -96,6 +96,7 @@ public class TelaRegistro extends javax.swing.JFrame {
         String senha = inputSenha.getText();
         
         if(BusinessFacade.cadastroUsuario(login, senha)){
+            BusinessFacade.atualizarRegistros();
             TelaLogin telalogin = new TelaLogin();
             telalogin.setVisible(true);
             this.dispose();

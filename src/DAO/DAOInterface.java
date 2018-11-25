@@ -3,6 +3,7 @@ package DAO;
 
 import EDA.Personagem;
 import EDA.Usuario;
+import java.io.FileNotFoundException;
 import java.util.Iterator;
 
 /**
@@ -20,5 +21,8 @@ public interface DAOInterface {
     public boolean validarCredenciais(String usuario, String senha);
     
     public boolean inserirPersonagem(Personagem personagem);
+    
+    public void registrarUsuarios();
+    public void carregarRegistros() throws FileNotFoundException;
 
 }

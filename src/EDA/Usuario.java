@@ -8,6 +8,7 @@ public class Usuario {
     private String login;
     private String senha;
     private Personagem personagem;
+
     
     public Usuario(String login, String senha){
         this.login = login;
@@ -64,6 +65,8 @@ public class Usuario {
         this.personagem = personagem;
     }
     
-    
+    public String salvaString(){
+        return "" + getLogin() + ";" + getSenha() + ";";
+    }
     
 }

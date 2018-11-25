@@ -205,6 +205,14 @@ abstract class Ser {
     public void defender(){
         this.setDefesa(true);
     }
+    
+    public boolean fugir(Ser inimigo){
+        if(this.getDestreza() > inimigo.getDestreza()){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * @return the defesa

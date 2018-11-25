@@ -4,6 +4,7 @@ package Business;
 import DAO.DAOInterface;
 import DAO.DAOMemory;
 import EDA.Usuario;
+import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
 
 /**
@@ -54,4 +55,11 @@ public class BusinessFacade {
         return instance.getUsuarioLogado();
     }
     
+    public static void carregarUsuarios() throws FileNotFoundException{
+        instance.carregarRegistros();
+    }
+    
+    public static void atualizarRegistros(){
+        instance.registrarUsuarios();
+    }
 }

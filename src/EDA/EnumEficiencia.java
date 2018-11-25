@@ -1,11 +1,6 @@
 
 package EDA;
 
-import static EDA.EnumTipoItem.ANTIDOTO;
-import static EDA.EnumTipoItem.BANDAGEM;
-import static EDA.EnumTipoItem.CURA;
-import static EDA.EnumTipoItem.STAMINA;
-
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */

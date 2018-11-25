@@ -9,6 +9,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 /**
@@ -86,31 +87,25 @@ public class TelaMundo extends javax.swing.JFrame {
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
        int x = player.getX();
        int y = player.getY();
-        switch (evt.getKeyChar()) {
+       int tal = 10;
+       
+       switch (evt.getKeyChar()) {
             case 'w':
-                    for(int i = 0; i < 10; i++){
-                        player.setLocation(x, y - i);
-                    } 
-                    encontroBatalha();
-                    break;
-            case 's':
-                    for(int i = 0; i < 10; i++){
-                        player.setLocation(x, y + i);
-                    }       
-                    encontroBatalha();
-                    break;
-            case 'a':
-                for(int i = 0; i < 10; i++){
-                        player.setLocation(x - i, y);
-                    }       
+                player.setLocation(x, y - tal);
                 encontroBatalha();
-                    break;
+                break;
+            case 's':
+                player.setLocation(x, y + tal);
+                encontroBatalha();
+                break;
+            case 'a':
+                player.setLocation(x - tal, y);
+                encontroBatalha();
+                break;
             case 'd':
-                    for(int i = 0; i < 10; i++){
-                        player.setLocation(x + i, y);
-                    }
-                    encontroBatalha();
-                    break;
+                player.setLocation(x + tal, y);
+                encontroBatalha();
+                break;
             default:
                 break;
         }
@@ -121,6 +116,7 @@ public class TelaMundo extends javax.swing.JFrame {
     }//GEN-LAST:event_playerKeyPressed
 
     public void encontroBatalha(){
+        JOptionPane.showMessageDialog(null, "Fala carai");
         if(player.getX() == monstro.getX() && player.getY() == monstro.getY()){
             TelaBatalha tela = new TelaBatalha();
             Main.abrir(tela);

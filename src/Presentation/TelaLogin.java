@@ -2,6 +2,9 @@
 package Presentation;
 
 import Business.BusinessFacade;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
@@ -9,8 +12,13 @@ import Business.BusinessFacade;
 
 public class TelaLogin extends javax.swing.JFrame {
 
-    public TelaLogin() {
+    public TelaLogin(){
         initComponents();
+        try {
+            BusinessFacade.carregarUsuarios();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
