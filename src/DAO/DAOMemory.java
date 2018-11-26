@@ -158,7 +158,7 @@ public class DAOMemory implements DAOInterface{
             FileWriter fileUsuarios = new FileWriter(arquivoUsuarios);
             BufferedWriter buffUsuarios = new BufferedWriter(fileUsuarios);
             for(int i = 0; i < arrayUsuario.size(); i++){
-                JOptionPane.showMessageDialog(null, arrayUsuario.get(i).salvaString());
+                
                 buffUsuarios.write(arrayUsuario.get(i).salvaString());
             }
         } catch (IOException e) {

@@ -15,9 +15,8 @@ import javax.swing.JOptionPane;
  * @authos Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
 
-public class Grevas extends Equipamento{
-    private int protecao;
-    private EnumParteCorpo areaProtecao;
+public class Grevas extends Armadura{
+    
     
     private static ArrayList<String> arrayGrevas = new ArrayList<>();
     private File arquivoGrevas = new File("Grevas.txt");
@@ -67,22 +66,5 @@ public class Grevas extends Equipamento{
         this.lvl = lvl;
         this.areaProtecao = areaProtecao;
     }
-    
-//========== Getters e Setters: Proteção =======================================    
-    
-    /**
-     * Retorna o valor de proteção do equipamento.
-     * @return 
-     */
-    public int getProtecao() {
-        return protecao;
-    }
-    
-    /**
-     * Define o valor de proteção do equipamento.
-     * @param protecao 
-     */
-    public void setProtecao(int protecao) {
-        this.protecao = protecao;
-    }
+
 }

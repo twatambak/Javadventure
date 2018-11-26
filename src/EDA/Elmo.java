@@ -15,10 +15,8 @@ import javax.swing.JOptionPane;
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
 
-public class Elmo extends Equipamento{
-    private int protecao;
-    private EnumParteCorpo areaProtecao;
-    
+public class Elmo extends Armadura{
+
     private static ArrayList<String> arrayElmos = new ArrayList<>();
     private File arquivoElmos = new File("Elmos.txt");
     
@@ -69,21 +67,5 @@ public class Elmo extends Equipamento{
         this.areaProtecao = areaProtecao;
     }
 
-//========== Getters e Setters: Proteção =======================================
-    
-    /**
-     * Retorna o valor de proteção do equipamento.
-     * @return 
-     */
-    public int getProtecao() {
-        return protecao;
-    }
-    
-    /**
-     * Define o valor de proteção do equipamento.
-     * @param protecao 
-     */
-    public void setProtecao(int protecao) {
-        this.protecao = protecao;
-    }
+
 }

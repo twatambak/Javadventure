@@ -15,9 +15,8 @@ import javax.swing.JOptionPane;
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
 
-public class Peitoral extends Equipamento{
-    private int protecao;
-    private EnumParteCorpo areaProtecao;
+public class Peitoral extends Armadura{
+ 
     
     private static ArrayList<String> arrayPeitorais = new ArrayList<>();
     private File arquivoPeitorais = new File("Peitorais.txt");
@@ -38,7 +37,7 @@ public class Peitoral extends Equipamento{
                 arrayPeitorais.add(nomeS);
             }
                 
-            try {
+           /* try {
                 if(this.lvl <= 0 && this.lvl <= 9){
                     this.nome = arrayPeitorais.get(x.nextInt(10));
                 } else if(this.lvl <= 10 && this.lvl <= 19){
@@ -54,7 +53,7 @@ public class Peitoral extends Equipamento{
                 }
             } catch (IndexOutOfBoundsException e) {
                 JOptionPane.showMessageDialog(null, "Erro crítico. Falha na integridade dos arquivos.", "Algo de errado não está certo", JOptionPane.ERROR_MESSAGE);
-            }
+            } */
         } catch (HeadlessException | FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Erro crítico. Falha na integridade dos arquivos.", "Algo de errado não está certo", JOptionPane.ERROR_MESSAGE);
         }
@@ -68,21 +67,5 @@ public class Peitoral extends Equipamento{
         this.areaProtecao = areaProtecao;
     }
 
-//========== Getters e Setters: Proteção =======================================
-    
-    /**
-     * Retorna o valor de proteção do equipamento.
-     * @return 
-     */
-    public int getProtecao() {
-        return protecao;
-    }
-    
-    /**
-     * Define o valor de proteção do equipamento.
-     * @param protecao 
-     */
-    public void setProtecao(int protecao) {
-        this.protecao = protecao;
-    }
+
 }

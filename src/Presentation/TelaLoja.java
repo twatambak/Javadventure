@@ -14,11 +14,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaLoja extends javax.swing.JFrame {
     Loja lojinha = new Loja();
-    Arma arma = new Arma(0);
-    Elmo elmo = new Elmo(0);
-    Peitoral peito = new Peitoral(0);
-    Grevas grevas = new Grevas(0);
-    Itens itens = new Itens();
+    
     
     /**
      * Creates new form TelaLoja
@@ -42,22 +38,25 @@ public class TelaLoja extends javax.swing.JFrame {
         tabelaEquip.setModel(modelo2);
         tabelaItens.setModel(modelo3);
         
+        
         if(tabelaArmas.getModel() instanceof DefaultTableModel){
             while(lojinha.getIteratorLoja().hasNext()){
-                arma = (Arma) lojinha.getIteratorLoja().next();
+                Arma arma = (Arma) lojinha.getIteratorLoja().next();
                 modelo.addRow(new Object[]{arma.getNome(), arma.getLvl(), arma.getDano(), arma.getValorCompra()});
             }
         }
         
         if(tabelaEquip.getModel() instanceof DefaultTableModel){
             while(lojinha.getIteratorLoja().hasNext()){
+                Armadura armor = (Armadura) lojinha.getIteratorLoja().next();
+                modelo.addRow(new Object[]{armor.getNome(), armor.getLvl(), armor.getProtecao(), armor.getValorCompra()});
                 
             }
         }
         
         if(tabelaItens.getModel() instanceof DefaultTableModel){
             while(lojinha.getIteratorLoja().hasNext()){
-                itens = (Itens) lojinha.getIteratorLoja().next();
+                Itens itens = (Itens) lojinha.getIteratorLoja().next();
                 modelo.addRow(new Object[]{itens.getTipo(), itens.getEficiencia(), itens.getQuantidade(), itens.getValorCompra()});
             }
         }
