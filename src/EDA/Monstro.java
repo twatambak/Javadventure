@@ -29,9 +29,9 @@ public class Monstro extends Ser{
         atk = forca * 2;
         
         arma = new Arma(this.lvl);
-        elmo = new Elmo();
-        peito = new Peitoral();
-        bota = new Grevas();
+        elmo = new Elmo(0);
+        peito = new Peitoral(0);
+        bota = new Grevas(0);
                 
         status = EnumStatus.NORMAL;
     }
