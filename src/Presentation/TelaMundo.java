@@ -38,6 +38,7 @@ public class TelaMundo extends javax.swing.JFrame {
     private void initComponents() {
 
         player = new javax.swing.JLabel();
+        vendedor = new javax.swing.JLabel();
         monstro = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         background = new javax.swing.JLabel();
@@ -62,6 +63,11 @@ public class TelaMundo extends javax.swing.JFrame {
         });
         getContentPane().add(player);
         player.setBounds(150, 80, 60, 160);
+
+        vendedor.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
+        vendedor.setText("]");
+        getContentPane().add(vendedor);
+        vendedor.setBounds(490, 250, 110, 160);
 
         monstro.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
         monstro.setText("[");
@@ -134,7 +140,7 @@ public class TelaMundo extends javax.swing.JFrame {
 
     public void encontroBatalha(){
         
-        if(player.getX() == monstro.getX() && player.getY() == monstro.getY()){
+        if(player.getX() == monstro.getX() - 10 || player.getY() == monstro.getY() - 10 || player.getX() == monstro.getX() + 10 || player.getY() == monstro.getY() + 10){
             JOptionPane.showMessageDialog(null, "Fala carai");
             TelaBatalha tela = new TelaBatalha();
             Main.abrir(tela);
@@ -148,6 +154,7 @@ public class TelaMundo extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel monstro;
     private javax.swing.JLabel player;
+    private javax.swing.JLabel vendedor;
     // End of variables declaration//GEN-END:variables
     
 }

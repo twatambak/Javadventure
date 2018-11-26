@@ -160,6 +160,8 @@ public class DAOMemory implements DAOInterface{
             for(int i = 0; i < arrayUsuario.size(); i++){
                 
                 buffUsuarios.write(arrayUsuario.get(i).salvaString());
+                buffUsuarios.close();
+                fileUsuarios.close();
             }
         } catch (IOException e) {
         }
