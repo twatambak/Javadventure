@@ -1,6 +1,8 @@
 
 package EDA;
 
+import java.util.Random;
+
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
@@ -12,6 +14,11 @@ abstract class Ser {
     int hpMaximo;
     int hp;
     boolean defesa;
+    int protecaoTotal;
+    Arma arma;
+    Peitoral peito;
+    Elmo elmo;
+    Grevas bota;
     int forca;
     int destreza;
     int inteligencia;
@@ -54,7 +61,25 @@ abstract class Ser {
     public void setLvl(int lvl) {
         this.lvl = lvl;
     }
+    
+//========== Getters e Setters: Proteção Total =================================
+    
+    /**
+     * Retorna a proteção total.
+     * @return the protecaoTotal
+     */
+    public int getProtecaoTotal() {
+        return protecaoTotal;
+    }
 
+    /**
+     * Define a proteção total.
+     * @param protecaoTotal the protecaoTotal to set
+     */
+    public void setProtecaoTotal(int protecaoTotal) {
+        this.protecaoTotal = protecaoTotal;
+    }
+    
 //========== Getters e Setters: Ataque =========================================
     
     /**
@@ -194,12 +219,92 @@ abstract class Ser {
     public void setStatus(EnumStatus status) {
         this.status = status;
     }
+//========== Getters e Setters: Armas ==========================================
+    
+    /**
+     * Retorna a arma equipada.
+     * @return the arma
+     */
+    public Arma getArma() {
+        return arma;
+    }
+
+    /**
+     * Define a arma equipada.
+     * @param arma the arma to set
+     */
+    public void setArma(Arma arma) {
+        this.arma = arma;
+        atk = arma.getDano() + forca;
+    }    
+
+//========== Getters e Setters: Elmo ===========================================
+    
+    /**
+     * Retorna o elmo equipado.
+     * @return the elmo
+     */
+    public Elmo getElmo() {
+        return elmo;
+    }
+
+    /**
+     * Define o elmo equipado.
+     * @param elmo the elmo to set
+     */
+    public void setElmo(Elmo elmo) {
+        this.elmo = elmo;
+        protecaoTotal = protecaoTotal + this.elmo.getProtecao();
+    }
+    
+//========== Getters e Setters: Peitoral =======================================
+
+    /**
+     * Retorna o peitoral equipado.
+     * @return the peito
+     */
+    public Peitoral getPeito() {
+        return peito;
+    }
+
+    /**
+     * Define o peitoral equipado.
+     * @param peito the peito to set
+     */
+    public void setPeito(Peitoral peito) {
+        this.peito = peito;
+        protecaoTotal = protecaoTotal + this.peito.getProtecao();
+    }
+
+//========== Getters e Setters: Grevas =========================================    
+    
+    /**
+     * Retorna as grevas equipadas.
+     * @return the bota
+     */
+    public Grevas getBota() {
+        return bota;
+        
+    }
+
+    /**
+     * Define as grevas equipadas.
+     * @param bota the bota to set
+     */
+    public void setBota(Grevas bota) {
+        this.bota = bota;
+        protecaoTotal = protecaoTotal + this.bota.getProtecao();
+    }
     
  //========== Métodos ==========================================================
     
     public void atacar(Ser inimigo){
         int hpInimigo = inimigo.getHp();
-        inimigo.setHp(hpInimigo - this.getAtk());
+        Random x = new Random();
+        if(EnumParteCorpo.aleatoriza(x.nextInt(5)) == EnumParteCorpo.CABECA){
+            inimigo.setHp(hpInimigo - this.getAtk() * 2);
+        }
+        
     }
     
     public void defender(){

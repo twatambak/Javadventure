@@ -1,1 +1,120 @@
-Espada do Aventureiro
+Espada de Madeira
+Espada de Ferro
+Espada de Aço
+Espada de Metal Anão
+Espada de Aço Orc
+Espada de Metal Élfico
+Espada de Madeira Boreal
+Espada de Adamátio
+Espada de Ouro
+Espada de Platina
+Espada de Pedra
+Espada de Rochas Rúnicas
+Espada Rúnica
+Espada de Prata
+Espada de Cobre
+Espada de Vidro
+Espada de Água Sólida
+Espada de Gelo
+Espada de Vitral
+Espada de Qualidade Suspeita
+Espada de Folhas
+Espada da Verdade Mística
+Espada do Desconhecido
+Espada Forjada
+Espada de Bololo
+Espada de Metal Enésimo
+Espada de Vibrano
+Espada de Plástico
+Espada de Brinquedo
+Espada de Isopor Reforçado
+Machado da Perdição
+Machado de Guerra Ancião
+Machado de Guerra Antigo
+Machado do Carrasco
+Machado de Execução
+Machado de Madeira
+Machado de Lenhador
+Machado de Ferro Comum
+Machado de Ferro Reforçado
+Machado de Madeira Sagrada
+Machado de Papelão
+Machado de Brinquedo
+Machado de Platina
+Machado de Ouro
+Machado de Prata
+Machado de Cobre
+Machado de Palato
+Machado de Perdigotium
+Machado de Homério
+Machado de Alumímio
+Machado de Metal Anão
+Machado de Guerra Anão
+Machado de Aço
+Machado de Aço Nórdico
+Lança de Combate
+Lança de Ferro
+Lança de Cobre
+Lança de Aço
+Lança Banhada em Sangue
+Lança de Madeira
+Lança de Madeira Boreal
+Lança de Madeira Sagrada
+Lança de de Madeira de Pau-Brasil
+Lança de Madeira de Salgueiro
+Lança de Pedispalto
+Lança de Quartzo
+Lança de Obsidiana
+Lança do Guerreiro Japa
+Lança da Tribo do Sol
+Lança do Soldado
+Lança do Guerreiro Real
+Lança Mento
+Lança Amaldiçoada
+Punhal de Assassino
+Punhal do Ladino
+Punhal Sangrento
+Punhal de Arremesso
+Punhal de Ferro
+Punhal de Ferro Reforçado
+Punhal de Ébano
+Punhal de Metal Anão
+Punhal de Aço Nórdico
+Punhal Germânico
+Punhal de Plástico
+Punhal da Má Mãe
+Punhal de Platina
+Punhal de Ouro
+Punhal de Prata
+Bastão do Monge
+Bastão de Madeira de Coqueiro
+Bastão de Madeira Boreal
+Bastão de Madeira de Pinheiro
+Bastão de Madeira Sagrada
+Bastão do Macaco
+Bastão do Tibetano
+Bastão de Madeira de Pau-Brasil
+Bastão de Madeira de Eucalipto
+Bastão de Madeira de Salgueiro
+Bastão de Madeira de Carvalho
+Bastão de Ferro
+Bastão de Ouro
+Bastão de Prata
+Bastão de Aço
+Bastão de Cobre
+Bastão de Bronze
+Bastão Místico Antigo
+Bastão de Platina
+Clava de Guerra
+Clava do Berserk
+Clava com Espinhos
+Clava de Metal Anão
+Clava de Aço Orc
+Clava de Aço Nórdico
+Clava Feroz
+Clava Senciente
+Clava de Aço
+Clava de Ébano
+Clava da Luz
+Clava Terminus
+Clava do Porradeiro

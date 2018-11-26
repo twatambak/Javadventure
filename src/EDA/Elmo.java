@@ -19,7 +19,7 @@ public class Elmo extends Equipamento{
     private int protecao;
     private EnumParteCorpo areaProtecao;
     
-    private static ArrayList<String> arrayNome = new ArrayList<>();
+    private static ArrayList<String> arrayElmos = new ArrayList<>();
     private File arquivoElmos = new File("Elmos.txt");
     
     public Elmo() {
@@ -35,10 +35,11 @@ public class Elmo extends Equipamento{
         
             while(leitor.hasNext()){
                 String nomeS = leitor.next();
-                arrayNome.add(nomeS);
+                arrayElmos.add(nomeS);
             }
-                
-            try {
+            
+            this.nome = arrayElmos.get(x.nextInt(arrayElmos.size()));
+            /*try {
                 if(this.lvl <= 0 && this.lvl <= 9){
                     this.nome = arrayNome.get(x.nextInt(10));
                 } else if(this.lvl <= 10 && this.lvl <= 19){
@@ -54,7 +55,7 @@ public class Elmo extends Equipamento{
                 }
             } catch (IndexOutOfBoundsException e) {
                 JOptionPane.showMessageDialog(null, "Erro crítico. Falha na integridade dos arquivos.", "Algo de errado não está certo", JOptionPane.ERROR_MESSAGE);
-            }
+            }*/
         } catch (HeadlessException | FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Erro crítico. Falha na integridade dos arquivos.", "Algo de errado não está certo", JOptionPane.ERROR_MESSAGE);
         }

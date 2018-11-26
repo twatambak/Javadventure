@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-import org.ietf.jgss.Oid;
 
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
@@ -23,10 +22,10 @@ public class Arma extends Equipamento{
     private static ArrayList<String> arrayArmas = new ArrayList<>();
     private File arquivoArmas = new File("Armas.txt");
     
-    public Arma() {
+    public Arma(int level) {
         try {
             Scanner leitor = new Scanner(new FileReader(arquivoArmas)).useDelimiter("\\n");
-            this.lvl = BusinessFacade.getUsuarioLogado().getPersonagem().getLvl();
+            this.lvl = level;
          
             Random x = new Random();
             dano = x.nextInt(lvl + 10) + 1;
@@ -36,8 +35,9 @@ public class Arma extends Equipamento{
                 String nomeS = leitor.next();
                 arrayArmas.add(nomeS);
             }
-                
-            try {
+            this.nome = arrayArmas.get(x.nextInt(arrayArmas.size()));
+            
+            /*try {
                 if(this.lvl <= 0 && this.lvl <= 9){
                     this.nome = arrayArmas.get(x.nextInt(10));
                 } else if(this.lvl <= 10 && this.lvl <= 19){
@@ -53,19 +53,19 @@ public class Arma extends Equipamento{
                 }
             } catch (IndexOutOfBoundsException e) {
                 JOptionPane.showMessageDialog(null, "Erro crítico. Falha na integridade dos arquivos.", "Algo de errado não está certo", JOptionPane.ERROR_MESSAGE);
-            }
+            }*/
             
-            if(this.nome.equalsIgnoreCase("Espada")){
+            if(this.nome.contains("Espada")){
                 tipo = EnumTipoArma.CORTANTE;
-            } else if(this.nome.equalsIgnoreCase("Machado")){
+            } else if(this.nome.contains("Machado")){
                 tipo = EnumTipoArma.CORTANTE;
-            } else if(this.nome.equalsIgnoreCase("Lança")){
+            } else if(this.nome.contains("Lança")){
                 tipo = EnumTipoArma.PERFURANTE;
-            } else if(this.nome.equalsIgnoreCase("Punhal")){
+            } else if(this.nome.contains("Punhal")){
                 tipo = EnumTipoArma.PERFURANTE;
-            } else if(this.nome.equalsIgnoreCase("Clava")){
+            } else if(this.nome.contains("Clava")){
                 tipo = EnumTipoArma.CONTUNDENTE;
-            } else if(this.nome.equalsIgnoreCase("Bastão")){
+            } else if(this.nome.contains("Bastão")){
                 tipo = EnumTipoArma.CONTUNDENTE;
             }
         } catch (HeadlessException | FileNotFoundException e) {
@@ -99,4 +99,21 @@ public class Arma extends Equipamento{
         this.dano = dano;
     }
     
+    public String toString(){
+        return "Nome: " + getNome() + "\nDano: " + getDano() + "\nTipo: " + getTipo() + "\nValor: " + getValorCompra();
+    }
+
+    /**
+     * @return the tipo
+     */
+    public EnumTipoArma getTipo() {
+        return tipo;
+    }
+
+    /**
+     * @param tipo the tipo to set
+     */
+    public void setTipo(EnumTipoArma tipo) {
+        this.tipo = tipo;
+    }
 }

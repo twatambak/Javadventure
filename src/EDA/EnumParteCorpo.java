@@ -16,6 +16,19 @@ public enum EnumParteCorpo {
       this.parte = parte;
     }
     
+    public static EnumParteCorpo aleatoriza(int id){
+        switch(id){
+            case 1:
+                return CABECA;
+            case 2:
+                return TORSO;
+            case 3:
+                return PERNAS;
+            default:
+                return TORSO;
+        }
+    }
+    
     @Override
     public String toString(){
         return parte;
