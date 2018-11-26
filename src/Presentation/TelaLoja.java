@@ -5,8 +5,7 @@
  */
 package Presentation;
 
-import EDA.Equipamento;
-import EDA.Loja;
+import EDA.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,6 +14,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaLoja extends javax.swing.JFrame {
     Loja lojinha = new Loja();
+    Arma arma = new Arma();
+    Elmo elmo = new Elmo();
+    Peitoral peito = new Peitoral();
+    Grevas grevas = new Grevas();
+    
     /**
      * Creates new form TelaLoja
      */
@@ -22,16 +26,26 @@ public class TelaLoja extends javax.swing.JFrame {
         initComponents();
         DefaultTableModel modelo = new DefaultTableModel(
             new Object [][]{},
-            new String[] {"Nome", "Lvl", "Protecao", "Dano", "Preço"}
+            new String[] {"Nome", "Lvl", "Dano", "Preço"}
+        );
+        DefaultTableModel modelo2 = new DefaultTableModel(
+            new Object [][]{},
+            new String[] {"Nome", "Lvl", "Proteçao", "Preço"}
         );
         
-        tabelaItens.setModel(modelo);
+        tabelaArmas.setModel(modelo);
+        tabelaEquip.setModel(modelo2);
         
-        if(tabelaItens.getModel() instanceof DefaultTableModel){
-            
+        if(tabelaArmas.getModel() instanceof DefaultTableModel){
             while(lojinha.getIteratorLoja().hasNext()){
-                Equipamento aux = (Equipamento) lojinha.getIteratorLoja().next();
-                modelo.addRow(new Object[]{aux.getNome(), aux.getLvl(), }); //ainda arrumando
+                arma = (Arma) lojinha.getIteratorLoja().next();
+                modelo.addRow(new Object[]{arma.getNome(), arma.getLvl(), arma.getDano(), arma.getValorCompra()});
+            }
+        }
+        
+        if(tabelaEquip.getModel() instanceof DefaultTableModel){
+            while(lojinha.getIteratorLoja().hasNext()){
+                elmo = (Elmo) lojinha.getIteratorLoja().next();
             }
         }
         
@@ -46,8 +60,10 @@ public class TelaLoja extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabelaEquip = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaItens = new javax.swing.JTable();
+        tabelaArmas = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -57,7 +73,7 @@ public class TelaLoja extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1000, 667));
         getContentPane().setLayout(null);
 
-        tabelaItens.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaEquip.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -68,10 +84,26 @@ public class TelaLoja extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tabelaItens);
+        jScrollPane2.setViewportView(tabelaEquip);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(380, 60, 400, 320);
+
+        tabelaArmas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelaArmas);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(230, 70, 452, 402);
+        jScrollPane1.setBounds(0, 60, 360, 320);
 
         jLabel2.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
         jLabel2.setText("Seja-Bem Vindo a loja");
@@ -124,6 +156,8 @@ public class TelaLoja extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelaItens;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tabelaArmas;
+    private javax.swing.JTable tabelaEquip;
     // End of variables declaration//GEN-END:variables
 }
