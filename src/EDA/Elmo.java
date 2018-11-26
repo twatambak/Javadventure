@@ -22,10 +22,10 @@ public class Elmo extends Equipamento{
     private static ArrayList<String> arrayElmos = new ArrayList<>();
     private File arquivoElmos = new File("Elmos.txt");
     
-    public Elmo() {
+    public Elmo(int lvl) {
         try {
             Scanner leitor = new Scanner(new FileReader(arquivoElmos)).useDelimiter("\\n");
-            this.lvl = BusinessFacade.getUsuarioLogado().getPersonagem().getLvl();
+            this.lvl = lvl;
          
             Random x = new Random();
             protecao = x.nextInt(lvl + 10) + 1;

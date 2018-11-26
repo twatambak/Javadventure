@@ -22,10 +22,10 @@ public class Grevas extends Equipamento{
     private static ArrayList<String> arrayGrevas = new ArrayList<>();
     private File arquivoGrevas = new File("Grevas.txt");
     
-    public Grevas() {
+    public Grevas(int lvl) {
         try {
             Scanner leitor = new Scanner(new FileReader(arquivoGrevas)).useDelimiter("\\n");
-            this.lvl = BusinessFacade.getUsuarioLogado().getPersonagem().getLvl();
+            this.lvl = lvl;
          
             Random x = new Random();
             protecao = x.nextInt(lvl + 10) + 1;

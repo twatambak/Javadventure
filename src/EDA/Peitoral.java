@@ -22,10 +22,10 @@ public class Peitoral extends Equipamento{
     private static ArrayList<String> arrayPeitorais = new ArrayList<>();
     private File arquivoPeitorais = new File("Peitorais.txt");
     
-    public Peitoral() {
+    public Peitoral(int lvl) {
         try {
             Scanner leitor = new Scanner(new FileReader(arquivoPeitorais)).useDelimiter("\\n");
-            this.lvl = BusinessFacade.getUsuarioLogado().getPersonagem().getLvl();
+            this.lvl = lvl;
          
             Random x = new Random();
             protecao = x.nextInt(lvl + 10) + 1;

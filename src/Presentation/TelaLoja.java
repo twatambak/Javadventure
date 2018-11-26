@@ -14,10 +14,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaLoja extends javax.swing.JFrame {
     Loja lojinha = new Loja();
-    Arma arma = new Arma();
-    Elmo elmo = new Elmo();
-    Peitoral peito = new Peitoral();
-    Grevas grevas = new Grevas();
+    Arma arma = new Arma(0);
+    Elmo elmo = new Elmo(0);
+    Peitoral peito = new Peitoral(0);
+    Grevas grevas = new Grevas(0);
+    Itens itens = new Itens();
     
     /**
      * Creates new form TelaLoja
@@ -32,9 +33,14 @@ public class TelaLoja extends javax.swing.JFrame {
             new Object [][]{},
             new String[] {"Nome", "Lvl", "Proteçao", "Preço"}
         );
+        DefaultTableModel modelo3 = new DefaultTableModel(
+            new Object [][]{},
+            new String[] {"Tipo", "Eficiencia", "Quantidade", "Preço"}
+        );
         
         tabelaArmas.setModel(modelo);
         tabelaEquip.setModel(modelo2);
+        tabelaItens.setModel(modelo3);
         
         if(tabelaArmas.getModel() instanceof DefaultTableModel){
             while(lojinha.getIteratorLoja().hasNext()){
@@ -45,7 +51,14 @@ public class TelaLoja extends javax.swing.JFrame {
         
         if(tabelaEquip.getModel() instanceof DefaultTableModel){
             while(lojinha.getIteratorLoja().hasNext()){
-                elmo = (Elmo) lojinha.getIteratorLoja().next();
+                
+            }
+        }
+        
+        if(tabelaItens.getModel() instanceof DefaultTableModel){
+            while(lojinha.getIteratorLoja().hasNext()){
+                itens = (Itens) lojinha.getIteratorLoja().next();
+                modelo.addRow(new Object[]{itens.getTipo(), itens.getEficiencia(), itens.getQuantidade(), itens.getValorCompra()});
             }
         }
         
@@ -60,18 +73,36 @@ public class TelaLoja extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tabelaItens = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaEquip = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaArmas = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        labelImgLoja = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bem-Vindo a Loja");
         setPreferredSize(new java.awt.Dimension(1000, 667));
         setSize(new java.awt.Dimension(1000, 667));
         getContentPane().setLayout(null);
+
+        tabelaItens.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tabelaItens);
+
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(650, 60, 350, 230);
 
         tabelaEquip.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,7 +118,7 @@ public class TelaLoja extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tabelaEquip);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(380, 60, 400, 320);
+        jScrollPane2.setBounds(330, 60, 310, 230);
 
         tabelaArmas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,16 +134,16 @@ public class TelaLoja extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaArmas);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(0, 60, 360, 320);
+        jScrollPane1.setBounds(10, 60, 310, 230);
 
         jLabel2.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
         jLabel2.setText("Seja-Bem Vindo a loja");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(380, 0, 260, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/capivara.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1000, 620);
+        labelImgLoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/capivara.jpg"))); // NOI18N
+        getContentPane().add(labelImgLoja);
+        labelImgLoja.setBounds(0, 0, 1000, 620);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -153,11 +184,13 @@ public class TelaLoja extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel labelImgLoja;
     private javax.swing.JTable tabelaArmas;
     private javax.swing.JTable tabelaEquip;
+    private javax.swing.JTable tabelaItens;
     // End of variables declaration//GEN-END:variables
 }
