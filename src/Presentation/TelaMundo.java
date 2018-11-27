@@ -40,7 +40,6 @@ public class TelaMundo extends javax.swing.JFrame {
         player = new javax.swing.JLabel();
         vendedor = new javax.swing.JLabel();
         monstro = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,16 +72,6 @@ public class TelaMundo extends javax.swing.JFrame {
         monstro.setText("[");
         getContentPane().add(monstro);
         monstro.setBounds(310, 100, 109, 150);
-
-        jButton1.setText("jButton1");
-        jButton1.setFocusable(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(30, 380, 73, 23);
 
         background.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/capivara.jpg"))); // NOI18N
@@ -134,13 +123,9 @@ public class TelaMundo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_playerKeyPressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, personagem.getArma());
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     public void encontroBatalha(){
         
-        if(player.getX() == monstro.getX() - 10 || player.getY() == monstro.getY() - 10 || player.getX() == monstro.getX() + 10 || player.getY() == monstro.getY() + 10){
+        if(player.getX() == monstro.getX() - 4 || player.getY() == monstro.getY() - 4 || player.getX() == monstro.getX() + 4 || player.getY() == monstro.getY() + 4){
             JOptionPane.showMessageDialog(null, "Fala carai");
             TelaBatalha tela = new TelaBatalha();
             Main.abrir(tela);
@@ -151,7 +136,6 @@ public class TelaMundo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel monstro;
     private javax.swing.JLabel player;
     private javax.swing.JLabel vendedor;

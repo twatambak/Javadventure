@@ -6,6 +6,9 @@
 package Presentation;
 
 import EDA.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,13 +17,23 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaLoja extends javax.swing.JFrame {
     Loja lojinha = new Loja();
-    
+    int valortotal = 0;
+    ArrayList<Arma> arrayArmas = new ArrayList<>();
+    ArrayList<Armadura> arrayArmadura = new ArrayList<>();
+    ArrayList<Itens> arrayItens = new ArrayList<>();
+    ArrayList<Equipamento> arraySelecao = new ArrayList<>();
     
     /**
      * Creates new form TelaLoja
      */
     public TelaLoja() {
         initComponents();
+        Random x = new Random();
+        arrayArmas.add(new Arma(x.nextInt(40)));
+        arrayArmas.add(new Arma(5));
+        arrayArmas.add(new Arma(5));
+        arrayArmas.add(new Arma(5));
+        arrayArmas.add(new Arma(5));
         DefaultTableModel modelo = new DefaultTableModel(
             new Object [][]{},
             new String[] {"Nome", "Lvl", "Dano", "Preço"}
@@ -40,8 +53,10 @@ public class TelaLoja extends javax.swing.JFrame {
         
         
         if(tabelaArmas.getModel() instanceof DefaultTableModel){
-            while(lojinha.getIteratorLoja().hasNext()){
-                Arma arma = (Arma) lojinha.getIteratorLoja().next();
+            Iterator itArma = arrayArmas.iterator();
+            while(itArma.hasNext()){
+                
+                Arma arma = (Arma) itArma.next();
                 modelo.addRow(new Object[]{arma.getNome(), arma.getLvl(), arma.getDano(), arma.getValorCompra()});
             }
         }
@@ -61,6 +76,7 @@ public class TelaLoja extends javax.swing.JFrame {
             }
         }
         
+
     }
 
     /**
@@ -79,6 +95,7 @@ public class TelaLoja extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaArmas = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        labelValor = new javax.swing.JLabel();
         labelImgLoja = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,6 +147,16 @@ public class TelaLoja extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelaArmas.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tabelaArmasFocusGained(evt);
+            }
+        });
+        tabelaArmas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaArmasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelaArmas);
 
         getContentPane().add(jScrollPane1);
@@ -140,12 +167,46 @@ public class TelaLoja extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(380, 0, 260, 40);
 
+        labelValor.setFont(new java.awt.Font("Tahoma", 0, 60)); // NOI18N
+        labelValor.setText("0");
+        getContentPane().add(labelValor);
+        labelValor.setBounds(30, 370, 120, 50);
+
         labelImgLoja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/capivara.jpg"))); // NOI18N
         getContentPane().add(labelImgLoja);
         labelImgLoja.setBounds(0, 0, 1000, 620);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tabelaArmasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tabelaArmasFocusGained
+    }//GEN-LAST:event_tabelaArmasFocusGained
+
+    private void tabelaArmasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaArmasMouseClicked
+        valortotal = 0;
+        
+        /*if(tabelaArmas.getSelectedRows() != null){
+            int vetArmas[] = tabelaArmas.getSelectedRows();
+        
+            for(int i = 0; i < vetArmas.length; i++){
+                arraySelecao.add(arrayArmas.get(vetArmas[i]));
+            }
+        
+            Iterator itSelecao = arraySelecao.iterator();
+        
+            while(itSelecao.hasNext()){
+                Equipamento aux = (Equipamento) itSelecao.next();
+                valortotal = valortotal + aux.getValorCompra();
+                labelValor.setText("" + valortotal);
+            }
+        }*/    
+
+        if(tabelaArmas.getSelectedRow() != -1){
+            int index = tabelaArmas.getSelectedRow();
+            valortotal = valortotal + arrayArmas.get(index).getValorCompra();
+            labelValor.setText("" + valortotal);
+        } 
+    }//GEN-LAST:event_tabelaArmasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -188,6 +249,7 @@ public class TelaLoja extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelImgLoja;
+    private javax.swing.JLabel labelValor;
     private javax.swing.JTable tabelaArmas;
     private javax.swing.JTable tabelaEquip;
     private javax.swing.JTable tabelaItens;

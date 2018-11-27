@@ -28,8 +28,8 @@ public class Arma extends Equipamento{
             this.lvl = level;
          
             Random x = new Random();
-            dano = x.nextInt(lvl + 10) + 1;
-            valorCompra = x.nextInt(dano + 100) + 100;
+            dano = x.nextInt(lvl + 10) + lvl;
+            valorCompra = (x.nextInt(dano + 10) + lvl) * 10;
             
             while(leitor.hasNext()){
                 String nomeS = leitor.next();

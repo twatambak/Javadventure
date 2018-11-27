@@ -19,6 +19,7 @@ public class TelaLogin extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     @SuppressWarnings("unchecked")
