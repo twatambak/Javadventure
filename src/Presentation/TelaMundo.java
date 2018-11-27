@@ -2,6 +2,7 @@
 package Presentation;
 
 import Business.BusinessFacade;
+import EDA.Monstro;
 import EDA.Personagem;
 import EDA.Usuario;
 import java.awt.Component;
@@ -125,9 +126,9 @@ public class TelaMundo extends javax.swing.JFrame {
 
     public void encontroBatalha(){
         
-        if(player.getX() == monstro.getX() - 4 || player.getY() == monstro.getY() - 4 || player.getX() == monstro.getX() + 4 || player.getY() == monstro.getY() + 4){
+        if(player.getX() == monstro.getX() - 5 || player.getX() == monstro.getX() - 4 || player.getX() == monstro.getX() - 3 || player.getX() == monstro.getX() - 2 || player.getX() == monstro.getX() - 1 || player.getY() == monstro.getY() - 5 || player.getY() == monstro.getY() - 4 || player.getY() == monstro.getY() - 3  || player.getY() == monstro.getY() - 2 || player.getY() == monstro.getY() - 1 || player.getX() == monstro.getX() + 5 || player.getX() == monstro.getX() + 4 || player.getX() == monstro.getX() + 3 || player.getX() == monstro.getX() + 2 || player.getX() == monstro.getX() + 1 || player.getY() == monstro.getY() + 5 || player.getY() == monstro.getY() + 4 || player.getY() == monstro.getY() + 3 || player.getY() == monstro.getY() + 2 || player.getY() == monstro.getY() + 1 || player.getY() == monstro.getY() || player.getX() == monstro.getX()){
             JOptionPane.showMessageDialog(null, "Fala carai");
-            TelaBatalha tela = new TelaBatalha();
+            TelaBatalha tela = new TelaBatalha(new Monstro(personagem.getLvl()));
             Main.abrir(tela);
             this.dispose();
         }    

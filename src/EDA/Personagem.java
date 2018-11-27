@@ -26,6 +26,8 @@ public class Personagem extends Ser{
         this.forca = forca;
         this.inteligencia = inteligencia;
         
+        defesa = false;
+        
         hpMaximo = vitalidade * 100;
         hp = hpMaximo;
  

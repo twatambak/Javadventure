@@ -1,25 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Presentation;
+
+import Business.BusinessFacade;
+import EDA.Monstro;
+import EDA.Personagem;
+import EDA.Usuario;
 
 /**
  *
  * @author pixel
  */
 public class TelaBatalha extends javax.swing.JFrame {
+    Monstro monstro;
+    Usuario usuarioLogado = BusinessFacade.getUsuarioLogado();
+    Personagem personagem = usuarioLogado.getPersonagem();
 
-    /**
-     * Creates new form TelaBatalha
-     */
-    public TelaBatalha() {
+    public TelaBatalha(Monstro monstro) {
         initComponents();
-        barraHP.setValue(100);
-        for(int i = 0; i < 100; i++){
-           barraHP.setValue(100 - i); 
-        }
+        this.monstro = monstro;
+        barraHP.setValue(personagem.getHp());
+        
     }
 
     /**
@@ -37,6 +37,8 @@ public class TelaBatalha extends javax.swing.JFrame {
         buttonPocao = new javax.swing.JButton();
         buttonFugir = new javax.swing.JButton();
         barraHP = new javax.swing.JProgressBar();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         background1 = new javax.swing.JLabel();
         background2 = new javax.swing.JLabel();
         background3 = new javax.swing.JLabel();
@@ -53,10 +55,20 @@ public class TelaBatalha extends javax.swing.JFrame {
         labelInfoHP.setBounds(20, 460, 17, 14);
 
         buttonDefender.setText("Defender");
+        buttonDefender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDefenderActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonDefender);
         buttonDefender.setBounds(180, 410, 80, 23);
 
         buttonAtacar.setText("Atacar");
+        buttonAtacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAtacarActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonAtacar);
         buttonAtacar.setBounds(20, 410, 65, 23);
 
@@ -77,6 +89,17 @@ public class TelaBatalha extends javax.swing.JFrame {
         barraHP.setForeground(new java.awt.Color(153, 0, 0));
         getContentPane().add(barraHP);
         barraHP.setBounds(40, 460, 146, 20);
+
+        jLabel2.setFont(new java.awt.Font("Chiller", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Vem pro pau cuzão");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(370, 40, 270, 50);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(200, 0, 260, 400);
 
         background1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dungeonFloor.jpg"))); // NOI18N
         background1.setText("jLabel2");
@@ -101,40 +124,14 @@ public class TelaBatalha extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonPocaoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaBatalha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaBatalha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaBatalha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaBatalha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void buttonAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAtacarActionPerformed
+        personagem.atacar(monstro);
+        monstro.turno(personagem);
+    }//GEN-LAST:event_buttonAtacarActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaBatalha().setVisible(true);
-            }
-        });
-    }
+    private void buttonDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDefenderActionPerformed
+        personagem.setDefesa(true);
+    }//GEN-LAST:event_buttonDefenderActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background1;
@@ -145,6 +142,8 @@ public class TelaBatalha extends javax.swing.JFrame {
     private javax.swing.JButton buttonDefender;
     private javax.swing.JButton buttonFugir;
     private javax.swing.JButton buttonPocao;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel labelInfoHP;
     // End of variables declaration//GEN-END:variables
 }

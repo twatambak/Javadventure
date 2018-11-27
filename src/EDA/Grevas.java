@@ -29,7 +29,7 @@ public class Grevas extends Armadura{
             Random x = new Random();
             protecao = x.nextInt(lvl + 10) + 1;
             valorCompra = x.nextInt(protecao + 100) + 100;
-            areaProtecao = EnumParteCorpo.TORSO;       
+            areaProtecao = EnumParteCorpo.PERNAS;       
          
         
             while(leitor.hasNext()){

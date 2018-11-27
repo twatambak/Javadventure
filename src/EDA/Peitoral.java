@@ -27,7 +27,7 @@ public class Peitoral extends Armadura{
             this.lvl = lvl;
          
             Random x = new Random();
-            protecao = x.nextInt(lvl + 10) + 1;
+            protecao = x.nextInt(lvl + 5) + lvl;
             valorCompra = x.nextInt(protecao + 100) + 100;
             areaProtecao = EnumParteCorpo.TORSO;       
          

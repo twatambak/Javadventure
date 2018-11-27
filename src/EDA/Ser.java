@@ -2,6 +2,7 @@
 package EDA;
 
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
@@ -301,10 +302,74 @@ abstract class Ser {
     public void atacar(Ser inimigo){
         int hpInimigo = inimigo.getHp();
         Random x = new Random();
-        if(EnumParteCorpo.aleatoriza(x.nextInt(5)) == EnumParteCorpo.CABECA){
-            inimigo.setHp(hpInimigo - this.getAtk() * 2);
+        
+        if(inimigo.isDefesa()){
+            if(null != EnumParteCorpo.aleatoriza(x.nextInt(3))){
+                switch (EnumParteCorpo.aleatoriza(x.nextInt(5))) {
+                    case CABECA:
+                        inimigo.setHp(hpInimigo - this.getAtk() * 2);
+                        break;
+                    case TORSO:
+                        inimigo.setHp(hpInimigo - this.getAtk());
+                        break;
+                    case PERNAS:
+                        inimigo.setHp(hpInimigo - this.getAtk() / 2);
+                        break;
+                    default:
+                        break;
+                }        
+            }
+
+            if(null != this.getArma().getTipo()){
+                switch (this.getArma().getTipo()) {
+                    case CONTUNDENTE:
+                        switch(x.nextInt(5)){
+                            case 1:
+                                inimigo.setStatus(EnumStatus.ATORDOADO);
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                            default:
+                                break;
+                            }   
+                        break;
+                    case PERFURANTE:
+                        switch(x.nextInt(5)){
+                            case 1:
+                                inimigo.setStatus(EnumStatus.SANGRANDO);
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                            default:
+                                break;
+                            }
+                        break;
+                    case CORTANTE:
+                        switch(x.nextInt(5)){
+                            case 1:
+                                inimigo.setStatus(EnumStatus.SANGRANDO);
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                            default:
+                                break;
+                            }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "" + inimigo.getNome() + " defendeu o ataque.", "Wow, defesa", JOptionPane.PLAIN_MESSAGE);
         }
         
+            
     }
     
     public void defender(){
