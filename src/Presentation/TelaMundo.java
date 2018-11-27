@@ -30,7 +30,7 @@ public class TelaMundo extends javax.swing.JFrame {
     public TelaMundo() {
         initComponents();
         
-
+        
         
     }
 
@@ -54,7 +54,8 @@ public class TelaMundo extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         player.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
-        player.setText("E");
+        player.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        player.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/persongaem.png"))); // NOI18N
         player.setFocusable(false);
         player.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -62,7 +63,7 @@ public class TelaMundo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(player);
-        player.setBounds(150, 80, 60, 160);
+        player.setBounds(120, 150, 70, 140);
 
         vendedor.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
         vendedor.setText("]");

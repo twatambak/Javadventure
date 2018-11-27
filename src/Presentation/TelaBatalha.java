@@ -19,7 +19,16 @@ public class TelaBatalha extends javax.swing.JFrame {
         initComponents();
         this.monstro = monstro;
         barraHP.setValue(personagem.getHp());
-        
+        if(this.monstro.getNome().contains("Terminator")){
+            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png")));
+            labelFala.setText("Vou te pegar");
+        } else if(this.monstro.getNome().contains("Zumbi")){
+            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo (2).png")));
+            labelFala.setText("Rarharhahhrara");
+        } else if(this.monstro.getNome().contains("sasuke")){
+            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sasuke.png")));
+            labelFala.setText("VEM ME DAR CABEÇADAAAAAAAAA");
+        }
     }
 
     /**
@@ -37,8 +46,8 @@ public class TelaBatalha extends javax.swing.JFrame {
         buttonPocao = new javax.swing.JButton();
         buttonFugir = new javax.swing.JButton();
         barraHP = new javax.swing.JProgressBar();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        labelFala = new javax.swing.JLabel();
+        labelBicho = new javax.swing.JLabel();
         background1 = new javax.swing.JLabel();
         background2 = new javax.swing.JLabel();
         background3 = new javax.swing.JLabel();
@@ -82,6 +91,11 @@ public class TelaBatalha extends javax.swing.JFrame {
         buttonPocao.setBounds(360, 410, 100, 23);
 
         buttonFugir.setText("Fugir");
+        buttonFugir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonFugirActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonFugir);
         buttonFugir.setBounds(560, 410, 57, 23);
 
@@ -90,16 +104,16 @@ public class TelaBatalha extends javax.swing.JFrame {
         getContentPane().add(barraHP);
         barraHP.setBounds(40, 460, 146, 20);
 
-        jLabel2.setFont(new java.awt.Font("Chiller", 0, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Vem pro pau cuzão");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(370, 40, 270, 50);
+        labelFala.setFont(new java.awt.Font("Chiller", 0, 48)); // NOI18N
+        labelFala.setForeground(new java.awt.Color(255, 255, 255));
+        labelFala.setText("Vem pro pau cuzão");
+        getContentPane().add(labelFala);
+        labelFala.setBounds(10, 10, 640, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(200, 0, 260, 400);
+        labelBicho.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png"))); // NOI18N
+        getContentPane().add(labelBicho);
+        labelBicho.setBounds(30, 0, 620, 390);
 
         background1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dungeonFloor.jpg"))); // NOI18N
         background1.setText("jLabel2");
@@ -133,6 +147,12 @@ public class TelaBatalha extends javax.swing.JFrame {
         personagem.setDefesa(true);
     }//GEN-LAST:event_buttonDefenderActionPerformed
 
+    private void buttonFugirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFugirActionPerformed
+        TelaMundo tela = new TelaMundo();
+        Main.abrir(tela);
+        this.dispose();
+    }//GEN-LAST:event_buttonFugirActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background1;
     private javax.swing.JLabel background2;
@@ -142,8 +162,8 @@ public class TelaBatalha extends javax.swing.JFrame {
     private javax.swing.JButton buttonDefender;
     private javax.swing.JButton buttonFugir;
     private javax.swing.JButton buttonPocao;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel labelBicho;
+    private javax.swing.JLabel labelFala;
     private javax.swing.JLabel labelInfoHP;
     // End of variables declaration//GEN-END:variables
 }
