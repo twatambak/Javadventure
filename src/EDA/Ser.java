@@ -236,7 +236,7 @@ abstract class Ser {
      */
     public void setArma(Arma arma) {
         this.arma = arma;
-        atk = arma.getDano() + forca;
+        atk = arma.getPropriedade() + forca;
     }    
 
 //========== Getters e Setters: Elmo ===========================================
@@ -255,7 +255,7 @@ abstract class Ser {
      */
     public void setElmo(Elmo elmo) {
         this.elmo = elmo;
-        protecaoTotal = protecaoTotal + this.elmo.getProtecao();
+        protecaoTotal = protecaoTotal + this.elmo.getPropriedade();
     }
     
 //========== Getters e Setters: Peitoral =======================================
@@ -274,7 +274,7 @@ abstract class Ser {
      */
     public void setPeito(Peitoral peito) {
         this.peito = peito;
-        protecaoTotal = protecaoTotal + this.peito.getProtecao();
+        protecaoTotal = protecaoTotal + this.peito.getPropriedade();
     }
 
 //========== Getters e Setters: Grevas =========================================    
@@ -294,7 +294,7 @@ abstract class Ser {
      */
     public void setBota(Grevas bota) {
         this.bota = bota;
-        protecaoTotal = protecaoTotal + this.bota.getProtecao();
+        protecaoTotal = protecaoTotal + this.bota.getPropriedade();
     }
     
  //========== Métodos ==========================================================

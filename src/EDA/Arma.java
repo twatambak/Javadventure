@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
  */
 
 public class Arma extends Equipamento{
-    private int dano;
     private EnumTipoArma tipo;
     
     private static ArrayList<String> arrayArmas = new ArrayList<>();
@@ -28,8 +27,8 @@ public class Arma extends Equipamento{
             this.lvl = level;
          
             Random x = new Random();
-            dano = x.nextInt(lvl + 10) + lvl;
-            valorCompra = (x.nextInt(dano + 10) + lvl) * 10;
+            propriedade = x.nextInt(lvl + 10) + lvl;
+            valorCompra = (x.nextInt(propriedade + 10) + lvl) * 10;
             
             while(leitor.hasNext()){
                 String nomeS = leitor.next();
@@ -56,34 +55,19 @@ public class Arma extends Equipamento{
         }
     }
     
-    public Arma(String nome, int dano, int valorCompra, int lvl, EnumTipoArma tipo){
+    public Arma(String nome, int propriedade, int valorCompra, int lvl, EnumTipoArma tipo){
         this.nome = nome;
-        this.dano = dano;
+        this.propriedade = propriedade;
         this.valorCompra = valorCompra;
         this.lvl = lvl;
         this.tipo = tipo;
     }
 
 //========== Getters e Setters: Dano ===========================================    
-    
-    /**
-     * Retorna o dano da arma.
-     * @return the dano
-     */
-    public int getDano() {
-        return dano;
-    }
 
-    /**
-     * Define o dano da arma.
-     * @param dano the dano to set
-     */
-    public void setDano(int dano) {
-        this.dano = dano;
-    }
     
     public String toString(){
-        return "Nome: " + getNome() + "\nDano: " + getDano() + "\nTipo: " + getTipo() + "\nValor: " + getValorCompra();
+        return "Nome: " + getNome() + "\nDano: " + getPropriedade() + "\nTipo: " + getTipo() + "\nValor: " + getValorCompra();
     }
 
     /**

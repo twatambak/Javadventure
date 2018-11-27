@@ -49,9 +49,9 @@ public class Personagem extends Ser{
         Grevas grevasInicial = new Grevas("Botas de Fazendeiro", 2, 0, 1, EnumParteCorpo.PERNAS);
         bota = grevasInicial;
         
-        protecaoTotal = elmoInicial.getProtecao() + peitoralInicial.getProtecao() + grevasInicial.getProtecao();
+        protecaoTotal = elmoInicial.getPropriedade() + peitoralInicial.getPropriedade() + grevasInicial.getPropriedade();
         
-        atk = arma.getDano() + forca;
+        atk = arma.getPropriedade() + forca;
     }
     
 
@@ -63,7 +63,7 @@ public class Personagem extends Ser{
      * Atualiza o ataque com base na Força e no dano da arma.
      */
     public void atualizaAtk(){
-        atk = arma.getDano() + forca;
+        atk = arma.getPropriedade() + forca;
     }
 
 //========== Getters e Setters: XP =============================================

@@ -7,6 +7,7 @@ package EDA;
 
 public abstract class Equipamento {
     String nome;
+    int propriedade;
     int lvl;
     int valorCompra;
     
@@ -62,6 +63,20 @@ public abstract class Equipamento {
      */
     public void setValorCompra(int valorCompra) {
         this.valorCompra = valorCompra;
+    }
+
+    /**
+     * @return the propriedade
+     */
+    public int getPropriedade() {
+        return propriedade;
+    }
+
+    /**
+     * @param propriedade the propriedade to set
+     */
+    public void setPropriedade(int propriedade) {
+        this.propriedade = propriedade;
     }
 
 }   
