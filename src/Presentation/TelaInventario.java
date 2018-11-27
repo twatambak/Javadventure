@@ -18,17 +18,20 @@ import javax.swing.table.DefaultTableModel;
 public class TelaInventario extends javax.swing.JFrame {
     Usuario usuarioLogado = BusinessFacade.getUsuarioLogado();
     Personagem personagem = usuarioLogado.getPersonagem();
+    ArrayList<Equipamento> arrayEquipamento = new ArrayList<>();
+    ArrayList<Arma> arrayArma = new ArrayList<>();
+    ArrayList<Itens> arrayPocao = new ArrayList<>();
     /**
      * Creates new form TelaInventario
      */
     public TelaInventario() {
         initComponents();
-        ArrayList<Armadura> arrayArmadura = new ArrayList<>();
         
         labelArma.setText(personagem.getArma().getNome());
         labelElmo.setText(personagem.getElmo().getNome());
         labelPeito.setText(personagem.getPeito().getNome());
         labelBota.setText(personagem.getBota().getNome());
+        
         DefaultTableModel modelo = new DefaultTableModel(
             new Object [][]{},
             new String []{"Nome", "Lvl", "Dano", "Preço"}
@@ -44,7 +47,7 @@ public class TelaInventario extends javax.swing.JFrame {
         
         tabelaArma.setModel(modelo);
         tabelaEquipamento.setModel(modelo2);
-        tabelaPoção.setModel(modelo3);
+        tabelaPocao.setModel(modelo3);
         
         if(tabelaArma.getModel() instanceof DefaultTableModel){
             Iterator it = personagem.getInventario().iterator();
@@ -63,7 +66,7 @@ public class TelaInventario extends javax.swing.JFrame {
             }
         }
         
-        if(tabelaPoção.getModel() instanceof DefaultTableModel){
+        if(tabelaPocao.getModel() instanceof DefaultTableModel){
             Iterator itItens = personagem.getInventario().iterator();
             while(itItens.hasNext()){
                 Itens itens = (Itens) itItens.next();
@@ -81,7 +84,6 @@ public class TelaInventario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelImgFundo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaArma = new javax.swing.JTable();
@@ -93,14 +95,11 @@ public class TelaInventario extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaEquipamento = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tabelaPoção = new javax.swing.JTable();
+        tabelaPocao = new javax.swing.JTable();
+        labelImgFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        labelImgFundo.setText("jLabel2");
-        getContentPane().add(labelImgFundo);
-        labelImgFundo.setBounds(0, 0, 880, 520);
 
         jLabel1.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
         jLabel1.setText("Inventario");
@@ -173,7 +172,7 @@ public class TelaInventario extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(10, 280, 320, 220);
 
-        tabelaPoção.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaPocao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -184,28 +183,51 @@ public class TelaInventario extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(tabelaPoção);
+        jScrollPane3.setViewportView(tabelaPocao);
 
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(330, 40, 310, 240);
+
+        labelImgFundo.setText("jLabel2");
+        getContentPane().add(labelImgFundo);
+        labelImgFundo.setBounds(0, 0, 880, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelaArmaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaArmaMouseClicked
-        if(tabelaArma.getSelectedRow() != -1){
+        //if(tabelaArma.getSelectedRow() != -1){
             /*Armadura delete;
             int index = tabelaEquipamento.getSelectedRow();
             delete = delete + arrayEquipamento;
             labelValor.setText("" + valortotal);*/
-        }
+        //}
     }//GEN-LAST:event_tabelaArmaMouseClicked
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        int i = tabelaArma.getSelectedRow();
-        //chama o array com .remove
-        //fecha a tela
-        //abre a tela
+        if(tabelaArma.getSelectedRow() != -1){
+            int i = tabelaArma.getSelectedRow();
+            arrayArma.remove(i);//chama o array com .remove
+            this.dispose();//fecha a tela
+            TelaInventario telaIn = new TelaInventario();//abre a tela
+            telaIn.setVisible(true);
+        }else{
+            if(tabelaEquipamento.getSelectedRow() != -1){
+                int i = tabelaEquipamento.getSelectedRow();
+                arrayEquipamento.remove(i);
+                this.dispose();
+                TelaInventario telaIn = new TelaInventario();
+                telaIn.setVisible(true);
+            }else{
+                if(tabelaPocao.getSelectedRow() != -1){
+                    int i = tabelaPocao.getSelectedRow();
+                    arrayPocao.remove(i);
+                    this.dispose();
+                    TelaInventario telaIn = new TelaInventario();
+                    telaIn.setVisible(true);
+                }
+            }
+        }
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     /**
@@ -256,6 +278,6 @@ public class TelaInventario extends javax.swing.JFrame {
     private javax.swing.JLabel labelPeito;
     private javax.swing.JTable tabelaArma;
     private javax.swing.JTable tabelaEquipamento;
-    private javax.swing.JTable tabelaPoção;
+    private javax.swing.JTable tabelaPocao;
     // End of variables declaration//GEN-END:variables
 }
