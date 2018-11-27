@@ -55,23 +55,24 @@ public class TelaLoja extends javax.swing.JFrame {
         if(tabelaArmas.getModel() instanceof DefaultTableModel){
             Iterator itArma = arrayArmas.iterator();
             while(itArma.hasNext()){
-                
                 Arma arma = (Arma) itArma.next();
                 modelo.addRow(new Object[]{arma.getNome(), arma.getLvl(), arma.getDano(), arma.getValorCompra()});
             }
         }
         
         if(tabelaEquip.getModel() instanceof DefaultTableModel){
-            while(lojinha.getIteratorLoja().hasNext()){
-                Armadura armor = (Armadura) lojinha.getIteratorLoja().next();
+            Iterator itArmadura = arrayArmadura.iterator();
+            while(itArmadura.hasNext()){
+                Armadura armor = (Armadura) itArmadura.next();
                 modelo.addRow(new Object[]{armor.getNome(), armor.getLvl(), armor.getProtecao(), armor.getValorCompra()});
                 
             }
         }
         
         if(tabelaItens.getModel() instanceof DefaultTableModel){
-            while(lojinha.getIteratorLoja().hasNext()){
-                Itens itens = (Itens) lojinha.getIteratorLoja().next();
+            Iterator itItens = arrayItens.iterator();
+            while(itItens.hasNext()){
+                Itens itens = (Itens) itItens.next();
                 modelo.addRow(new Object[]{itens.getTipo(), itens.getEficiencia(), itens.getQuantidade(), itens.getValorCompra()});
             }
         }
