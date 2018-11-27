@@ -209,8 +209,8 @@ public class TelaInventario extends javax.swing.JFrame {
             int i = tabelaArma.getSelectedRow();
             arrayArma.remove(i);//chama o array com .remove
             this.dispose();//fecha a tela
-            TelaInventario telaIn = new TelaInventario();//abre a tela
-            telaIn.setVisible(true);
+            TelaInventario telaIn = new TelaInventario();
+            telaIn.setVisible(true);//abre a tela
         }else{
             if(tabelaEquipamento.getSelectedRow() != -1){
                 int i = tabelaEquipamento.getSelectedRow();
