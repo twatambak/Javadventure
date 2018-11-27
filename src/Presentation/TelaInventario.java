@@ -54,7 +54,7 @@ public class TelaInventario extends javax.swing.JFrame {
             while(it.hasNext()){
                 Arma perso = (Arma) it.next();
                 modelo.addRow(new Object[]{perso.getNome(), perso.getLvl(), 
-                              perso.getDano(), perso.getValorCompra()});
+                              perso.getPropriedade(), perso.getValorCompra()});
             }
         }
         
@@ -62,7 +62,7 @@ public class TelaInventario extends javax.swing.JFrame {
             Iterator itArmadura = personagem.getInventario().iterator();
             while(itArmadura.hasNext()){
                 Armadura armor = (Armadura) itArmadura.next();
-                modelo.addRow(new Object[]{armor.getNome(), armor.getLvl(), armor.getProtecao(), armor.getValorCompra()});
+                modelo.addRow(new Object[]{armor.getNome(), armor.getLvl(), armor.getPropriedade(), armor.getValorCompra()});
             }
         }
         

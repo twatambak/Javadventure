@@ -26,8 +26,8 @@ public class Elmo extends Armadura{
             this.lvl = lvl;
          
             Random x = new Random();
-            protecao = x.nextInt(lvl + 10) + 1;
-            valorCompra = x.nextInt(protecao + 100) + 100;
+            propriedade = x.nextInt(lvl + 10) + 1;
+            valorCompra = x.nextInt(propriedade + 100) + 100;
             areaProtecao = EnumParteCorpo.CABECA;       
          
         
@@ -43,9 +43,9 @@ public class Elmo extends Armadura{
         }
     }
     
-    public Elmo(String nome, int protecao, int valorCompra, int lvl, EnumParteCorpo areaProtecao){
+    public Elmo(String nome, int propriedade, int valorCompra, int lvl, EnumParteCorpo areaProtecao){
         this.nome = nome;
-        this.protecao = protecao;
+        this.propriedade = propriedade;
         this.valorCompra = valorCompra;
         this.lvl = lvl;
         this.areaProtecao = areaProtecao;

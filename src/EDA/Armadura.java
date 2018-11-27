@@ -10,22 +10,8 @@ package EDA;
  * @author Bencke
  */
 public abstract class Armadura extends Equipamento{
-    int protecao;
     EnumParteCorpo areaProtecao;
 
-    /**
-     * @return the protecao
-     */
-    public int getProtecao() {
-        return protecao;
-    }
-
-    /**
-     * @param protecao the protecao to set
-     */
-    public void setProtecao(int protecao) {
-        this.protecao = protecao;
-    }
 
     /**
      * @return the areaProtecao

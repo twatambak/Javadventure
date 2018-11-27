@@ -17,7 +17,7 @@ public class TelaLoja extends javax.swing.JFrame {
     ArrayList<Arma> arrayArmas = new ArrayList<>();
     ArrayList<Armadura> arrayArmadura = new ArrayList<>();
     ArrayList<Itens> arrayItens = new ArrayList<>();
-    ArrayList<Equipamento> arraySelecao = new ArrayList<>();
+    ArrayList<Equipamento> arrayEquipamento = new ArrayList<>();
     
     /**
      * Creates new form TelaLoja
@@ -25,11 +25,20 @@ public class TelaLoja extends javax.swing.JFrame {
     public TelaLoja() {
         initComponents();
         Random x = new Random();
-        arrayArmas.add(new Arma(x.nextInt(40)));
-        arrayArmas.add(new Arma(5));
-        arrayArmas.add(new Arma(5));
-        arrayArmas.add(new Arma(5));
-        arrayArmas.add(new Arma(5));
+        arrayEquipamento.add(new Arma(x.nextInt(40)));
+        arrayEquipamento.add(new Arma(x.nextInt(40)));
+        arrayEquipamento.add(new Arma(x.nextInt(40)));
+        arrayEquipamento.add(new Arma(x.nextInt(40)));
+        arrayEquipamento.add(new Elmo(5));
+        arrayEquipamento.add(new Elmo(5));
+        arrayEquipamento.add(new Elmo(5));
+        arrayEquipamento.add(new Elmo(5));
+        
+        arrayItens.add(new Itens());
+        arrayItens.add(new Itens());
+        arrayItens.add(new Itens());
+        arrayItens.add(new Itens());
+
         DefaultTableModel modelo = new DefaultTableModel(
             new Object [][]{},
             new String[] {"Nome", "Lvl", "Dano", "Preço"}
@@ -44,19 +53,45 @@ public class TelaLoja extends javax.swing.JFrame {
         );
         
         tabelaArmas.setModel(modelo);
-        tabelaEquip.setModel(modelo2);
         tabelaItens.setModel(modelo3);
         
         
+        /*if(tabelaArmas.getModel() instanceof DefaultTableModel && tabelaEquip.getModel() instanceof DefaultTableModel && tabelaItens.getModel() instanceof DefaultTableModel){
+            System.out.println("Tá top");
+            Iterator it = arrayEquipamento.iterator();
+            while(it.hasNext()){
+                if(it.next() instanceof Arma){
+                    System.out.println("arma");
+                    Arma arma = (Arma) it.next();
+                    modelo.addRow(new Object[]{arma.getNome(), arma.getLvl(), arma.getDano(), arma.getValorCompra()});
+                } else if(it.next() instanceof Armadura){
+                    System.out.println("armor");
+                    Armadura armor = (Armadura) it.next();
+                    modelo2.addRow(new Object[]{armor.getNome(), armor.getLvl(), armor.getProtecao(), armor.getValorCompra()});
+                } else if(it.next() instanceof Itens){
+                    Itens item = (Itens) it.next();
+                    modelo3.addRow(new Object[]{item.getNome(), item.getEficiencia().getEficiencia(), item.getQuantidade(), item.getValorCompra()});
+                }
+                
+            }
+        }*/
+        
         if(tabelaArmas.getModel() instanceof DefaultTableModel){
-            Iterator itArma = arrayArmas.iterator();
-            while(itArma.hasNext()){
-                Arma arma = (Arma) itArma.next();
-                modelo.addRow(new Object[]{arma.getNome(), arma.getLvl(), arma.getDano(), arma.getValorCompra()});
+            Iterator it = arrayEquipamento.iterator();
+            while(it.hasNext()){
+                Equipamento equip = (Equipamento) it.next();
+                modelo.addRow(new Object[]{equip.getNome(), equip.getLvl(), equip.getPropriedade(), equip.getValorCompra()});
             }
         }
         
-        if(tabelaEquip.getModel() instanceof DefaultTableModel){
+        if(tabelaItens.getModel() instanceof DefaultTableModel){
+            Iterator itItens = arrayItens.iterator();
+            while(itItens.hasNext()){
+                Itens itens = (Itens) itItens.next();
+                modelo3.addRow(new Object[]{itens.getTipo(), itens.getEficiencia(), itens.getQuantidade(), itens.getValorCompra()});
+            }
+        }    
+        /*if(tabelaEquip.getModel() instanceof DefaultTableModel){
             Iterator itArmadura = arrayArmadura.iterator();
             while(itArmadura.hasNext()){
                 Armadura armor = (Armadura) itArmadura.next();
@@ -71,7 +106,7 @@ public class TelaLoja extends javax.swing.JFrame {
                 Itens itens = (Itens) itItens.next();
                 modelo.addRow(new Object[]{itens.getTipo(), itens.getEficiencia(), itens.getQuantidade(), itens.getValorCompra()});
             }
-        }
+        }*/
         
 
     }
@@ -87,14 +122,11 @@ public class TelaLoja extends javax.swing.JFrame {
 
         jScrollPane3 = new javax.swing.JScrollPane();
         tabelaItens = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabelaEquip = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaArmas = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         labelValor = new javax.swing.JLabel();
         labelArmas = new javax.swing.JLabel();
-        labelEquip = new javax.swing.JLabel();
         LabelPots = new javax.swing.JLabel();
         botaoSair = new javax.swing.JButton();
         labelVendedor = new javax.swing.JLabel();
@@ -122,23 +154,7 @@ public class TelaLoja extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tabelaItens);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(640, 80, 350, 230);
-
-        tabelaEquip.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(tabelaEquip);
-
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(10, 350, 310, 230);
+        jScrollPane3.setBounds(500, 80, 490, 300);
 
         tabelaArmas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -164,7 +180,7 @@ public class TelaLoja extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaArmas);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 80, 310, 230);
+        jScrollPane1.setBounds(10, 80, 450, 310);
 
         jLabel2.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
         jLabel2.setText("Seja-Bem Vindo a loja");
@@ -181,12 +197,6 @@ public class TelaLoja extends javax.swing.JFrame {
         labelArmas.setText("Armas");
         getContentPane().add(labelArmas);
         labelArmas.setBounds(150, 40, 70, 40);
-
-        labelEquip.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        labelEquip.setForeground(new java.awt.Color(255, 255, 255));
-        labelEquip.setText("Equipamento");
-        getContentPane().add(labelEquip);
-        labelEquip.setBounds(120, 320, 100, 20);
 
         LabelPots.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         LabelPots.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,7 +216,7 @@ public class TelaLoja extends javax.swing.JFrame {
         labelVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo (1).png"))); // NOI18N
         labelVendedor.setText("jLabel1");
         getContentPane().add(labelVendedor);
-        labelVendedor.setBounds(370, 150, 220, 390);
+        labelVendedor.setBounds(350, 230, 220, 390);
 
         botaoComprar.setText("Comprar");
         getContentPane().add(botaoComprar);
@@ -216,7 +226,7 @@ public class TelaLoja extends javax.swing.JFrame {
         labelFalaVendedor.setForeground(new java.awt.Color(255, 255, 255));
         labelFalaVendedor.setText("Ta precisando de que mermão?");
         getContentPane().add(labelFalaVendedor);
-        labelFalaVendedor.setBounds(330, 134, 260, 20);
+        labelFalaVendedor.setBounds(280, 420, 260, 20);
 
         labelImgFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fundo_loja.jpg"))); // NOI18N
         getContentPane().add(labelImgFundo);
@@ -249,7 +259,7 @@ public class TelaLoja extends javax.swing.JFrame {
 
         if(tabelaArmas.getSelectedRow() != -1){
             int index = tabelaArmas.getSelectedRow();
-            valortotal = valortotal + arrayArmas.get(index).getValorCompra();
+            valortotal = valortotal + arrayEquipamento.get(index).getValorCompra();
             labelValor.setText("" + valortotal);
         } 
     }//GEN-LAST:event_tabelaArmasMouseClicked
@@ -302,16 +312,13 @@ public class TelaLoja extends javax.swing.JFrame {
     private javax.swing.JButton botaoSair;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelArmas;
-    private javax.swing.JLabel labelEquip;
     private javax.swing.JLabel labelFalaVendedor;
     private javax.swing.JLabel labelImgFundo;
     private javax.swing.JLabel labelValor;
     private javax.swing.JLabel labelVendedor;
     private javax.swing.JTable tabelaArmas;
-    private javax.swing.JTable tabelaEquip;
     private javax.swing.JTable tabelaItens;
     // End of variables declaration//GEN-END:variables
 }

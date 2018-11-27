@@ -41,7 +41,7 @@ public class Monstro extends Ser{
             peito = new Peitoral(this.lvl);
             bota = new Grevas(this.lvl);
 
-            atk = arma.getDano() + forca;
+            atk = arma.getPropriedade() + forca;
 
             
             status = EnumStatus.NORMAL;
