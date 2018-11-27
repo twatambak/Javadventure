@@ -41,7 +41,7 @@ public class TelaLoja extends javax.swing.JFrame {
 
         DefaultTableModel modelo = new DefaultTableModel(
             new Object [][]{},
-            new String[] {"Nome", "Lvl", "Dano", "Preço"}
+            new String[] {"Nome", "Lvl", "Dano/Defesa", "Preço"}
         );
         DefaultTableModel modelo2 = new DefaultTableModel(
             new Object [][]{},
@@ -151,10 +151,15 @@ public class TelaLoja extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelaItens.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaItens(evt);
+            }
+        });
         jScrollPane3.setViewportView(tabelaItens);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(500, 80, 490, 300);
+        jScrollPane3.setBounds(540, 80, 450, 300);
 
         tabelaArmas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -180,7 +185,7 @@ public class TelaLoja extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaArmas);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 80, 450, 310);
+        jScrollPane1.setBounds(10, 80, 390, 310);
 
         jLabel2.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
         jLabel2.setText("Seja-Bem Vindo a loja");
@@ -188,21 +193,22 @@ public class TelaLoja extends javax.swing.JFrame {
         jLabel2.setBounds(380, 0, 260, 40);
 
         labelValor.setFont(new java.awt.Font("Tahoma", 0, 60)); // NOI18N
+        labelValor.setForeground(new java.awt.Color(255, 255, 255));
         labelValor.setText("0");
         getContentPane().add(labelValor);
         labelValor.setBounds(880, 490, 120, 50);
 
         labelArmas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelArmas.setForeground(new java.awt.Color(255, 255, 255));
-        labelArmas.setText("Armas");
+        labelArmas.setText("Equipamento");
         getContentPane().add(labelArmas);
-        labelArmas.setBounds(150, 40, 70, 40);
+        labelArmas.setBounds(170, 40, 90, 40);
 
         LabelPots.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         LabelPots.setForeground(new java.awt.Color(255, 255, 255));
         LabelPots.setText("Poções");
         getContentPane().add(LabelPots);
-        LabelPots.setBounds(800, 40, 70, 40);
+        LabelPots.setBounds(760, 40, 70, 40);
 
         botaoSair.setText("Sair");
         botaoSair.addActionListener(new java.awt.event.ActionListener() {
@@ -220,13 +226,13 @@ public class TelaLoja extends javax.swing.JFrame {
 
         botaoComprar.setText("Comprar");
         getContentPane().add(botaoComprar);
-        botaoComprar.setBounds(860, 580, 73, 23);
+        botaoComprar.setBounds(860, 580, 80, 23);
 
         labelFalaVendedor.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         labelFalaVendedor.setForeground(new java.awt.Color(255, 255, 255));
         labelFalaVendedor.setText("Ta precisando de que mermão?");
         getContentPane().add(labelFalaVendedor);
-        labelFalaVendedor.setBounds(280, 420, 260, 20);
+        labelFalaVendedor.setBounds(340, 590, 260, 20);
 
         labelImgFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fundo_loja.jpg"))); // NOI18N
         getContentPane().add(labelImgFundo);
@@ -270,6 +276,15 @@ public class TelaLoja extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Volte Sempre!");
         this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
+
+    private void tabelaItens(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaItens
+        valortotal = 0;
+        if(tabelaItens.getSelectedRow() != -1){
+            int index = tabelaItens.getSelectedRow();
+            valortotal = valortotal + arrayItens.get(index).getValorCompra();
+            labelValor.setText("" + valortotal);
+        }
+    }//GEN-LAST:event_tabelaItens
 
     /**
      * @param args the command line arguments
