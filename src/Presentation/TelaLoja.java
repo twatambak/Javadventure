@@ -212,11 +212,11 @@ public class TelaLoja extends javax.swing.JFrame {
         getContentPane().add(botaoComprar);
         botaoComprar.setBounds(860, 580, 73, 23);
 
-        labelFalaVendedor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelFalaVendedor.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         labelFalaVendedor.setForeground(new java.awt.Color(255, 255, 255));
         labelFalaVendedor.setText("Ta precisando de que mermão?");
         getContentPane().add(labelFalaVendedor);
-        labelFalaVendedor.setBounds(380, 140, 220, 14);
+        labelFalaVendedor.setBounds(330, 134, 260, 20);
 
         labelImgFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fundo_loja.jpg"))); // NOI18N
         getContentPane().add(labelImgFundo);

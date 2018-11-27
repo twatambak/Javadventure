@@ -81,6 +81,7 @@ public class TelaInventario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelImgFundo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaArma = new javax.swing.JTable();
@@ -96,6 +97,10 @@ public class TelaInventario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+
+        labelImgFundo.setText("jLabel2");
+        getContentPane().add(labelImgFundo);
+        labelImgFundo.setBounds(0, 0, 880, 520);
 
         jLabel1.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
         jLabel1.setText("Inventario");
@@ -144,6 +149,11 @@ public class TelaInventario extends javax.swing.JFrame {
         labelBota.setBounds(540, 370, 100, 20);
 
         botaoExcluir.setText("Excluir");
+        botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirActionPerformed(evt);
+            }
+        });
         getContentPane().add(botaoExcluir);
         botaoExcluir.setBounds(330, 460, 100, 40);
 
@@ -191,6 +201,13 @@ public class TelaInventario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tabelaArmaMouseClicked
 
+    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
+        int i = tabelaArma.getSelectedRow();
+        //chama o array com .remove
+        //fecha a tela
+        //abre a tela
+    }//GEN-LAST:event_botaoExcluirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -235,6 +252,7 @@ public class TelaInventario extends javax.swing.JFrame {
     private javax.swing.JLabel labelArma;
     private javax.swing.JLabel labelBota;
     private javax.swing.JLabel labelElmo;
+    private javax.swing.JLabel labelImgFundo;
     private javax.swing.JLabel labelPeito;
     private javax.swing.JTable tabelaArma;
     private javax.swing.JTable tabelaEquipamento;
