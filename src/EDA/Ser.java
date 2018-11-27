@@ -300,6 +300,7 @@ abstract class Ser {
  //========== Métodos ==========================================================
     
     public void atacar(Ser inimigo){
+        this.setDefesa(false);
         int hpInimigo = inimigo.getHp();
         Random x = new Random();
         
@@ -377,6 +378,7 @@ abstract class Ser {
     }
     
     public boolean fugir(Ser inimigo){
+        this.setDefesa(false);
         if(this.getDestreza() > inimigo.getDestreza()){
             return true;
         } else {

@@ -184,10 +184,10 @@ public class TelaInventario extends javax.swing.JFrame {
 
     private void tabelaArmaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaArmaMouseClicked
         if(tabelaArma.getSelectedRow() != -1){
-            Armadura delete;
+            /*Armadura delete;
             int index = tabelaEquipamento.getSelectedRow();
-            delete = delete + arrayEquipamento
-            labelValor.setText("" + valortotal);
+            delete = delete + arrayEquipamento;
+            labelValor.setText("" + valortotal);*/
         }
     }//GEN-LAST:event_tabelaArmaMouseClicked
 

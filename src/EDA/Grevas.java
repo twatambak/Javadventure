@@ -36,26 +36,8 @@ public class Grevas extends Armadura{
                 String nomeS = leitor.next();
                 arrayGrevas.add(nomeS);
             }
-                
-            try {
-                if(this.lvl <= 0 && this.lvl <= 9){
-                    this.nome = arrayGrevas.get(x.nextInt(10));
-                } else if(this.lvl <= 10 && this.lvl <= 19){
-                    this.nome = arrayGrevas.get(x.nextInt(10) + 10);
-                } else if(this.lvl <= 20 && this.lvl <= 29){
-                    this.nome = arrayGrevas.get(x.nextInt(10) + 20);
-                } else if(this.lvl <= 30 && this.lvl <= 39){
-                    this.nome = arrayGrevas.get(x.nextInt(10) + 30);
-                } else if(this.lvl <= 40 && this.lvl <= 49){
-                    this.nome = arrayGrevas.get(x.nextInt(10) + 40);
-                } else {
-                    this.nome = "Grevas do desconhecido";
-                }
-            } catch (IndexOutOfBoundsException e) {
-                JOptionPane.showMessageDialog(null, "Erro crítico. Falha na integridade dos arquivos.", "Algo de errado não está certo", JOptionPane.ERROR_MESSAGE);
-            }
         } catch (HeadlessException | FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Erro crítico. Falha na integridade dos arquivos.", "Algo de errado não está certo", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro crítico. Falha na integridade dos arquivos.", "Algo de errado não está certo nas Grevas", JOptionPane.ERROR_MESSAGE);
         }
     }
     
