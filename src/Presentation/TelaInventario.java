@@ -1,21 +1,75 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Presentation;
+
+import Business.BusinessFacade;
+import EDA.Arma;
+import EDA.Armadura;
+import EDA.Equipamento;
+import EDA.Itens;
+import EDA.Personagem;
+import EDA.Usuario;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author pixel
  */
 public class TelaInventario extends javax.swing.JFrame {
-
+    Usuario usuarioLogado = BusinessFacade.getUsuarioLogado();
+    Personagem personagem = usuarioLogado.getPersonagem();
     /**
      * Creates new form TelaInventario
      */
     public TelaInventario() {
         initComponents();
+        ArrayList<Armadura> arrayArmadura = new ArrayList<>();
+        
+        labelArma.setText(personagem.getArma().getNome());
+        labelElmo.setText(personagem.getElmo().getNome());
+        labelPeito.setText(personagem.getPeito().getNome());
+        labelBota.setText(personagem.getBota().getNome());
+        DefaultTableModel modelo = new DefaultTableModel(
+            new Object [][]{},
+            new String []{"Nome", "Lvl", "Dano", "Preço"}
+        );
+        DefaultTableModel modelo2 = new DefaultTableModel(
+            new Object [][]{},
+            new String[] {"Nome", "Lvl", "Proteçao", "Preço"}
+        );
+        DefaultTableModel modelo3 = new DefaultTableModel(
+            new Object [][]{},
+            new String[] {"Tipo", "Eficiencia", "Quantidade", "Preço"}
+        );
+        
+        tabelaArma.setModel(modelo);
+        tabelaEquipamento.setModel(modelo2);
+        tabelaPoção.setModel(modelo3);
+        
+        if(tabelaArma.getModel() instanceof DefaultTableModel){
+            Iterator it = personagem.getInventario().iterator();
+            while(it.hasNext()){
+                Arma perso = (Arma) it.next();
+                modelo.addRow(new Object[]{perso.getNome(), perso.getLvl(), 
+                              perso.getDano(), perso.getValorCompra()});
+            }
+        }
+        
+        if(tabelaEquipamento.getModel() instanceof DefaultTableModel){
+            Iterator itArmadura = personagem.getInventario().iterator();
+            while(itArmadura.hasNext()){
+                Armadura armor = (Armadura) itArmadura.next();
+                modelo.addRow(new Object[]{armor.getNome(), armor.getLvl(), armor.getProtecao(), armor.getValorCompra()});
+            }
+        }
+        
+        if(tabelaPoção.getModel() instanceof DefaultTableModel){
+            Iterator itItens = personagem.getInventario().iterator();
+            while(itItens.hasNext()){
+                Itens itens = (Itens) itItens.next();
+                modelo.addRow(new Object[]{itens.getTipo(), itens.getEficiencia(), itens.getQuantidade(), itens.getValorCompra()});
+            }
+        }
     }
 
     /**
@@ -27,21 +81,115 @@ public class TelaInventario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaArma = new javax.swing.JTable();
+        labelArma = new javax.swing.JLabel();
+        labelElmo = new javax.swing.JLabel();
+        labelPeito = new javax.swing.JLabel();
+        labelBota = new javax.swing.JLabel();
+        botaoExcluir = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabelaEquipamento = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tabelaPoção = new javax.swing.JTable();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 652, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
+        jLabel1.setText("Inventario");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(280, 0, 100, 40);
+
+        tabelaArma.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tabelaArma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaArmaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabelaArma);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(0, 40, 330, 240);
+
+        labelArma.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelArma.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(labelArma);
+        labelArma.setBounds(570, 280, 70, 20);
+
+        labelElmo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelElmo.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(labelElmo);
+        labelElmo.setBounds(570, 310, 70, 20);
+
+        labelPeito.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelPeito.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(labelPeito);
+        labelPeito.setBounds(530, 340, 110, 20);
+
+        labelBota.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        labelBota.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(labelBota);
+        labelBota.setBounds(540, 370, 100, 20);
+
+        botaoExcluir.setText("Excluir");
+        getContentPane().add(botaoExcluir);
+        botaoExcluir.setBounds(330, 460, 100, 40);
+
+        tabelaEquipamento.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tabelaEquipamento);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(10, 280, 320, 220);
+
+        tabelaPoção.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tabelaPoção);
+
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(330, 40, 310, 240);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tabelaArmaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaArmaMouseClicked
+        if(tabelaArma.getSelectedRow() != -1){
+            Armadura delete;
+            int index = tabelaEquipamento.getSelectedRow();
+            delete = delete + arrayEquipamento
+            labelValor.setText("" + valortotal);
+        }
+    }//GEN-LAST:event_tabelaArmaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -79,5 +227,17 @@ public class TelaInventario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoExcluir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel labelArma;
+    private javax.swing.JLabel labelBota;
+    private javax.swing.JLabel labelElmo;
+    private javax.swing.JLabel labelPeito;
+    private javax.swing.JTable tabelaArma;
+    private javax.swing.JTable tabelaEquipamento;
+    private javax.swing.JTable tabelaPoção;
     // End of variables declaration//GEN-END:variables
 }
