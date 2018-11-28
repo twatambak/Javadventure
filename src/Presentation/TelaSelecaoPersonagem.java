@@ -133,7 +133,7 @@ public class TelaSelecaoPersonagem extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCriarActionPerformed
 
     private void buttonComecarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonComecarActionPerformed
-        TelaMundo tela = new TelaMundo();
+        TelaMundo tela = new TelaMundo(0,0);
         Main.abrir(tela);
         this.dispose();
     }//GEN-LAST:event_buttonComecarActionPerformed

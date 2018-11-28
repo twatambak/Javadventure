@@ -5,6 +5,7 @@ import Business.BusinessFacade;
 import EDA.Monstro;
 import EDA.Personagem;
 import EDA.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,12 +13,16 @@ import EDA.Usuario;
  */
 public class TelaBatalha extends javax.swing.JFrame {
     Monstro monstro;
+    int xPlayer;
+    int yPlayer;
     Usuario usuarioLogado = BusinessFacade.getUsuarioLogado();
     Personagem personagem = usuarioLogado.getPersonagem();
 
-    public TelaBatalha(Monstro monstro) {
+    public TelaBatalha(Monstro monstro, int xPlayer, int yPlayer) {
         initComponents();
         this.monstro = monstro;
+        this.xPlayer = xPlayer;
+        this.yPlayer = yPlayer;
         barraHP.setValue(personagem.getHp());
         if(this.monstro.getNome().contains("Terminator")){
             labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png")));
@@ -27,7 +32,16 @@ public class TelaBatalha extends javax.swing.JFrame {
             labelFala.setText("Rarharhahhrara");
         } else if(this.monstro.getNome().contains("sasuke")){
             labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sasuke.png")));
-            labelFala.setText("VEM ME DAR CABEÇADAAAAAAAAA");
+            labelFala.setText("ME DA CABEÇADAAAAAAAAA");
+        } else if(this.monstro.getNome().contains("sakura")){
+            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sakura.png")));
+            labelFala.setText("Eu tô de boa");
+        } else if(this.monstro.getNome().contains("naruto")){
+            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/naruto.png")));
+            labelFala.setText("Ela deu uma cabeçada nele");
+        } else if(this.monstro.getNome().contains("Esqueleto")){
+            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/esqueleto.GIF")));
+            labelFala.setText("CAI PRO PAU OTACO FEDIDO");
         }
     }
 
@@ -61,7 +75,7 @@ public class TelaBatalha extends javax.swing.JFrame {
 
         labelInfoHP.setText("HP:");
         getContentPane().add(labelInfoHP);
-        labelInfoHP.setBounds(20, 460, 17, 14);
+        labelInfoHP.setBounds(20, 460, 30, 20);
 
         buttonDefender.setText("Defender");
         buttonDefender.addActionListener(new java.awt.event.ActionListener() {
@@ -101,12 +115,17 @@ public class TelaBatalha extends javax.swing.JFrame {
 
         barraHP.setBackground(new java.awt.Color(0, 0, 0));
         barraHP.setForeground(new java.awt.Color(153, 0, 0));
+        barraHP.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                barraHPPropertyChange(evt);
+            }
+        });
         getContentPane().add(barraHP);
-        barraHP.setBounds(40, 460, 146, 20);
+        barraHP.setBounds(50, 460, 146, 20);
 
-        labelFala.setFont(new java.awt.Font("Chiller", 0, 48)); // NOI18N
+        labelFala.setFont(new java.awt.Font("Coolvetica Rg", 0, 48)); // NOI18N
         labelFala.setForeground(new java.awt.Color(255, 255, 255));
-        labelFala.setText("Vem pro pau cuzão");
+        labelFala.setText("Vem pro pau");
         getContentPane().add(labelFala);
         labelFala.setBounds(10, 10, 640, 50);
 
@@ -135,23 +154,62 @@ public class TelaBatalha extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonPocaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPocaoActionPerformed
-        // TODO add your handling code here:
+        if(personagem.getQtdPot() > 0 && personagem.getHp() < personagem.getHpMaximo()){
+            personagem.setHp(personagem.getHp() + 100);
+            personagem.setQtdPot(personagem.getQtdPot() - 1);
+        }
     }//GEN-LAST:event_buttonPocaoActionPerformed
 
     private void buttonAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAtacarActionPerformed
-        personagem.atacar(monstro);
-        monstro.turno(personagem);
+        if(personagem.getHp() <= 0){
+           JOptionPane.showMessageDialog(null, "Você morreu. Fim de jogo parceiro.", "Cabô-se", JOptionPane.PLAIN_MESSAGE);
+           TelaSelecaoPersonagem tela = new TelaSelecaoPersonagem();
+           Main.abrir(tela);
+           this.dispose();
+       } else if(monstro.getHp() <= 0){
+           JOptionPane.showMessageDialog(null, "Você matou " + monstro.getNome() + ". Você ganhou " + monstro.getXpDrop() + " de XP e " + monstro.getCoinDrop() + " de moedas.", "Cabô-se", JOptionPane.PLAIN_MESSAGE);
+           personagem.setDinheiro(personagem.getDinheiro() + monstro.getCoinDrop());
+           personagem.setXp(personagem.getXp() + monstro.getXpDrop());
+            TelaMundo tela = new TelaMundo(xPlayer, yPlayer);
+            Main.abrir(tela);
+            this.dispose();
+       } else {
+            personagem.atacar(monstro);
+            monstro.turno(personagem);
+            barraHP.setValue(personagem.getHp());
+       }
     }//GEN-LAST:event_buttonAtacarActionPerformed
 
     private void buttonDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDefenderActionPerformed
-        personagem.setDefesa(true);
+        if(personagem.getHp() <= 0){
+           JOptionPane.showMessageDialog(null, "Você morreu. Fim de jogo parceiro.", "Cabô-se", JOptionPane.PLAIN_MESSAGE);
+           TelaSelecaoPersonagem tela = new TelaSelecaoPersonagem();
+           Main.abrir(tela);
+           this.dispose();
+       } else if(monstro.getHp() <= 0){
+           JOptionPane.showMessageDialog(null, "Você matou " + monstro.getNome() + ". Você ganhou " + monstro.getXpDrop() + " de XP e " + monstro.getCoinDrop() + " de moedas.", "Cabô-se", JOptionPane.PLAIN_MESSAGE);
+           personagem.setDinheiro(personagem.getDinheiro() + monstro.getCoinDrop());
+           personagem.setXp(personagem.getXp() + monstro.getXpDrop());
+            TelaMundo tela = new TelaMundo(xPlayer, yPlayer);
+            Main.abrir(tela);
+            this.dispose();
+       } else {
+            personagem.setDefesa(true);
+            monstro.turno(personagem);
+            barraHP.setValue(personagem.getHp());
+       }
+        
     }//GEN-LAST:event_buttonDefenderActionPerformed
 
     private void buttonFugirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFugirActionPerformed
-        TelaMundo tela = new TelaMundo();
+        TelaMundo tela = new TelaMundo(xPlayer, yPlayer);
         Main.abrir(tela);
         this.dispose();
     }//GEN-LAST:event_buttonFugirActionPerformed
+
+    private void barraHPPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_barraHPPropertyChange
+
+    }//GEN-LAST:event_barraHPPropertyChange
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background1;

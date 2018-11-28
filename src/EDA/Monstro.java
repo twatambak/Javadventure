@@ -25,13 +25,13 @@ public class Monstro extends Ser{
         
             lvl = x.nextInt(level + 5) + 1;
 
-            forca = x.nextInt(lvl * 2) + 1;
-            destreza = x.nextInt(lvl * 2) + 1;
-            vitalidade = x.nextInt(lvl * 2) + 1;
-            inteligencia = x.nextInt(lvl * 2) + 1;
-            hp = vitalidade * 100;
+            forca = x.nextInt(lvl) + 1;
+            destreza = x.nextInt(lvl) + 1;
+            vitalidade = x.nextInt(lvl) + 1;
+            inteligencia = x.nextInt(lvl) + 1;
+            hp = vitalidade * 10;
 
-            xpDrop = lvl + forca + destreza + vitalidade + inteligencia;
+            xpDrop = lvl * (forca + destreza + vitalidade + inteligencia);
             coinDrop = lvl * 10;
 
             defesa = false;

@@ -24,7 +24,7 @@ public class Batalha {
     }
 
     /**
-     * @param desafiante the desafiante to set
+     * @param jogador
      */
     public void setJogador(Ser jogador) {
         this.jogador = jogador;
@@ -48,8 +48,12 @@ public class Batalha {
     
 //========== Métodos ===========================================================
 
-    public Ser batalha(){
-        return monstro;
-    }
+    public static void batalhaAtacar(){
         
+    }
+    
+    public static void batalhaDefender(){
+        
+    }
+    
 }

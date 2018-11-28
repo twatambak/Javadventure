@@ -36,6 +36,8 @@ public class Peitoral extends Armadura{
                 String nomeS = leitor.next();
                 arrayPeitorais.add(nomeS);
             }
+            
+            this.nome = arrayPeitorais.get(x.nextInt(arrayPeitorais.size()));
 
         } catch (HeadlessException | FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Erro crítico. Falha na integridade dos arquivos.", "Algo de errado não está certo no Peitoral", JOptionPane.ERROR_MESSAGE);

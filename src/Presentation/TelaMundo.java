@@ -7,6 +7,7 @@ import EDA.Personagem;
 import EDA.Usuario;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
+import java.util.Random;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
@@ -27,25 +28,25 @@ public class TelaMundo extends javax.swing.JFrame {
     String esquerda = "esquerda";
     String direita = "direita";
     
-    public TelaMundo() {
+    public TelaMundo(int x, int y) {
         initComponents();
-        
-        
-        
+        this.setFocusable(true);
+        player.setLocation(x, y);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonStatus = new javax.swing.JButton();
+        buttonInvent = new javax.swing.JButton();
+        buttonLoja = new javax.swing.JButton();
         player = new javax.swing.JLabel();
-        vendedor = new javax.swing.JLabel();
-        monstro = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(700, 500));
-        setPreferredSize(new java.awt.Dimension(700, 500));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
@@ -53,9 +54,38 @@ public class TelaMundo extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
+        buttonStatus.setText("Checar status");
+        buttonStatus.setFocusable(false);
+        buttonStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonStatusActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonStatus);
+        buttonStatus.setBounds(1130, 660, 120, 23);
+
+        buttonInvent.setText("Inventário");
+        buttonInvent.setFocusable(false);
+        buttonInvent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonInventActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonInvent);
+        buttonInvent.setBounds(1130, 620, 120, 23);
+
+        buttonLoja.setText("Loja");
+        buttonLoja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLojaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonLoja);
+        buttonLoja.setBounds(1130, 580, 120, 23);
+
         player.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
         player.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        player.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/persongaem.png"))); // NOI18N
+        player.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/personagem.png"))); // NOI18N
         player.setFocusable(false);
         player.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -63,20 +93,10 @@ public class TelaMundo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(player);
-        player.setBounds(120, 150, 70, 140);
-
-        vendedor.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
-        vendedor.setText("]");
-        getContentPane().add(vendedor);
-        vendedor.setBounds(490, 250, 110, 160);
-
-        monstro.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
-        monstro.setText("[");
-        getContentPane().add(monstro);
-        monstro.setBounds(310, 100, 109, 150);
+        player.setBounds(600, 440, 120, 260);
 
         background.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/capivara.jpg"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Wall2 clone (3).png"))); // NOI18N
         background.setToolTipText("");
         background.setFocusable(false);
         background.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -85,7 +105,7 @@ public class TelaMundo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(background);
-        background.setBounds(-100, 0, 860, 570);
+        background.setBounds(0, -10, 1380, 730);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,22 +145,49 @@ public class TelaMundo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_playerKeyPressed
 
+    private void buttonStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStatusActionPerformed
+       TelaStatus tela = new TelaStatus(player.getX(), player.getY());
+       Main.abrir(tela);
+       this.dispose();
+    }//GEN-LAST:event_buttonStatusActionPerformed
+
+    private void buttonInventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInventActionPerformed
+       TelaInventario tela = new TelaInventario(player.getX(), player.getY());
+       Main.abrir(tela);
+       this.dispose();
+    }//GEN-LAST:event_buttonInventActionPerformed
+
+    private void buttonLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLojaActionPerformed
+        TelaLoja tela = new TelaLoja(player.getX(), player.getY());
+        Main.abrir(tela);
+        this.dispose();
+    }//GEN-LAST:event_buttonLojaActionPerformed
+
     public void encontroBatalha(){
-        
-        if(player.getX() == monstro.getX() - 5 || player.getX() == monstro.getX() - 4 || player.getX() == monstro.getX() - 3 || player.getX() == monstro.getX() - 2 || player.getX() == monstro.getX() - 1 || player.getY() == monstro.getY() - 5 || player.getY() == monstro.getY() - 4 || player.getY() == monstro.getY() - 3  || player.getY() == monstro.getY() - 2 || player.getY() == monstro.getY() - 1 || player.getX() == monstro.getX() + 5 || player.getX() == monstro.getX() + 4 || player.getX() == monstro.getX() + 3 || player.getX() == monstro.getX() + 2 || player.getX() == monstro.getX() + 1 || player.getY() == monstro.getY() + 5 || player.getY() == monstro.getY() + 4 || player.getY() == monstro.getY() + 3 || player.getY() == monstro.getY() + 2 || player.getY() == monstro.getY() + 1 || player.getY() == monstro.getY() || player.getX() == monstro.getX()){
+        Random x = new Random();
+        switch(x.nextInt(10)){
+            case 1:
+                TelaBatalha tela = new TelaBatalha(new Monstro(personagem.getLvl()), player.getX(), player.getY());
+                Main.abrir(tela);
+                this.dispose();
+            default:
+                break;
+        }
+        /*if(player.getX() == monstro.getX() - 5 || player.getX() == monstro.getX() - 4 || player.getX() == monstro.getX() - 3 || player.getX() == monstro.getX() - 2 || player.getX() == monstro.getX() - 1 || player.getY() == monstro.getY() - 5 || player.getY() == monstro.getY() - 4 || player.getY() == monstro.getY() - 3  || player.getY() == monstro.getY() - 2 || player.getY() == monstro.getY() - 1 || player.getX() == monstro.getX() + 5 || player.getX() == monstro.getX() + 4 || player.getX() == monstro.getX() + 3 || player.getX() == monstro.getX() + 2 || player.getX() == monstro.getX() + 1 || player.getY() == monstro.getY() + 5 || player.getY() == monstro.getY() + 4 || player.getY() == monstro.getY() + 3 || player.getY() == monstro.getY() + 2 || player.getY() == monstro.getY() + 1 || player.getY() == monstro.getY() || player.getX() == monstro.getX()){
             JOptionPane.showMessageDialog(null, "Fala carai");
             TelaBatalha tela = new TelaBatalha(new Monstro(personagem.getLvl()));
             Main.abrir(tela);
             this.dispose();
-        }    
+        }*/    
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JLabel monstro;
+    private javax.swing.JButton buttonInvent;
+    private javax.swing.JButton buttonLoja;
+    private javax.swing.JButton buttonStatus;
     private javax.swing.JLabel player;
-    private javax.swing.JLabel vendedor;
     // End of variables declaration//GEN-END:variables
     
 }

@@ -1,5 +1,6 @@
 package Presentation;
 
+import Business.BusinessFacade;
 import EDA.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,32 +13,21 @@ import javax.swing.table.DefaultTableModel;
  * @author Bencke
  */
 public class TelaLoja extends javax.swing.JFrame {
-    Loja lojinha = new Loja();
+    Usuario usuarioLogado = BusinessFacade.getUsuarioLogado();
+    Personagem personagem = usuarioLogado.getPersonagem();
+    Loja lojinha = new Loja(personagem);
     int valortotal = 0;
-    ArrayList<Arma> arrayArmas = new ArrayList<>();
-    ArrayList<Armadura> arrayArmadura = new ArrayList<>();
-    ArrayList<Itens> arrayItens = new ArrayList<>();
-    ArrayList<Equipamento> arrayEquipamento = new ArrayList<>();
-    
-    /**
-     * Creates new form TelaLoja
-     */
-    public TelaLoja() {
+    int xPlayer;
+    int yPlayer;
+
+
+    public TelaLoja(int xPlayer, int yPlayer) {
         initComponents();
+        labelGrana.setText("" + personagem.getDinheiro());
+        this.xPlayer = xPlayer;
+        this.yPlayer = yPlayer;
         Random x = new Random();
-        arrayEquipamento.add(new Arma(x.nextInt(40)));
-        arrayEquipamento.add(new Arma(x.nextInt(40)));
-        arrayEquipamento.add(new Arma(x.nextInt(40)));
-        arrayEquipamento.add(new Arma(x.nextInt(40)));
-        arrayEquipamento.add(new Elmo(5));
-        arrayEquipamento.add(new Elmo(5));
-        arrayEquipamento.add(new Elmo(5));
-        arrayEquipamento.add(new Elmo(5));
-        
-        arrayItens.add(new Itens());
-        arrayItens.add(new Itens());
-        arrayItens.add(new Itens());
-        arrayItens.add(new Itens());
+
 
         DefaultTableModel modelo = new DefaultTableModel(
             new Object [][]{},
@@ -77,7 +67,7 @@ public class TelaLoja extends javax.swing.JFrame {
         }*/
         
         if(tabelaArmas.getModel() instanceof DefaultTableModel){
-            Iterator it = arrayEquipamento.iterator();
+            Iterator it = lojinha.getArrayEquipamento().iterator();
             while(it.hasNext()){
                 Equipamento equip = (Equipamento) it.next();
                 modelo.addRow(new Object[]{equip.getNome(), equip.getLvl(), equip.getPropriedade(), equip.getValorCompra()});
@@ -85,7 +75,7 @@ public class TelaLoja extends javax.swing.JFrame {
         }
         
         if(tabelaItens.getModel() instanceof DefaultTableModel){
-            Iterator itItens = arrayItens.iterator();
+            Iterator itItens = lojinha.getArrayItens().iterator();
             while(itItens.hasNext()){
                 Itens itens = (Itens) itItens.next();
                 modelo3.addRow(new Object[]{itens.getTipo(), itens.getEficiencia(), itens.getQuantidade(), itens.getValorCompra()});
@@ -132,6 +122,9 @@ public class TelaLoja extends javax.swing.JFrame {
         labelVendedor = new javax.swing.JLabel();
         botaoComprar = new javax.swing.JButton();
         labelFalaVendedor = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        labelGrana = new javax.swing.JLabel();
         labelImgFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -188,6 +181,7 @@ public class TelaLoja extends javax.swing.JFrame {
         jScrollPane1.setBounds(10, 80, 390, 310);
 
         jLabel2.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Seja-Bem Vindo a loja");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(380, 0, 260, 40);
@@ -225,6 +219,11 @@ public class TelaLoja extends javax.swing.JFrame {
         labelVendedor.setBounds(350, 230, 220, 390);
 
         botaoComprar.setText("Comprar");
+        botaoComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoComprarActionPerformed(evt);
+            }
+        });
         getContentPane().add(botaoComprar);
         botaoComprar.setBounds(860, 580, 80, 23);
 
@@ -233,6 +232,24 @@ public class TelaLoja extends javax.swing.JFrame {
         labelFalaVendedor.setText("Ta precisando de que mermão?");
         getContentPane().add(labelFalaVendedor);
         labelFalaVendedor.setBounds(340, 590, 260, 20);
+
+        jLabel1.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("seu dinheiro:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(30, 420, 120, 30);
+
+        jLabel3.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Total:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(800, 510, 51, 30);
+
+        labelGrana.setFont(new java.awt.Font("Bebas Neue", 0, 18)); // NOI18N
+        labelGrana.setForeground(new java.awt.Color(255, 255, 255));
+        labelGrana.setText("0");
+        getContentPane().add(labelGrana);
+        labelGrana.setBounds(150, 424, 60, 20);
 
         labelImgFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fundo_loja.jpg"))); // NOI18N
         getContentPane().add(labelImgFundo);
@@ -265,13 +282,13 @@ public class TelaLoja extends javax.swing.JFrame {
 
         if(tabelaArmas.getSelectedRow() != -1){
             int index = tabelaArmas.getSelectedRow();
-            valortotal = valortotal + arrayEquipamento.get(index).getValorCompra();
+            valortotal = valortotal + lojinha.getIndexEquipamento(index).getValorCompra();
             labelValor.setText("" + valortotal);
         } 
     }//GEN-LAST:event_tabelaArmasMouseClicked
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        TelaMundo telaMundo = new TelaMundo();
+        TelaMundo telaMundo = new TelaMundo(xPlayer, yPlayer);
         Main.abrir(telaMundo);
         JOptionPane.showMessageDialog(null, "Volte Sempre!");
         this.dispose();
@@ -281,14 +298,29 @@ public class TelaLoja extends javax.swing.JFrame {
         valortotal = 0;
         if(tabelaItens.getSelectedRow() != -1){
             int index = tabelaItens.getSelectedRow();
-            valortotal = valortotal + arrayItens.get(index).getValorCompra();
+            valortotal = valortotal + lojinha.getIndexItens(index).getValorCompra();
             labelValor.setText("" + valortotal);
         }
     }//GEN-LAST:event_tabelaItensMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void botaoComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoComprarActionPerformed
+        if(tabelaArmas.getSelectedRow() != -1){
+            int index = tabelaArmas.getSelectedRow();
+            Equipamento aux = lojinha.getIndexEquipamento(index);
+            if(personagem.getDinheiro() >=  aux.getValorCompra()){
+                personagem.getInventario().add(aux);
+                lojinha.removeEquipamentos(index);
+                personagem.setDinheiro(personagem.getDinheiro() -  aux.getValorCompra());
+                TelaLoja tela = new TelaLoja(xPlayer, yPlayer);
+                Main.abrir(tela);
+                this.dispose();                
+            } else {
+                JOptionPane.showMessageDialog(null, "Desculpa bro mas você não tem dinheiro suficiente.", "Opa", JOptionPane.PLAIN_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_botaoComprarActionPerformed
+
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -316,7 +348,7 @@ public class TelaLoja extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLoja().setVisible(true);
+                //new TelaLoja(0, 0).setVisible(true);
             }
         });
     }
@@ -325,11 +357,14 @@ public class TelaLoja extends javax.swing.JFrame {
     private javax.swing.JLabel LabelPots;
     private javax.swing.JButton botaoComprar;
     private javax.swing.JButton botaoSair;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelArmas;
     private javax.swing.JLabel labelFalaVendedor;
+    private javax.swing.JLabel labelGrana;
     private javax.swing.JLabel labelImgFundo;
     private javax.swing.JLabel labelValor;
     private javax.swing.JLabel labelVendedor;
