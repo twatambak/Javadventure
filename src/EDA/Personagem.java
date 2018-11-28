@@ -15,7 +15,6 @@ public class Personagem extends Ser{
 
     private int skillpoints;
     private int xp;
-    private EnumClassePersonagem classe;
     private ArrayList<Equipamento> inventario = new ArrayList<>();
     
     public Personagem(String nome, int vitalidade, int inteligencia, int destreza, int forca) throws FileNotFoundException{
@@ -58,16 +57,7 @@ public class Personagem extends Ser{
 
 
 //========== Getters e Setters: Ataque =========================================
-    
-    /**
-     * Atualiza o ataque com base na Força e no dano da arma.
-     */
-    public void atualizaAtk(){
-        atk = arma.getPropriedade() + forca;
-    }
-
-//========== Getters e Setters: XP =============================================
-    
+ 
     /**
      * @return the xp
      */
@@ -120,19 +110,7 @@ public class Personagem extends Ser{
 
 //========== Métodos ===========================================================
 
-    /**
-     * @return the classe
-     */
-    public EnumClassePersonagem getClasse() {
-        return classe;
-    }
 
-    /**
-     * @param classe the classe to set
-     */
-    public void setClasse(EnumClassePersonagem classe) {
-        this.classe = classe;
-    }
 
     /**
      * @return the inventario

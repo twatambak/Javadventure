@@ -64,7 +64,5 @@ public class BusinessFacade {
         instance.registrarUsuarios();
     }
     
-    public static void batalha(Ser ser1, Ser ser2){
-        
-    }
+
 }

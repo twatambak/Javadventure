@@ -13,16 +13,13 @@ import javax.swing.table.DefaultTableModel;
  * @author Bencke
  */
 public class TelaLoja extends javax.swing.JFrame {
-    Loja lojinha = new Loja();
+    Usuario usuarioLogado = BusinessFacade.getUsuarioLogado();
+    Personagem personagem = usuarioLogado.getPersonagem();
+    Loja lojinha = new Loja(personagem);
     int valortotal = 0;
     int xPlayer;
     int yPlayer;
-    ArrayList<Arma> arrayArmas = new ArrayList<>();
-    ArrayList<Armadura> arrayArmadura = new ArrayList<>();
-    ArrayList<Itens> arrayItens = new ArrayList<>();
-    ArrayList<Equipamento> arrayEquipamento = new ArrayList<>();
-    Usuario usuarioLogado = BusinessFacade.getUsuarioLogado();
-    Personagem personagem = usuarioLogado.getPersonagem();
+
 
     public TelaLoja(int xPlayer, int yPlayer) {
         initComponents();
@@ -30,28 +27,7 @@ public class TelaLoja extends javax.swing.JFrame {
         this.xPlayer = xPlayer;
         this.yPlayer = yPlayer;
         Random x = new Random();
-        arrayEquipamento.add(new Arma(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Arma(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Arma(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Arma(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Elmo(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Elmo(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Elmo(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Elmo(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Peitoral(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Peitoral(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Peitoral(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Peitoral(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Grevas(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Grevas(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Grevas(x.nextInt(personagem.getLvl() + 10) + 1));
-        arrayEquipamento.add(new Grevas(x.nextInt(personagem.getLvl() + 10) + 1));
 
-        
-        arrayItens.add(new Itens());
-        arrayItens.add(new Itens());
-        arrayItens.add(new Itens());
-        arrayItens.add(new Itens());
 
         DefaultTableModel modelo = new DefaultTableModel(
             new Object [][]{},
@@ -91,7 +67,7 @@ public class TelaLoja extends javax.swing.JFrame {
         }*/
         
         if(tabelaArmas.getModel() instanceof DefaultTableModel){
-            Iterator it = arrayEquipamento.iterator();
+            Iterator it = lojinha.getArrayEquipamento().iterator();
             while(it.hasNext()){
                 Equipamento equip = (Equipamento) it.next();
                 modelo.addRow(new Object[]{equip.getNome(), equip.getLvl(), equip.getPropriedade(), equip.getValorCompra()});
@@ -99,7 +75,7 @@ public class TelaLoja extends javax.swing.JFrame {
         }
         
         if(tabelaItens.getModel() instanceof DefaultTableModel){
-            Iterator itItens = arrayItens.iterator();
+            Iterator itItens = lojinha.getArrayItens().iterator();
             while(itItens.hasNext()){
                 Itens itens = (Itens) itItens.next();
                 modelo3.addRow(new Object[]{itens.getTipo(), itens.getEficiencia(), itens.getQuantidade(), itens.getValorCompra()});
@@ -306,7 +282,7 @@ public class TelaLoja extends javax.swing.JFrame {
 
         if(tabelaArmas.getSelectedRow() != -1){
             int index = tabelaArmas.getSelectedRow();
-            valortotal = valortotal + arrayEquipamento.get(index).getValorCompra();
+            valortotal = valortotal + lojinha.getIndexEquipamento(index).getValorCompra();
             labelValor.setText("" + valortotal);
         } 
     }//GEN-LAST:event_tabelaArmasMouseClicked
@@ -322,7 +298,7 @@ public class TelaLoja extends javax.swing.JFrame {
         valortotal = 0;
         if(tabelaItens.getSelectedRow() != -1){
             int index = tabelaItens.getSelectedRow();
-            valortotal = valortotal + arrayItens.get(index).getValorCompra();
+            valortotal = valortotal + lojinha.getIndexItens(index).getValorCompra();
             labelValor.setText("" + valortotal);
         }
     }//GEN-LAST:event_tabelaItens
@@ -330,10 +306,10 @@ public class TelaLoja extends javax.swing.JFrame {
     private void botaoComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoComprarActionPerformed
         if(tabelaArmas.getSelectedRow() != -1){
             int index = tabelaArmas.getSelectedRow();
-            Equipamento aux = arrayEquipamento.get(index);
+            Equipamento aux = lojinha.getIndexEquipamento(index);
             if(personagem.getDinheiro() >=  aux.getValorCompra()){
                 personagem.getInventario().add(aux);
-                arrayEquipamento.remove(index);
+                lojinha.removeEquipamentos(index);
                 personagem.setDinheiro(personagem.getDinheiro() -  aux.getValorCompra());
                 TelaLoja tela = new TelaLoja(xPlayer, yPlayer);
                 Main.abrir(tela);
