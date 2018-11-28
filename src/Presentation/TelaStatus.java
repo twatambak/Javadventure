@@ -68,7 +68,7 @@ public class TelaStatus extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(520, 460));
+        setMinimumSize(new java.awt.Dimension(521, 460));
         setPreferredSize(new java.awt.Dimension(520, 460));
         getContentPane().setLayout(null);
 
@@ -179,7 +179,7 @@ public class TelaStatus extends javax.swing.JFrame {
             }
         });
         getContentPane().add(voltar);
-        voltar.setBounds(20, 410, 61, 23);
+        voltar.setBounds(20, 390, 61, 23);
 
         buttonUparFOR.setText("Upar");
         buttonUparFOR.addActionListener(new java.awt.event.ActionListener() {
