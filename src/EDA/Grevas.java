@@ -36,6 +36,9 @@ public class Grevas extends Armadura{
                 String nomeS = leitor.next();
                 arrayGrevas.add(nomeS);
             }
+            
+            this.nome = arrayGrevas.get(x.nextInt(arrayGrevas.size()));
+            
         } catch (HeadlessException | FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Erro crítico. Falha na integridade dos arquivos.", "Algo de errado não está certo nas Grevas", JOptionPane.ERROR_MESSAGE);
         }

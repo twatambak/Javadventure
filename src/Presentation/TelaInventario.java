@@ -3,8 +3,11 @@ package Presentation;
 import Business.BusinessFacade;
 import EDA.Arma;
 import EDA.Armadura;
+import EDA.Elmo;
 import EDA.Equipamento;
+import EDA.Grevas;
 import EDA.Itens;
+import EDA.Peitoral;
 import EDA.Personagem;
 import EDA.Usuario;
 import java.util.ArrayList;
@@ -234,7 +237,34 @@ public class TelaInventario extends javax.swing.JFrame {
                 TelaInventario telaIn = new TelaInventario(xPlayer, yPlayer);
                 telaIn.setVisible(true);//abre a tela
                 this.dispose();//fecha a tela
-            }    
+            } else if(personagem.getInventario().get(i) instanceof Elmo){
+                Elmo aux = personagem.getElmo();
+                Elmo novoElmo = (Elmo) personagem.getInventario().get(i);
+                personagem.setElmo(novoElmo);
+                personagem.getInventario().add(aux);
+                personagem.getInventario().remove(i);
+                TelaInventario telaIn = new TelaInventario(xPlayer, yPlayer);
+                telaIn.setVisible(true);//abre a tela
+                this.dispose();//fecha a tela
+            } else if(personagem.getInventario().get(i) instanceof Peitoral){
+                Peitoral aux = personagem.getPeito();
+                Peitoral novoPeitoral = (Peitoral) personagem.getInventario().get(i);
+                personagem.setPeito(novoPeitoral);
+                personagem.getInventario().add(aux);
+                personagem.getInventario().remove(i);
+                TelaInventario telaIn = new TelaInventario(xPlayer, yPlayer);
+                telaIn.setVisible(true);//abre a tela
+                this.dispose();//fecha a tela
+            } else if(personagem.getInventario().get(i) instanceof Grevas){
+                Grevas aux = personagem.getBota();
+                Grevas novoGrevas = (Grevas) personagem.getInventario().get(i);
+                personagem.setBota(novoGrevas);
+                personagem.getInventario().add(aux);
+                personagem.getInventario().remove(i);
+                TelaInventario telaIn = new TelaInventario(xPlayer, yPlayer);
+                telaIn.setVisible(true);//abre a tela
+                this.dispose();//fecha a tela
+            }     
                 
         }
     }//GEN-LAST:event_buttonEquiparActionPerformed
