@@ -14,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 public class TelaLoja extends javax.swing.JFrame {
     Loja lojinha = new Loja();
     int valortotal = 0;
+    int xPlayer;
+    int yPlayer;
     ArrayList<Arma> arrayArmas = new ArrayList<>();
     ArrayList<Armadura> arrayArmadura = new ArrayList<>();
     ArrayList<Itens> arrayItens = new ArrayList<>();
@@ -22,8 +24,10 @@ public class TelaLoja extends javax.swing.JFrame {
     /**
      * Creates new form TelaLoja
      */
-    public TelaLoja() {
+    public TelaLoja(int xPlayer, int yPlayer) {
         initComponents();
+        this.xPlayer = xPlayer;
+        this.yPlayer = yPlayer;
         Random x = new Random();
         arrayEquipamento.add(new Arma(x.nextInt(40)));
         arrayEquipamento.add(new Arma(x.nextInt(40)));
@@ -271,7 +275,7 @@ public class TelaLoja extends javax.swing.JFrame {
     }//GEN-LAST:event_tabelaArmasMouseClicked
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        TelaMundo telaMundo = new TelaMundo();
+        TelaMundo telaMundo = new TelaMundo(xPlayer, yPlayer);
         Main.abrir(telaMundo);
         JOptionPane.showMessageDialog(null, "Volte Sempre!");
         this.dispose();
@@ -286,9 +290,7 @@ public class TelaLoja extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tabelaItens
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -316,7 +318,7 @@ public class TelaLoja extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLoja().setVisible(true);
+                //new TelaLoja(xPlayer, yPlayer).setVisible(true);
             }
         });
     }

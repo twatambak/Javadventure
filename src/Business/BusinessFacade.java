@@ -4,6 +4,7 @@ package Business;
 import DAO.DAOInterface;
 import DAO.DAOMemory;
 import EDA.Usuario;
+import EDA.Ser;
 import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
 
@@ -61,5 +62,9 @@ public class BusinessFacade {
     
     public static void atualizarRegistros(){
         instance.registrarUsuarios();
+    }
+    
+    public static void batalha(Ser ser1, Ser ser2){
+        
     }
 }

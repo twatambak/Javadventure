@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
 
-abstract class Ser {
+public abstract class Ser {
     String nome;
     int lvl;
     int atk;
@@ -300,76 +300,82 @@ abstract class Ser {
  //========== Métodos ==========================================================
     
     public void atacar(Ser inimigo){
+        Random x = new Random();
         this.setDefesa(false);
         int hpInimigo = inimigo.getHp();
-        Random x = new Random();
-        
-        if(inimigo.isDefesa()){
-            if(null != EnumParteCorpo.aleatoriza(x.nextInt(3))){
-                switch (EnumParteCorpo.aleatoriza(x.nextInt(5))) {
-                    case CABECA:
-                        inimigo.setHp(hpInimigo - this.getAtk() * 2);
-                        break;
-                    case TORSO:
-                        inimigo.setHp(hpInimigo - this.getAtk());
-                        break;
-                    case PERNAS:
-                        inimigo.setHp(hpInimigo - this.getAtk() / 2);
-                        break;
-                    default:
-                        break;
-                }        
-            }
-
-            if(null != this.getArma().getTipo()){
-                switch (this.getArma().getTipo()) {
-                    case CONTUNDENTE:
-                        switch(x.nextInt(5)){
-                            case 1:
-                                inimigo.setStatus(EnumStatus.ATORDOADO);
-                                break;
-                            case 2:
-                                break;
-                            case 3:
-                                break;
-                            default:
-                                break;
-                            }   
-                        break;
-                    case PERFURANTE:
-                        switch(x.nextInt(5)){
-                            case 1:
-                                inimigo.setStatus(EnumStatus.SANGRANDO);
-                                break;
-                            case 2:
-                                break;
-                            case 3:
-                                break;
-                            default:
-                                break;
-                            }
-                        break;
-                    case CORTANTE:
-                        switch(x.nextInt(5)){
-                            case 1:
-                                inimigo.setStatus(EnumStatus.SANGRANDO);
-                                break;
-                            case 2:
-                                break;
-                            case 3:
-                                break;
-                            default:
-                                break;
-                            }
-                        break;
-                    default:
-                        break;
+        int hpt = inimigo.getHp();
+        if(inimigo.getHp() > 0){
+            if(inimigo.isDefesa() == false){
+                if(null != EnumParteCorpo.aleatoriza(x.nextInt(3))){
+                    switch (EnumParteCorpo.aleatoriza(x.nextInt(5))) {
+                        case CABECA:
+                            inimigo.setHp(hpInimigo - this.getAtk() * 2);
+                            JOptionPane.showMessageDialog(null, "O pobre " + inimigo.getNome() + " foi atingido e recebeu " + (hpt - inimigo.getHp()), "ATAQUE", JOptionPane.PLAIN_MESSAGE);
+                            break;
+                        case TORSO:
+                            inimigo.setHp(hpInimigo - this.getAtk());
+                            JOptionPane.showMessageDialog(null, "O pobre " + inimigo.getNome() + " foi atingido e recebeu " + (hpt - inimigo.getHp()), "ATAQUE", JOptionPane.PLAIN_MESSAGE);
+                            break;
+                        case PERNAS:
+                            inimigo.setHp(hpInimigo - this.getAtk() / 2);
+                            JOptionPane.showMessageDialog(null, "O pobre " + inimigo.getNome() + " foi atingido e recebeu " + (hpt - inimigo.getHp()), "ATAQUE", JOptionPane.PLAIN_MESSAGE);
+                            break;
+                        default:
+                            break;
+                    }        
                 }
+
+                if(null != this.getArma().getTipo()){
+                    switch (this.getArma().getTipo()) {
+                        case CONTUNDENTE:
+                            switch(x.nextInt(5)){
+                                case 1:
+                                    inimigo.setStatus(EnumStatus.ATORDOADO);
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                                default:
+                                    break;
+                                }   
+                            break;
+                        case PERFURANTE:
+                            switch(x.nextInt(5)){
+                                case 1:
+                                    inimigo.setStatus(EnumStatus.SANGRANDO);
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                                default:
+                                    break;
+                                }
+                            break;
+                        case CORTANTE:
+                            switch(x.nextInt(5)){
+                                case 1:
+                                    inimigo.setStatus(EnumStatus.SANGRANDO);
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                                default:
+                                    break;
+                                }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "" + inimigo.getNome() + " defendeu o ataque.", "Wow, defesa", JOptionPane.PLAIN_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "" + inimigo.getNome() + " defendeu o ataque.", "Wow, defesa", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null, "" + inimigo.getNome() + " virou estrelinha. " + this.getNome() + " é o vencedor.", "Wow, defesa", JOptionPane.PLAIN_MESSAGE);
         }
-        
             
     }
     
