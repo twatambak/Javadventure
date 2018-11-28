@@ -26,7 +26,7 @@ public class TelaBatalha extends javax.swing.JFrame {
         barraHP.setValue(personagem.getHp());
         if(this.monstro.getNome().contains("Terminator")){
             labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png")));
-            labelFala.setText("Vou te pegar");
+            labelFala.setText("Tá ferrado meu parceiro");
         } else if(this.monstro.getNome().contains("Zumbi")){
             labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo (2).png")));
             labelFala.setText("Rarharhahhrara");
@@ -42,6 +42,9 @@ public class TelaBatalha extends javax.swing.JFrame {
         } else if(this.monstro.getNome().contains("Esqueleto")){
             labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/esqueleto.GIF")));
             labelFala.setText("CAI PRO PAU OTACO FEDIDO");
+        } else if(this.monstro.getNome().contains("Capivara")){
+            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/capibara.png")));
+            labelFala.setText("URÃÃÃÃ");
         }
     }
 
@@ -157,6 +160,7 @@ public class TelaBatalha extends javax.swing.JFrame {
         if(personagem.getQtdPot() > 0 && personagem.getHp() < personagem.getHpMaximo()){
             personagem.setHp(personagem.getHp() + 100);
             personagem.setQtdPot(personagem.getQtdPot() - 1);
+            barraHP.setValue(personagem.getHp());
         }
     }//GEN-LAST:event_buttonPocaoActionPerformed
 

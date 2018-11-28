@@ -30,7 +30,7 @@ public class Personagem extends Ser{
         hpMaximo = vitalidade * 100;
         hp = hpMaximo;
  
-        
+        qtdPot = 5;
         lvl = 1;
         xp = 0;
         dinheiro = 1000;
