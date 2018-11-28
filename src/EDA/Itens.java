@@ -17,7 +17,7 @@ public class Itens extends Equipamento{
         tipo = EnumTipoItem.aleatoriza(x.nextInt(4) + 1);
         eficiencia = EnumEficiencia.aleatoriza(x.nextInt(5) + 1);
         quantidade = 1;
-        valorCompra = 5;
+        valorCompra = 5; //Provisorio ate inventar alguma conta 
         
         this.nome = "" + tipo.toString() + " " + tipo.toString();
     }

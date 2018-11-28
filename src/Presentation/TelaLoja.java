@@ -153,7 +153,7 @@ public class TelaLoja extends javax.swing.JFrame {
         ));
         tabelaItens.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaItens(evt);
+                tabelaItensMouseClicked(evt);
             }
         });
         jScrollPane3.setViewportView(tabelaItens);
@@ -277,14 +277,14 @@ public class TelaLoja extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
 
-    private void tabelaItens(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaItens
+    private void tabelaItensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaItensMouseClicked
         valortotal = 0;
         if(tabelaItens.getSelectedRow() != -1){
             int index = tabelaItens.getSelectedRow();
             valortotal = valortotal + arrayItens.get(index).getValorCompra();
             labelValor.setText("" + valortotal);
         }
-    }//GEN-LAST:event_tabelaItens
+    }//GEN-LAST:event_tabelaItensMouseClicked
 
     /**
      * @param args the command line arguments
