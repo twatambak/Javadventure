@@ -38,6 +38,8 @@ public class TelaMundo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonStatus = new javax.swing.JButton();
+        buttonInvent = new javax.swing.JButton();
         player = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
@@ -50,6 +52,26 @@ public class TelaMundo extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(null);
+
+        buttonStatus.setText("Checar status");
+        buttonStatus.setFocusable(false);
+        buttonStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonStatusActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonStatus);
+        buttonStatus.setBounds(1130, 660, 120, 23);
+
+        buttonInvent.setText("Inventário");
+        buttonInvent.setFocusable(false);
+        buttonInvent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonInventActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonInvent);
+        buttonInvent.setBounds(1130, 620, 120, 23);
 
         player.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
         player.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -113,6 +135,18 @@ public class TelaMundo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_playerKeyPressed
 
+    private void buttonStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStatusActionPerformed
+       TelaStatus tela = new TelaStatus(player.getX(), player.getY());
+       Main.abrir(tela);
+       this.dispose();
+    }//GEN-LAST:event_buttonStatusActionPerformed
+
+    private void buttonInventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInventActionPerformed
+       TelaInventario tela = new TelaInventario(player.getX(), player.getY());
+       Main.abrir(tela);
+       this.dispose();
+    }//GEN-LAST:event_buttonInventActionPerformed
+
     public void encontroBatalha(){
         Random x = new Random();
         switch(x.nextInt(10)){
@@ -134,6 +168,8 @@ public class TelaMundo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JButton buttonInvent;
+    private javax.swing.JButton buttonStatus;
     private javax.swing.JLabel player;
     // End of variables declaration//GEN-END:variables
     

@@ -31,7 +31,7 @@ public class Monstro extends Ser{
             inteligencia = x.nextInt(lvl) + 1;
             hp = vitalidade * 100;
 
-            xpDrop = lvl + forca + destreza + vitalidade + inteligencia;
+            xpDrop = lvl * (forca + destreza + vitalidade + inteligencia);
             coinDrop = lvl * 10;
 
             defesa = false;

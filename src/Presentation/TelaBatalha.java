@@ -32,10 +32,16 @@ public class TelaBatalha extends javax.swing.JFrame {
             labelFala.setText("Rarharhahhrara");
         } else if(this.monstro.getNome().contains("sasuke")){
             labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sasuke.png")));
-            labelFala.setText("VEM ME DAR CABEÇADAAAAAAAAA");
+            labelFala.setText("ME DA CABEÇADAAAAAAAAA");
         } else if(this.monstro.getNome().contains("sakura")){
             labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sakura.png")));
             labelFala.setText("Eu tô de boa");
+        } else if(this.monstro.getNome().contains("naruto")){
+            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/naruto.png")));
+            labelFala.setText("Ela deu uma cabeçada nele");
+        } else if(this.monstro.getNome().contains("Esqueleto")){
+            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/esqueleto.GIF")));
+            labelFala.setText("CAI PRO PAU OTACO FEDIDO");
         }
     }
 
@@ -117,7 +123,7 @@ public class TelaBatalha extends javax.swing.JFrame {
         getContentPane().add(barraHP);
         barraHP.setBounds(50, 460, 146, 20);
 
-        labelFala.setFont(new java.awt.Font("Chiller", 0, 48)); // NOI18N
+        labelFala.setFont(new java.awt.Font("Coolvetica Rg", 0, 48)); // NOI18N
         labelFala.setForeground(new java.awt.Color(255, 255, 255));
         labelFala.setText("Vem pro pau");
         getContentPane().add(labelFala);
@@ -172,7 +178,24 @@ public class TelaBatalha extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAtacarActionPerformed
 
     private void buttonDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDefenderActionPerformed
-        personagem.setDefesa(true);
+        if(personagem.getHp() <= 0){
+           JOptionPane.showMessageDialog(null, "Você morreu. Fim de jogo parceiro.", "Cabô-se", JOptionPane.PLAIN_MESSAGE);
+           TelaSelecaoPersonagem tela = new TelaSelecaoPersonagem();
+           Main.abrir(tela);
+           this.dispose();
+       } else if(monstro.getHp() <= 0){
+           JOptionPane.showMessageDialog(null, "Você matou " + monstro.getNome() + ". Você ganhou " + monstro.getXpDrop() + " de XP e " + monstro.getCoinDrop() + " de moedas.", "Cabô-se", JOptionPane.PLAIN_MESSAGE);
+           personagem.setDinheiro(personagem.getDinheiro() + monstro.getCoinDrop());
+           personagem.setXp(personagem.getXp() + monstro.getXpDrop());
+            TelaMundo tela = new TelaMundo(xPlayer, yPlayer);
+            Main.abrir(tela);
+            this.dispose();
+       } else {
+            personagem.setDefesa(true);
+            monstro.turno(personagem);
+            barraHP.setValue(personagem.getHp());
+       }
+        
     }//GEN-LAST:event_buttonDefenderActionPerformed
 
     private void buttonFugirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFugirActionPerformed

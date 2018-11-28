@@ -6,6 +6,7 @@
 package Presentation;
 
 import Business.BusinessFacade;
+import EDA.Personagem;
 import EDA.Usuario;
 
 /**
@@ -14,6 +15,7 @@ import EDA.Usuario;
  */
 public class TelaStatus extends javax.swing.JFrame {
     Usuario usuarioLogado = BusinessFacade.getUsuarioLogado();
+    Personagem personagem = usuarioLogado.getPersonagem();
     int xPlayer;
     int yPlayer;
 
@@ -21,14 +23,12 @@ public class TelaStatus extends javax.swing.JFrame {
         initComponents();
         this.xPlayer = xPlayer;
         this.yPlayer = yPlayer;
-        labelHp.setText(Integer.toString(usuarioLogado.getPersonagem().getHp()));
-        labelDES.setText(Integer.toString(usuarioLogado.getPersonagem().getDestreza()));
-        labelFOR.setText(Integer.toString(usuarioLogado.getPersonagem().getForca()));
-        labelINT.setText(Integer.toString(usuarioLogado.getPersonagem().getInteligencia()));
-        labelVIT.setText(Integer.toString(usuarioLogado.getPersonagem().getVitalidade()));
-        labelLvl.setText(Integer.toString(usuarioLogado.getPersonagem().getLvl()));
-        labelMoedas.setText(Integer.toString(usuarioLogado.getPersonagem().getDinheiro()));
-        labelNome.setText(usuarioLogado.getPersonagem().getNome());
+        atualizaLabel();
+        if(personagem.getXp() > (personagem.getLvl() * 100)){
+            personagem.setLvl(personagem.getLvl() + 1);
+            personagem.setSkillpoints(personagem.getSkillpoints() + 1);
+        }
+        botoes();
     }
 
     /**
@@ -60,12 +60,16 @@ public class TelaStatus extends javax.swing.JFrame {
         labelINT = new javax.swing.JLabel();
         labelVIT = new javax.swing.JLabel();
         labelFOR = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        voltar = new javax.swing.JButton();
+        buttonUparFOR = new javax.swing.JButton();
+        buttonUparDES = new javax.swing.JButton();
+        buttonUparINT = new javax.swing.JButton();
+        buttonUparVIT = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(517, 458));
-        setPreferredSize(new java.awt.Dimension(517, 458));
+        setMinimumSize(new java.awt.Dimension(520, 460));
+        setPreferredSize(new java.awt.Dimension(520, 460));
         getContentPane().setLayout(null);
 
         labelInfoXP.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
@@ -168,14 +172,50 @@ public class TelaStatus extends javax.swing.JFrame {
         getContentPane().add(labelFOR);
         labelFOR.setBounds(270, 40, 40, 20);
 
-        jButton1.setText("Voltar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        voltar.setText("Voltar");
+        voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                voltarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(20, 410, 61, 23);
+        getContentPane().add(voltar);
+        voltar.setBounds(20, 410, 61, 23);
+
+        buttonUparFOR.setText("Upar");
+        buttonUparFOR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUparFORActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonUparFOR);
+        buttonUparFOR.setBounds(360, 40, 55, 23);
+
+        buttonUparDES.setText("Upar");
+        buttonUparDES.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUparDESActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonUparDES);
+        buttonUparDES.setBounds(360, 90, 55, 23);
+
+        buttonUparINT.setText("Upar");
+        buttonUparINT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUparINTActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonUparINT);
+        buttonUparINT.setBounds(360, 140, 55, 20);
+
+        buttonUparVIT.setText("Upar");
+        buttonUparVIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUparVITActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonUparVIT);
+        buttonUparVIT.setBounds(360, 190, 55, 23);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backgroundCriacaoPersonagem.jpg"))); // NOI18N
         background.setToolTipText("");
@@ -185,16 +225,72 @@ public class TelaStatus extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         TelaMundo tela = new TelaMundo(xPlayer, yPlayer);
         Main.abrir(tela);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_voltarActionPerformed
 
+    private void buttonUparFORActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUparFORActionPerformed
+        personagem.setSkillpoints(personagem.getSkillpoints() - 1);
+        personagem.setForca(personagem.getForca() + 1);
+        atualizaLabel();
+        botoes();
+    }//GEN-LAST:event_buttonUparFORActionPerformed
 
+    private void buttonUparDESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUparDESActionPerformed
+        personagem.setSkillpoints(personagem.getSkillpoints() - 1);
+        personagem.setDestreza(personagem.getDestreza() + 1);
+        atualizaLabel();
+        botoes();
+    }//GEN-LAST:event_buttonUparDESActionPerformed
+
+    private void buttonUparINTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUparINTActionPerformed
+        personagem.setSkillpoints(personagem.getSkillpoints() - 1);
+        personagem.setInteligencia(personagem.getInteligencia() + 1);
+        atualizaLabel();
+        botoes();
+    }//GEN-LAST:event_buttonUparINTActionPerformed
+
+    private void buttonUparVITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUparVITActionPerformed
+        personagem.setSkillpoints(personagem.getSkillpoints() - 1);
+        personagem.setVitalidade(personagem.getVitalidade() + 1);
+        atualizaLabel();
+        botoes();
+    }//GEN-LAST:event_buttonUparVITActionPerformed
+
+    public void botoes(){
+        if(personagem.getSkillpoints() > 0){
+            buttonUparDES.setEnabled(true);
+            buttonUparFOR.setEnabled(true);
+            buttonUparINT.setEnabled(true);
+            buttonUparVIT.setEnabled(true);
+        } else {
+            buttonUparDES.setEnabled(false);
+            buttonUparFOR.setEnabled(false);
+            buttonUparINT.setEnabled(false);
+            buttonUparVIT.setEnabled(false);
+        }        
+    }
+    
+    public void atualizaLabel(){
+        labelHp.setText(Integer.toString(personagem.getHp()));
+        labelDES.setText(Integer.toString(personagem.getDestreza()));
+        labelFOR.setText(Integer.toString(personagem.getForca()));
+        labelINT.setText(Integer.toString(personagem.getInteligencia()));
+        labelVIT.setText(Integer.toString(personagem.getVitalidade()));
+        labelLvl.setText(Integer.toString(personagem.getLvl()));
+        labelMoedas.setText(Integer.toString(personagem.getDinheiro()));
+        labelNome.setText(personagem.getNome());
+        labelXP.setText("" + personagem.getXp());
+        labelAtk.setText("" + personagem.getAtk());
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton buttonUparDES;
+    private javax.swing.JButton buttonUparFOR;
+    private javax.swing.JButton buttonUparINT;
+    private javax.swing.JButton buttonUparVIT;
     private javax.swing.JLabel labelAtk;
     private javax.swing.JLabel labelDES;
     private javax.swing.JLabel labelFOR;
@@ -215,5 +311,6 @@ public class TelaStatus extends javax.swing.JFrame {
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelVIT;
     private javax.swing.JLabel labelXP;
+    private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

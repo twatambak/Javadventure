@@ -21,12 +21,15 @@ public class TelaInventario extends javax.swing.JFrame {
     ArrayList<Equipamento> arrayEquipamento = new ArrayList<>();
     ArrayList<Arma> arrayArma = new ArrayList<>();
     ArrayList<Itens> arrayPocao = new ArrayList<>();
+    int xPlayer;
+    int yPlayer;
     /**
      * Creates new form TelaInventario
      */
-    public TelaInventario() {
+    public TelaInventario(int xPlayer, int yPlayer) {
         initComponents();
-        
+        this.xPlayer = xPlayer;
+        this.yPlayer = yPlayer;
         labelArma.setText(personagem.getArma().getNome());
         labelElmo.setText(personagem.getElmo().getNome());
         labelPeito.setText(personagem.getPeito().getNome());
@@ -96,6 +99,7 @@ public class TelaInventario extends javax.swing.JFrame {
         tabelaEquipamento = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabelaPocao = new javax.swing.JTable();
+        buttonVoltar = new javax.swing.JButton();
         labelImgFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -154,7 +158,7 @@ public class TelaInventario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botaoExcluir);
-        botaoExcluir.setBounds(330, 460, 100, 40);
+        botaoExcluir.setBounds(350, 460, 100, 40);
 
         tabelaEquipamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -188,6 +192,15 @@ public class TelaInventario extends javax.swing.JFrame {
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(330, 40, 310, 240);
 
+        buttonVoltar.setText("Voltar");
+        buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonVoltarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonVoltar);
+        buttonVoltar.setBounds(760, 470, 90, 30);
+
         labelImgFundo.setText("jLabel2");
         getContentPane().add(labelImgFundo);
         labelImgFundo.setBounds(0, 0, 880, 520);
@@ -209,64 +222,37 @@ public class TelaInventario extends javax.swing.JFrame {
             int i = tabelaArma.getSelectedRow();
             arrayArma.remove(i);//chama o array com .remove
             this.dispose();//fecha a tela
-            TelaInventario telaIn = new TelaInventario();
+            TelaInventario telaIn = new TelaInventario(xPlayer, yPlayer);
             telaIn.setVisible(true);//abre a tela
         }else{
             if(tabelaEquipamento.getSelectedRow() != -1){
                 int i = tabelaEquipamento.getSelectedRow();
                 arrayEquipamento.remove(i);
                 this.dispose();
-                TelaInventario telaIn = new TelaInventario();
+                TelaInventario telaIn = new TelaInventario(xPlayer, yPlayer);
                 telaIn.setVisible(true);
             }else{
                 if(tabelaPocao.getSelectedRow() != -1){
                     int i = tabelaPocao.getSelectedRow();
                     arrayPocao.remove(i);
                     this.dispose();
-                    TelaInventario telaIn = new TelaInventario();
+                    TelaInventario telaIn = new TelaInventario(xPlayer, yPlayer);
                     telaIn.setVisible(true);
                 }
             }
         }
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaInventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
+        TelaMundo tela = new TelaMundo(xPlayer, yPlayer);
+        Main.abrir(tela);
+        this.dispose();
+    }//GEN-LAST:event_buttonVoltarActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaInventario().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoExcluir;
+    private javax.swing.JButton buttonVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
