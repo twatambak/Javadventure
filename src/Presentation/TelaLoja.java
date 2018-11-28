@@ -1,5 +1,6 @@
 package Presentation;
 
+import Business.BusinessFacade;
 import EDA.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,23 +21,32 @@ public class TelaLoja extends javax.swing.JFrame {
     ArrayList<Armadura> arrayArmadura = new ArrayList<>();
     ArrayList<Itens> arrayItens = new ArrayList<>();
     ArrayList<Equipamento> arrayEquipamento = new ArrayList<>();
-    
-    /**
-     * Creates new form TelaLoja
-     */
+    Usuario usuarioLogado = BusinessFacade.getUsuarioLogado();
+    Personagem personagem = usuarioLogado.getPersonagem();
+
     public TelaLoja(int xPlayer, int yPlayer) {
         initComponents();
+        labelGrana.setText("" + personagem.getDinheiro());
         this.xPlayer = xPlayer;
         this.yPlayer = yPlayer;
         Random x = new Random();
-        arrayEquipamento.add(new Arma(x.nextInt(40)));
-        arrayEquipamento.add(new Arma(x.nextInt(40)));
-        arrayEquipamento.add(new Arma(x.nextInt(40)));
-        arrayEquipamento.add(new Arma(x.nextInt(40)));
-        arrayEquipamento.add(new Elmo(5));
-        arrayEquipamento.add(new Elmo(5));
-        arrayEquipamento.add(new Elmo(5));
-        arrayEquipamento.add(new Elmo(5));
+        arrayEquipamento.add(new Arma(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Arma(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Arma(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Arma(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Elmo(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Elmo(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Elmo(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Elmo(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Peitoral(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Peitoral(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Peitoral(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Peitoral(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Grevas(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Grevas(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Grevas(x.nextInt(personagem.getLvl() + 10) + 1));
+        arrayEquipamento.add(new Grevas(x.nextInt(personagem.getLvl() + 10) + 1));
+
         
         arrayItens.add(new Itens());
         arrayItens.add(new Itens());
@@ -136,6 +146,9 @@ public class TelaLoja extends javax.swing.JFrame {
         labelVendedor = new javax.swing.JLabel();
         botaoComprar = new javax.swing.JButton();
         labelFalaVendedor = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        labelGrana = new javax.swing.JLabel();
         labelImgFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -192,6 +205,7 @@ public class TelaLoja extends javax.swing.JFrame {
         jScrollPane1.setBounds(10, 80, 390, 310);
 
         jLabel2.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Seja-Bem Vindo a loja");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(380, 0, 260, 40);
@@ -229,6 +243,11 @@ public class TelaLoja extends javax.swing.JFrame {
         labelVendedor.setBounds(350, 230, 220, 390);
 
         botaoComprar.setText("Comprar");
+        botaoComprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoComprarActionPerformed(evt);
+            }
+        });
         getContentPane().add(botaoComprar);
         botaoComprar.setBounds(860, 580, 80, 23);
 
@@ -237,6 +256,24 @@ public class TelaLoja extends javax.swing.JFrame {
         labelFalaVendedor.setText("Ta precisando de que mermão?");
         getContentPane().add(labelFalaVendedor);
         labelFalaVendedor.setBounds(340, 590, 260, 20);
+
+        jLabel1.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("seu dinheiro:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(30, 420, 120, 30);
+
+        jLabel3.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Total:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(800, 510, 51, 30);
+
+        labelGrana.setFont(new java.awt.Font("Bebas Neue", 0, 18)); // NOI18N
+        labelGrana.setForeground(new java.awt.Color(255, 255, 255));
+        labelGrana.setText("0");
+        getContentPane().add(labelGrana);
+        labelGrana.setBounds(150, 424, 60, 20);
 
         labelImgFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fundo_loja.jpg"))); // NOI18N
         getContentPane().add(labelImgFundo);
@@ -290,6 +327,23 @@ public class TelaLoja extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tabelaItens
 
+    private void botaoComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoComprarActionPerformed
+        if(tabelaArmas.getSelectedRow() != -1){
+            int index = tabelaArmas.getSelectedRow();
+            Equipamento aux = arrayEquipamento.get(index);
+            if(personagem.getDinheiro() >=  aux.getValorCompra()){
+                personagem.getInventario().add(aux);
+                arrayEquipamento.remove(index);
+                personagem.setDinheiro(personagem.getDinheiro() -  aux.getValorCompra());
+                TelaLoja tela = new TelaLoja(xPlayer, yPlayer);
+                Main.abrir(tela);
+                this.dispose();                
+            } else {
+                JOptionPane.showMessageDialog(null, "Desculpa bro mas você não tem dinheiro suficiente.", "Opa", JOptionPane.PLAIN_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_botaoComprarActionPerformed
+
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -318,7 +372,7 @@ public class TelaLoja extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new TelaLoja(xPlayer, yPlayer).setVisible(true);
+                //new TelaLoja(0, 0).setVisible(true);
             }
         });
     }
@@ -327,11 +381,14 @@ public class TelaLoja extends javax.swing.JFrame {
     private javax.swing.JLabel LabelPots;
     private javax.swing.JButton botaoComprar;
     private javax.swing.JButton botaoSair;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelArmas;
     private javax.swing.JLabel labelFalaVendedor;
+    private javax.swing.JLabel labelGrana;
     private javax.swing.JLabel labelImgFundo;
     private javax.swing.JLabel labelValor;
     private javax.swing.JLabel labelVendedor;

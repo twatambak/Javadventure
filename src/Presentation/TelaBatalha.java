@@ -154,7 +154,10 @@ public class TelaBatalha extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonPocaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPocaoActionPerformed
-        // TODO add your handling code here:
+        if(personagem.getQtdPot() > 0 && personagem.getHp() < personagem.getHpMaximo()){
+            personagem.setHp(personagem.getHp() + 100);
+            personagem.setQtdPot(personagem.getQtdPot() - 1);
+        }
     }//GEN-LAST:event_buttonPocaoActionPerformed
 
     private void buttonAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAtacarActionPerformed

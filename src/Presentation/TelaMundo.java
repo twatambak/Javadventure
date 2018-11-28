@@ -40,6 +40,7 @@ public class TelaMundo extends javax.swing.JFrame {
 
         buttonStatus = new javax.swing.JButton();
         buttonInvent = new javax.swing.JButton();
+        buttonLoja = new javax.swing.JButton();
         player = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
@@ -72,6 +73,15 @@ public class TelaMundo extends javax.swing.JFrame {
         });
         getContentPane().add(buttonInvent);
         buttonInvent.setBounds(1130, 620, 120, 23);
+
+        buttonLoja.setText("Loja");
+        buttonLoja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLojaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonLoja);
+        buttonLoja.setBounds(1130, 580, 120, 23);
 
         player.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
         player.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -147,6 +157,12 @@ public class TelaMundo extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_buttonInventActionPerformed
 
+    private void buttonLojaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLojaActionPerformed
+        TelaLoja tela = new TelaLoja(player.getX(), player.getY());
+        Main.abrir(tela);
+        this.dispose();
+    }//GEN-LAST:event_buttonLojaActionPerformed
+
     public void encontroBatalha(){
         Random x = new Random();
         switch(x.nextInt(10)){
@@ -169,6 +185,7 @@ public class TelaMundo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton buttonInvent;
+    private javax.swing.JButton buttonLoja;
     private javax.swing.JButton buttonStatus;
     private javax.swing.JLabel player;
     // End of variables declaration//GEN-END:variables

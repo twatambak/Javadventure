@@ -34,7 +34,7 @@ public class Personagem extends Ser{
         
         lvl = 1;
         xp = 0;
-        
+        dinheiro = 1000;
         status = EnumStatus.NORMAL;
         
         Arma armaInicial = new Arma(this.lvl);
