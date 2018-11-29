@@ -243,7 +243,7 @@ public class TelaLoja extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Total:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(800, 510, 51, 26);
+        jLabel3.setBounds(800, 510, 51, 30);
 
         labelGrana.setFont(new java.awt.Font("Bebas Neue", 0, 18)); // NOI18N
         labelGrana.setForeground(new java.awt.Color(255, 255, 255));
@@ -290,7 +290,6 @@ public class TelaLoja extends javax.swing.JFrame {
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
         TelaMundo telaMundo = new TelaMundo(xPlayer, yPlayer);
         Main.abrir(telaMundo);
-        JOptionPane.showMessageDialog(null, "Volte Sempre!");
         this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
 

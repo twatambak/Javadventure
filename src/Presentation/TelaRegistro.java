@@ -2,6 +2,7 @@
 package Presentation;
 
 import Business.BusinessFacade;
+import javax.swing.JFrame;
 
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
@@ -13,6 +14,7 @@ public class TelaRegistro extends javax.swing.JFrame {
      */
     public TelaRegistro() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
     @SuppressWarnings("unchecked")
@@ -27,19 +29,19 @@ public class TelaRegistro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Javadventure: Registro de Usuários");
-        setMinimumSize(new java.awt.Dimension(1000, 667));
-        setPreferredSize(new java.awt.Dimension(1000, 667));
+        setMinimumSize(new java.awt.Dimension(1366, 768));
+        setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
         getContentPane().setLayout(null);
 
         inputLogin.setBackground(new java.awt.Color(0, 0, 0));
-        inputLogin.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
+        inputLogin.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
         inputLogin.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(inputLogin);
-        inputLogin.setBounds(40, 250, 280, 40);
+        inputLogin.setBounds(70, 260, 360, 60);
 
         inputSenha.setBackground(new java.awt.Color(0, 0, 0));
-        inputSenha.setFont(new java.awt.Font("Imaginary Forces", 0, 24)); // NOI18N
+        inputSenha.setFont(new java.awt.Font("Ice Cream Icons", 0, 36)); // NOI18N
         inputSenha.setForeground(new java.awt.Color(255, 255, 255));
         inputSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,11 +49,11 @@ public class TelaRegistro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputSenha);
-        inputSenha.setBounds(40, 440, 280, 40);
+        inputSenha.setBounds(70, 500, 360, 60);
 
         buttonVoltar.setBackground(new java.awt.Color(0, 0, 0));
-        buttonVoltar.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
-        buttonVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        buttonVoltar.setFont(new java.awt.Font("Coolvetica Rg", 0, 48)); // NOI18N
+        buttonVoltar.setText("Voltar");
         buttonVoltar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         buttonVoltar.setContentAreaFilled(false);
         buttonVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -61,11 +63,11 @@ public class TelaRegistro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonVoltar);
-        buttonVoltar.setBounds(50, 530, 150, 65);
+        buttonVoltar.setBounds(70, 630, 150, 60);
 
         buttonRegistrar.setBackground(new java.awt.Color(0, 0, 0));
-        buttonRegistrar.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
-        buttonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        buttonRegistrar.setFont(new java.awt.Font("Coolvetica Rg", 0, 48)); // NOI18N
+        buttonRegistrar.setText("Registrar");
         buttonRegistrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         buttonRegistrar.setContentAreaFilled(false);
         buttonRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -75,12 +77,12 @@ public class TelaRegistro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonRegistrar);
-        buttonRegistrar.setBounds(630, 530, 210, 65);
+        buttonRegistrar.setBounds(640, 560, 500, 70);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/les2.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backRegistro.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1000, 667);
+        jLabel1.setBounds(0, 0, 1366, 768);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

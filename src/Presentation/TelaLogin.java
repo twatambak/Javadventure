@@ -5,6 +5,7 @@ import Business.BusinessFacade;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
@@ -14,6 +15,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     public TelaLogin(){
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         try {
             BusinessFacade.carregarUsuarios();
         } catch (FileNotFoundException ex) {
@@ -35,14 +37,14 @@ public class TelaLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JAVADVENTURE");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(1000, 685));
-        setPreferredSize(new java.awt.Dimension(1000, 685));
+        setMinimumSize(new java.awt.Dimension(1366, 768));
+        setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
         getContentPane().setLayout(null);
 
         buttonRegistrar.setBackground(new java.awt.Color(0, 0, 0));
-        buttonRegistrar.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
-        buttonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        buttonRegistrar.setFont(new java.awt.Font("Coolvetica Rg", 0, 48)); // NOI18N
+        buttonRegistrar.setText("Registrar-se");
         buttonRegistrar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         buttonRegistrar.setContentAreaFilled(false);
         buttonRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -52,14 +54,15 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonRegistrar);
-        buttonRegistrar.setBounds(660, 560, 290, 70);
+        buttonRegistrar.setBounds(910, 620, 270, 70);
 
         buttonLogin.setBackground(new java.awt.Color(0, 0, 0));
-        buttonLogin.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
-        buttonLogin.setForeground(new java.awt.Color(255, 255, 255));
+        buttonLogin.setFont(new java.awt.Font("Coolvetica Rg", 0, 48)); // NOI18N
+        buttonLogin.setText("Login");
         buttonLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         buttonLogin.setContentAreaFilled(false);
         buttonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         buttonLogin.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 buttonLoginFocusGained(evt);
@@ -76,26 +79,28 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLogin);
-        buttonLogin.setBounds(90, 560, 200, 70);
+        buttonLogin.setBounds(560, 620, 200, 70);
 
         inputSenha.setBackground(new java.awt.Color(0, 0, 0));
-        inputSenha.setFont(new java.awt.Font("Imaginary Forces", 0, 24)); // NOI18N
+        inputSenha.setFont(new java.awt.Font("Ice Cream Icons", 0, 36)); // NOI18N
         inputSenha.setForeground(new java.awt.Color(255, 255, 255));
         inputSenha.setMinimumSize(new java.awt.Dimension(6, 36));
         inputSenha.setPreferredSize(new java.awt.Dimension(6, 36));
         getContentPane().add(inputSenha);
-        inputSenha.setBounds(360, 490, 280, 40);
+        inputSenha.setBounds(90, 620, 370, 60);
 
         inputUsuario.setBackground(new java.awt.Color(0, 0, 0));
-        inputUsuario.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
+        inputUsuario.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
         inputUsuario.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(inputUsuario);
-        inputUsuario.setBounds(360, 320, 280, 40);
+        inputUsuario.setBounds(90, 450, 370, 60);
 
-        labelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/les1.jpg"))); // NOI18N
+        labelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backLogin.jpg"))); // NOI18N
         labelBackground.setText("jLabel2");
+        labelBackground.setMinimumSize(new java.awt.Dimension(1366, 768));
+        labelBackground.setPreferredSize(new java.awt.Dimension(1366, 768));
         getContentPane().add(labelBackground);
-        labelBackground.setBounds(0, 0, 1000, 667);
+        labelBackground.setBounds(0, 0, 1366, 768);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
