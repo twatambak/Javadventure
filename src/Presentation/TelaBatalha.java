@@ -24,28 +24,8 @@ public class TelaBatalha extends javax.swing.JFrame {
         this.xPlayer = xPlayer;
         this.yPlayer = yPlayer;
         barraHP.setValue(personagem.getHp());
-        if(this.monstro.getNome().contains("Terminator")){
-            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png")));
-            labelFala.setText("Tá ferrado meu parceiro");
-        } else if(this.monstro.getNome().contains("Zumbi")){
-            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo (2).png")));
-            labelFala.setText("Rarharhahhrara");
-        } else if(this.monstro.getNome().contains("sasuke")){
-            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sasuke.png")));
-            labelFala.setText("ME DA CABEÇADAAAAAAAAA");
-        } else if(this.monstro.getNome().contains("sakura")){
-            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sakura.png")));
-            labelFala.setText("Eu tô de boa");
-        } else if(this.monstro.getNome().contains("naruto")){
-            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/naruto.png")));
-            labelFala.setText("Ela deu uma cabeçada nele");
-        } else if(this.monstro.getNome().contains("Esqueleto")){
-            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/esqueleto.GIF")));
-            labelFala.setText("CAI PRO PAU OTACO FEDIDO");
-        } else if(this.monstro.getNome().contains("Capivara")){
-            labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/capibara.png")));
-            labelFala.setText("URÃÃÃÃ");
-        }
+        labelBicho.setIcon(monstro.getAparencia());
+
     }
 
     /**
@@ -57,101 +37,110 @@ public class TelaBatalha extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelInfoHP = new javax.swing.JLabel();
         buttonDefender = new javax.swing.JButton();
         buttonAtacar = new javax.swing.JButton();
         buttonPocao = new javax.swing.JButton();
         buttonFugir = new javax.swing.JButton();
         barraHP = new javax.swing.JProgressBar();
-        labelFala = new javax.swing.JLabel();
         labelBicho = new javax.swing.JLabel();
-        background1 = new javax.swing.JLabel();
+        labelFala = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         background2 = new javax.swing.JLabel();
-        background3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(656, 529));
-        setMinimumSize(new java.awt.Dimension(656, 529));
-        setPreferredSize(new java.awt.Dimension(656, 529));
+        setMinimumSize(new java.awt.Dimension(1366, 900));
+        setPreferredSize(new java.awt.Dimension(1366, 900));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        labelInfoHP.setText("HP:");
-        getContentPane().add(labelInfoHP);
-        labelInfoHP.setBounds(20, 460, 30, 20);
-
+        buttonDefender.setFont(new java.awt.Font("Coolvetica Rg", 0, 42)); // NOI18N
         buttonDefender.setText("Defender");
+        buttonDefender.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        buttonDefender.setContentAreaFilled(false);
+        buttonDefender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonDefender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonDefenderActionPerformed(evt);
             }
         });
         getContentPane().add(buttonDefender);
-        buttonDefender.setBounds(180, 410, 80, 23);
+        buttonDefender.setBounds(1060, 690, 190, 50);
 
+        buttonAtacar.setFont(new java.awt.Font("Coolvetica Rg", 0, 42)); // NOI18N
         buttonAtacar.setText("Atacar");
+        buttonAtacar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        buttonAtacar.setContentAreaFilled(false);
+        buttonAtacar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonAtacar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAtacarActionPerformed(evt);
             }
         });
         getContentPane().add(buttonAtacar);
-        buttonAtacar.setBounds(20, 410, 65, 23);
+        buttonAtacar.setBounds(530, 690, 150, 50);
 
-        buttonPocao.setText("Usar poções");
+        buttonPocao.setFont(new java.awt.Font("Coolvetica Rg", 0, 42)); // NOI18N
+        buttonPocao.setText("Usar itens");
+        buttonPocao.setToolTipText("");
+        buttonPocao.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        buttonPocao.setContentAreaFilled(false);
+        buttonPocao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonPocao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonPocaoActionPerformed(evt);
             }
         });
         getContentPane().add(buttonPocao);
-        buttonPocao.setBounds(360, 410, 100, 23);
+        buttonPocao.setBounds(700, 690, 210, 50);
 
+        buttonFugir.setFont(new java.awt.Font("Coolvetica Rg", 0, 42)); // NOI18N
         buttonFugir.setText("Fugir");
+        buttonFugir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        buttonFugir.setContentAreaFilled(false);
+        buttonFugir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonFugir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonFugirActionPerformed(evt);
             }
         });
         getContentPane().add(buttonFugir);
-        buttonFugir.setBounds(560, 410, 57, 23);
+        buttonFugir.setBounds(920, 690, 130, 50);
 
         barraHP.setBackground(new java.awt.Color(0, 0, 0));
-        barraHP.setForeground(new java.awt.Color(153, 0, 0));
+        barraHP.setForeground(new java.awt.Color(0, 255, 0));
         barraHP.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 barraHPPropertyChange(evt);
             }
         });
         getContentPane().add(barraHP);
-        barraHP.setBounds(50, 460, 146, 20);
-
-        labelFala.setFont(new java.awt.Font("Coolvetica Rg", 0, 48)); // NOI18N
-        labelFala.setForeground(new java.awt.Color(255, 255, 255));
-        labelFala.setText("Vem pro pau");
-        getContentPane().add(labelFala);
-        labelFala.setBounds(10, 10, 640, 50);
+        barraHP.setBounds(110, 700, 280, 40);
 
         labelBicho.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png"))); // NOI18N
         getContentPane().add(labelBicho);
-        labelBicho.setBounds(30, 0, 620, 390);
+        labelBicho.setBounds(380, 180, 630, 390);
 
-        background1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dungeonFloor.jpg"))); // NOI18N
-        background1.setText("jLabel2");
-        getContentPane().add(background1);
-        background1.setBounds(0, 330, 650, 60);
+        labelFala.setFont(new java.awt.Font("Regalia Free", 0, 36)); // NOI18N
+        labelFala.setForeground(new java.awt.Color(255, 255, 255));
+        labelFala.setText("~ vou te quebrar na porrada");
+        getContentPane().add(labelFala);
+        labelFala.setBounds(780, 160, 490, 50);
 
-        background2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dungeonWall.jpg"))); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("HP:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(10, 620, 40, 30);
+
+        background2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backBatalha.jpg"))); // NOI18N
         background2.setText("jLabel1");
+        background2.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
+        background2.setMinimumSize(new java.awt.Dimension(1400, 800));
+        background2.setPreferredSize(new java.awt.Dimension(1400, 800));
+        background2.setRequestFocusEnabled(false);
         getContentPane().add(background2);
-        background2.setBounds(0, 0, 650, 330);
-
-        background3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backgroundCriacaoPersonagem.jpg"))); // NOI18N
-        background3.setText("jLabel3");
-        background3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        getContentPane().add(background3);
-        background3.setBounds(0, 390, 650, 110);
+        background2.setBounds(0, 0, 1366, 768);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -216,16 +205,14 @@ public class TelaBatalha extends javax.swing.JFrame {
     }//GEN-LAST:event_barraHPPropertyChange
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel background1;
     private javax.swing.JLabel background2;
-    private javax.swing.JLabel background3;
     private javax.swing.JProgressBar barraHP;
     private javax.swing.JButton buttonAtacar;
     private javax.swing.JButton buttonDefender;
     private javax.swing.JButton buttonFugir;
     private javax.swing.JButton buttonPocao;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelBicho;
     private javax.swing.JLabel labelFala;
-    private javax.swing.JLabel labelInfoHP;
     // End of variables declaration//GEN-END:variables
 }

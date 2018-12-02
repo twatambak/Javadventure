@@ -7,6 +7,7 @@ import EDA.Usuario;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 
@@ -39,13 +40,15 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
         inputNome = new javax.swing.JTextField();
         buttonCriar = new javax.swing.JButton();
         buttonVoltar = new javax.swing.JButton();
+        personagem = new javax.swing.JLabel();
+        listaPersonagens = new javax.swing.JComboBox<>();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Javadventure: Criação de Personagens");
         setMaximumSize(new java.awt.Dimension(1000, 685));
-        setMinimumSize(new java.awt.Dimension(1000, 685));
-        setPreferredSize(new java.awt.Dimension(1000, 685));
+        setMinimumSize(new java.awt.Dimension(1366, 768));
+        setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -56,26 +59,29 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
             }
         });
         getContentPane().add(spinnerForca);
-        spinnerForca.setBounds(330, 190, 70, 40);
+        spinnerForca.setBounds(390, 300, 70, 40);
 
         spinnerInteligencia.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
         getContentPane().add(spinnerInteligencia);
-        spinnerInteligencia.setBounds(330, 390, 70, 40);
+        spinnerInteligencia.setBounds(540, 500, 70, 40);
 
         spinnerDestreza.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
         getContentPane().add(spinnerDestreza);
-        spinnerDestreza.setBounds(330, 290, 70, 40);
+        spinnerDestreza.setBounds(460, 400, 70, 40);
 
         spinnerVitalidade.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
         getContentPane().add(spinnerVitalidade);
-        spinnerVitalidade.setBounds(330, 490, 70, 40);
+        spinnerVitalidade.setBounds(500, 600, 70, 40);
 
         inputNome.setBackground(new java.awt.Color(0, 0, 0));
-        inputNome.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
+        inputNome.setFont(new java.awt.Font("Viner Hand ITC", 0, 36)); // NOI18N
         inputNome.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(inputNome);
-        inputNome.setBounds(170, 90, 360, 40);
+        inputNome.setBounds(110, 150, 520, 70);
 
+        buttonCriar.setFont(new java.awt.Font("Coolvetica Rg", 0, 48)); // NOI18N
+        buttonCriar.setText("Criar");
+        buttonCriar.setToolTipText("");
         buttonCriar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         buttonCriar.setContentAreaFilled(false);
         buttonCriar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -85,8 +91,10 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonCriar);
-        buttonCriar.setBounds(680, 570, 150, 70);
+        buttonCriar.setBounds(1090, 650, 150, 70);
 
+        buttonVoltar.setFont(new java.awt.Font("Coolvetica Rg", 0, 48)); // NOI18N
+        buttonVoltar.setText("Voltar");
         buttonVoltar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         buttonVoltar.setContentAreaFilled(false);
         buttonVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -96,12 +104,27 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonVoltar);
-        buttonVoltar.setBounds(120, 570, 150, 70);
+        buttonVoltar.setBounds(750, 650, 150, 70);
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/les3.jpg"))); // NOI18N
+        personagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Personagem1.png"))); // NOI18N
+        getContentPane().add(personagem);
+        personagem.setBounds(720, 180, 260, 460);
+
+        listaPersonagens.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Personagem 1", "Personagem 2", "Personagem 3", "Personagem 4", "Personagem 5", "Personagem 6", "Personagem 7", "Personagem 8" }));
+        listaPersonagens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaPersonagensActionPerformed(evt);
+            }
+        });
+        getContentPane().add(listaPersonagens);
+        listaPersonagens.setBounds(1050, 310, 110, 20);
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backCriacaoPersonagem.jpg"))); // NOI18N
         background.setText("jLabel1");
+        background.setMinimumSize(new java.awt.Dimension(1366, 768));
+        background.setPreferredSize(new java.awt.Dimension(1366, 768));
         getContentPane().add(background);
-        background.setBounds(0, 0, 1000, 667);
+        background.setBounds(0, 0, 1366, 768);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -123,7 +146,7 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
         
         Personagem persona;
         try {
-            persona = new Personagem(nome, vitalidade, inteligencia, destreza, forca);
+            persona = new Personagem(nome, vitalidade, inteligencia, destreza, forca, verificaAparencia());
             usuarioLogado.setPersonagem(persona);
         
             TelaSelecaoPersonagem telasepe = new TelaSelecaoPersonagem();
@@ -141,18 +164,51 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
+    private void listaPersonagensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaPersonagensActionPerformed
+       personagem.setIcon(verificaAparencia());
+        
+    }//GEN-LAST:event_listaPersonagensActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton buttonCriar;
     private javax.swing.JButton buttonVoltar;
     private javax.swing.JTextField inputNome;
+    private javax.swing.JComboBox<String> listaPersonagens;
+    private javax.swing.JLabel personagem;
     private javax.swing.JSpinner spinnerDestreza;
     private javax.swing.JSpinner spinnerForca;
     private javax.swing.JSpinner spinnerInteligencia;
     private javax.swing.JSpinner spinnerVitalidade;
     // End of variables declaration//GEN-END:variables
+
+    public Icon verificaAparencia(){
+        int id = listaPersonagens.getSelectedIndex();
+        switch(id){
+            case 0:
+                return (new javax.swing.ImageIcon(getClass().getResource("/Images/Personagem1.png")));
+            case 1:
+                return (new javax.swing.ImageIcon(getClass().getResource("/Images/Personagem2.png")));
+            case 2:
+                return (new javax.swing.ImageIcon(getClass().getResource("/Images/Personagem3.png")));
+            case 3:
+                return (new javax.swing.ImageIcon(getClass().getResource("/Images/Personagem4.png")));
+            case 4:
+                return (new javax.swing.ImageIcon(getClass().getResource("/Images/Personagem5.png")));
+            case 5:
+                return (new javax.swing.ImageIcon(getClass().getResource("/Images/Personagem6.png")));
+            case 6:
+                return (new javax.swing.ImageIcon(getClass().getResource("/Images/Personagem7.png")));
+            case 7:
+                return (new javax.swing.ImageIcon(getClass().getResource("/Images/Personagem1.png")));
+            default:
+                return (new javax.swing.ImageIcon(getClass().getResource("/Images/Personagem1.png")));
+        } 
+    }
+
 }
+
+
 
 //==============================================================================
 

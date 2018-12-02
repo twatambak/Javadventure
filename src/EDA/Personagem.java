@@ -3,6 +3,7 @@ package EDA;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import javax.swing.Icon;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,7 +18,7 @@ public class Personagem extends Ser{
     private int xp;
     private ArrayList<Equipamento> inventario = new ArrayList<>();
     
-    public Personagem(String nome, int vitalidade, int inteligencia, int destreza, int forca) throws FileNotFoundException{
+    public Personagem(String nome, int vitalidade, int inteligencia, int destreza, int forca, Icon aparencia) throws FileNotFoundException{
         this.nome = nome;
         
         this.destreza = destreza;
@@ -51,6 +52,8 @@ public class Personagem extends Ser{
         protecaoTotal = elmoInicial.getPropriedade() + peitoralInicial.getPropriedade() + grevasInicial.getPropriedade();
         
         atk = arma.getPropriedade() + forca;
+        
+        this.aparencia = aparencia;
     }
     
 
@@ -126,5 +129,7 @@ public class Personagem extends Ser{
         this.inventario = inventario;
     }
 
-
+    public Icon aparencia(){
+        return aparencia;
+    }
 }

@@ -2,6 +2,7 @@
 package EDA;
 
 import java.util.Random;
+import javax.swing.Icon;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,7 +27,8 @@ public abstract class Ser {
     int vitalidade;
     int qtdPot;
     EnumStatus status;
-
+    Icon aparencia;
+    
 //========== Getters e Setters: Nome ===========================================
 
     /**
@@ -418,6 +420,11 @@ public abstract class Ser {
      */
     public void setQtdPot(int qtdPot) {
         this.qtdPot = qtdPot;
+    }
+    
+
+    public Icon getAparencia() {
+        return aparencia;
     }
 }
 

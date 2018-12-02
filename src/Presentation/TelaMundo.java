@@ -32,6 +32,7 @@ public class TelaMundo extends javax.swing.JFrame {
         initComponents();
         this.setFocusable(true);
         player.setLocation(x, y);
+        player.setIcon(personagem.getAparencia());
     }
 
     @SuppressWarnings("unchecked")
@@ -85,7 +86,7 @@ public class TelaMundo extends javax.swing.JFrame {
 
         player.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
         player.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        player.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/personagem.png"))); // NOI18N
+        player.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Personagem1.png"))); // NOI18N
         player.setFocusable(false);
         player.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -93,7 +94,7 @@ public class TelaMundo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(player);
-        player.setBounds(600, 440, 120, 260);
+        player.setBounds(600, 270, 210, 430);
 
         background.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Wall2 clone (3).png"))); // NOI18N

@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import javax.swing.Icon;
+import javax.swing.JLabel;
 
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
@@ -14,10 +16,9 @@ import java.util.Scanner;
 public class Monstro extends Ser{
     private int xpDrop;
     private int coinDrop;
-    
     private static ArrayList<String> arrayMonstros = new ArrayList<>();
     private File arquivoMonstros = new File("Monstros.txt");
-    
+    private Icon aparencia;
     public Monstro(int level){
         try {
             Scanner leitor = new Scanner(new FileReader(arquivoMonstros)).useDelimiter("\\n");
@@ -52,7 +53,19 @@ public class Monstro extends Ser{
             }
             
             this.nome = arrayMonstros.get(x.nextInt(arrayMonstros.size()));
-            
+            if(nome.contains("Terminator")){
+                aparencia = (new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png")));
+            } else if(nome.contains("Zumbi")){
+                aparencia = (new javax.swing.ImageIcon(getClass().getResource("/Images/undo (2).png")));
+            } else if(nome.contains("sasuke")){
+            aparencia = (new javax.swing.ImageIcon(getClass().getResource("/Images/sasuke.png")));
+            } else if(nome.contains("sakura")){
+                aparencia = (new javax.swing.ImageIcon(getClass().getResource("/Images/sakura.png")));
+            } else if(nome.contains("naruto")){
+                aparencia = (new javax.swing.ImageIcon(getClass().getResource("/Images/naruto.png")));
+            } else if(nome.contains("Esqueleto")){
+                aparencia = (new javax.swing.ImageIcon(getClass().getResource("/Images/esqueleto.GIF")));
+            }
         } catch (Exception e) {
         }
        
@@ -103,5 +116,29 @@ public class Monstro extends Ser{
                 this.atacar(inimigo);
         }
     }
+
     
+    public Icon aparencia(){
+        if(nome.contains("Terminator")){
+            return (new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png")));
+        } else if(nome.contains("Zumbi")){
+            return (new javax.swing.ImageIcon(getClass().getResource("/Images/undo (2).png")));
+        } else if(nome.contains("sasuke")){
+            return (new javax.swing.ImageIcon(getClass().getResource("/Images/sasuke.png")));
+        } else if(nome.contains("sakura")){
+            return (new javax.swing.ImageIcon(getClass().getResource("/Images/sakura.png")));
+        } else if(nome.contains("naruto")){
+            return (new javax.swing.ImageIcon(getClass().getResource("/Images/naruto.png")));
+        } else if(nome.contains("Esqueleto")){
+            return (new javax.swing.ImageIcon(getClass().getResource("/Images/esqueleto.GIF")));
+        } else {
+            return null;
+        }
+        
+        
+    }
+
+
+
+
 }

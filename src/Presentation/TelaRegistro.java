@@ -63,7 +63,7 @@ public class TelaRegistro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonVoltar);
-        buttonVoltar.setBounds(70, 630, 150, 60);
+        buttonVoltar.setBounds(70, 630, 360, 60);
 
         buttonRegistrar.setBackground(new java.awt.Color(0, 0, 0));
         buttonRegistrar.setFont(new java.awt.Font("Coolvetica Rg", 0, 48)); // NOI18N
@@ -77,7 +77,7 @@ public class TelaRegistro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonRegistrar);
-        buttonRegistrar.setBounds(640, 560, 500, 70);
+        buttonRegistrar.setBounds(650, 550, 500, 70);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backRegistro.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
