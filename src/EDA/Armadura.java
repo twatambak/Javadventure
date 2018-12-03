@@ -1,18 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package EDA;
 
 /**
- *
- * @author Bencke
+ * @author Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
+
 public abstract class Armadura extends Equipamento{
     EnumParteCorpo areaProtecao;
 
-
+//========== GETTERS E SETTERS: Área de Proteção ===============================    
+    
     /**
      * @return the areaProtecao
      */

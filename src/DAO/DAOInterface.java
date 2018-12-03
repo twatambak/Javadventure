@@ -1,9 +1,12 @@
 
 package DAO;
 
+import EDA.Equipamento;
+import EDA.Itens;
 import EDA.Personagem;
 import EDA.Usuario;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -24,5 +27,20 @@ public interface DAOInterface {
     
     public void registrarUsuarios();
     public void carregarRegistros() throws FileNotFoundException;
-
+    
+    public ArrayList getArrayLojaEquip();
+    public void setArrayLojaEquip(int quant, int lvl);
+    
+    public ArrayList getArrayLojaItens();
+    public void setArrayLojaItens(int quant);
+    
+    public Equipamento getArrayEquipIndex(int index);
+    
+    public Itens getArrayItensIndex(int index);
+    
+    public void removeEquipArrayLoja(int index);
+    public void removeItensArrayLoja(int index);
+    
+    public boolean comprarEquipamento(int index, Personagem personagem);
+    public boolean comprarItens(int index, Personagem personagem);
 }

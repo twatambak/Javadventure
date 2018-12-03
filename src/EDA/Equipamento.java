@@ -65,6 +65,8 @@ public abstract class Equipamento {
         this.valorCompra = valorCompra;
     }
 
+//========== GETTERS E SETTERS: Propriedade ====================================    
+    
     /**
      * @return the propriedade
      */

@@ -1,7 +1,6 @@
 
 package EDA;
 
-import Business.BusinessFacade;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -63,12 +62,7 @@ public class Arma extends Equipamento{
         this.tipo = tipo;
     }
 
-//========== Getters e Setters: Dano ===========================================    
-
-    
-    public String toString(){
-        return "Nome: " + getNome() + "\nDano: " + getPropriedade() + "\nTipo: " + getTipo() + "\nValor: " + getValorCompra();
-    }
+//========== GETTERS E SETTERS: Tipo da Arma ===================================   
 
     /**
      * @return the tipo
@@ -82,5 +76,11 @@ public class Arma extends Equipamento{
      */
     public void setTipo(EnumTipoArma tipo) {
         this.tipo = tipo;
+    }
+
+//========== MÉTODOS ===========================================================
+    
+    public String toString(){
+        return "Nome: " + getNome() + "\nDano: " + getPropriedade() + "\nTipo: " + getTipo() + "\nValor: " + getValorCompra();
     }
 }

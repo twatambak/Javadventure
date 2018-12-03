@@ -174,12 +174,7 @@ public class TelaMundo extends javax.swing.JFrame {
             default:
                 break;
         }
-        /*if(player.getX() == monstro.getX() - 5 || player.getX() == monstro.getX() - 4 || player.getX() == monstro.getX() - 3 || player.getX() == monstro.getX() - 2 || player.getX() == monstro.getX() - 1 || player.getY() == monstro.getY() - 5 || player.getY() == monstro.getY() - 4 || player.getY() == monstro.getY() - 3  || player.getY() == monstro.getY() - 2 || player.getY() == monstro.getY() - 1 || player.getX() == monstro.getX() + 5 || player.getX() == monstro.getX() + 4 || player.getX() == monstro.getX() + 3 || player.getX() == monstro.getX() + 2 || player.getX() == monstro.getX() + 1 || player.getY() == monstro.getY() + 5 || player.getY() == monstro.getY() + 4 || player.getY() == monstro.getY() + 3 || player.getY() == monstro.getY() + 2 || player.getY() == monstro.getY() + 1 || player.getY() == monstro.getY() || player.getX() == monstro.getX()){
-            JOptionPane.showMessageDialog(null, "Fala carai");
-            TelaBatalha tela = new TelaBatalha(new Monstro(personagem.getLvl()));
-            Main.abrir(tela);
-            this.dispose();
-        }*/    
+
     }
 
 

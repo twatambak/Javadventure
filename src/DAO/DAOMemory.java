@@ -1,6 +1,13 @@
 
 package DAO;
 
+import Business.BusinessFacade;
+import EDA.Arma;
+import EDA.Elmo;
+import EDA.Equipamento;
+import EDA.Grevas;
+import EDA.Itens;
+import EDA.Peitoral;
 import EDA.Personagem;
 import EDA.Usuario;
 import java.io.BufferedWriter;
@@ -11,6 +18,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -23,6 +31,10 @@ public class DAOMemory implements DAOInterface{
     ArrayList<Usuario> arrayUsuario = new ArrayList<>();
     private File arquivoUsuarios = new File("RegistroUsuarios.txt");
     ArrayList<Personagem> arrayPersonagem = new ArrayList<>();
+    
+    ArrayList<Itens> arrayItensLoja = new ArrayList<>();
+    ArrayList<Equipamento> arrayEquipamentoLoja = new ArrayList<>();
+    
     Usuario usuarioLogado;
     
     private DAOMemory(){
@@ -176,6 +188,81 @@ public class DAOMemory implements DAOInterface{
             String senha = scan.next();
             
             arrayUsuario.add(new Usuario(usuario, senha));
+        }
+    }
+    
+    @Override
+    public void setArrayLojaEquip(int quant, int lvl){
+        arrayEquipamentoLoja.clear();
+        Random x = new Random();
+        
+        for(int i = 0; i < quant; i++){
+            arrayEquipamentoLoja.add(new Arma(x.nextInt(lvl + 10) + 1));
+            arrayEquipamentoLoja.add(new Elmo(x.nextInt(lvl + 10) + 1));
+            arrayEquipamentoLoja.add(new Peitoral(x.nextInt(lvl + 10) + 1));
+            arrayEquipamentoLoja.add(new Grevas(x.nextInt(lvl + 10) + 1));
+        }
+    }
+    
+    @Override
+    public ArrayList getArrayLojaEquip(){
+        return arrayEquipamentoLoja;
+    } 
+    
+    @Override
+    public void setArrayLojaItens(int quant){
+        arrayItensLoja.clear();
+        for(int i = 0; i < quant; i++){
+            arrayItensLoja.add(new Itens());
+        }
+    }
+    
+    @Override
+    public ArrayList getArrayLojaItens(){
+        return arrayItensLoja;
+    }
+    
+    @Override
+    public Equipamento getArrayEquipIndex(int index){
+        return arrayEquipamentoLoja.get(index);
+    }
+    
+    @Override
+    public Itens getArrayItensIndex(int index){
+        return arrayItensLoja.get(index);
+    }
+    
+    @Override
+    public void removeEquipArrayLoja(int index){
+        arrayEquipamentoLoja.remove(index);
+    }
+    
+    @Override
+    public void removeItensArrayLoja(int index){
+        arrayItensLoja.remove(index);
+    }
+    
+    public boolean comprarEquipamento(int index, Personagem personagem){
+        Equipamento aux = BusinessFacade.getArrayEquipIndex(index);
+        if(personagem.getDinheiro() >=  aux.getValorCompra()){
+            personagem.getInventario().add(aux);
+            removeEquipArrayLoja(index);
+            personagem.setDinheiro(personagem.getDinheiro() -  aux.getValorCompra());
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean comprarItens(int index, Personagem personagem){
+        Itens aux = BusinessFacade.getArrayItensIndex(index);
+        if(personagem.getDinheiro() >= aux.getValorCompra()){
+            personagem.getInventario().add(aux);
+            BusinessFacade.removeItensArrayLoja(index);
+            personagem.setDinheiro(personagem.getDinheiro() - aux.getValorCompra());
+            return true;
+        }else {
+            return false;
         }
     }
 }

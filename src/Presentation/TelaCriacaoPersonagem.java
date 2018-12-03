@@ -110,6 +110,7 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
         getContentPane().add(personagem);
         personagem.setBounds(720, 180, 260, 460);
 
+        listaPersonagens.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
         listaPersonagens.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Personagem 1", "Personagem 2", "Personagem 3", "Personagem 4", "Personagem 5", "Personagem 6", "Personagem 7", "Personagem 8" }));
         listaPersonagens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +118,7 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
             }
         });
         getContentPane().add(listaPersonagens);
-        listaPersonagens.setBounds(1050, 310, 110, 20);
+        listaPersonagens.setBounds(1050, 310, 200, 40);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backCriacaoPersonagem.jpg"))); // NOI18N
         background.setText("jLabel1");

@@ -8,9 +8,9 @@ import EDA.Usuario;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author pixel
+ * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
+
 public class TelaBatalha extends javax.swing.JFrame {
     Monstro monstro;
     int xPlayer;
@@ -44,7 +44,8 @@ public class TelaBatalha extends javax.swing.JFrame {
         barraHP = new javax.swing.JProgressBar();
         labelBicho = new javax.swing.JLabel();
         labelFala = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        labelHPMonstro = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
         background2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,7 +65,7 @@ public class TelaBatalha extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonDefender);
-        buttonDefender.setBounds(1060, 690, 190, 50);
+        buttonDefender.setBounds(930, 690, 190, 50);
 
         buttonAtacar.setFont(new java.awt.Font("Coolvetica Rg", 0, 42)); // NOI18N
         buttonAtacar.setText("Atacar");
@@ -104,7 +105,7 @@ public class TelaBatalha extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonFugir);
-        buttonFugir.setBounds(920, 690, 130, 50);
+        buttonFugir.setBounds(1140, 690, 130, 50);
 
         barraHP.setBackground(new java.awt.Color(0, 0, 0));
         barraHP.setForeground(new java.awt.Color(0, 255, 0));
@@ -127,11 +128,13 @@ public class TelaBatalha extends javax.swing.JFrame {
         getContentPane().add(labelFala);
         labelFala.setBounds(780, 160, 490, 50);
 
-        jLabel1.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("HP:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 620, 40, 30);
+        labelHPMonstro.setFont(new java.awt.Font("Bebas Neue", 0, 30)); // NOI18N
+        labelHPMonstro.setForeground(new java.awt.Color(255, 255, 255));
+        labelHPMonstro.setText("HP do monstro:");
+        getContentPane().add(labelHPMonstro);
+        labelHPMonstro.setBounds(10, 600, 160, 80);
+        getContentPane().add(jProgressBar1);
+        jProgressBar1.setBounds(170, 630, 210, 20);
 
         background2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backBatalha.jpg"))); // NOI18N
         background2.setText("jLabel1");
@@ -211,8 +214,9 @@ public class TelaBatalha extends javax.swing.JFrame {
     private javax.swing.JButton buttonDefender;
     private javax.swing.JButton buttonFugir;
     private javax.swing.JButton buttonPocao;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JLabel labelBicho;
     private javax.swing.JLabel labelFala;
+    private javax.swing.JLabel labelHPMonstro;
     // End of variables declaration//GEN-END:variables
 }

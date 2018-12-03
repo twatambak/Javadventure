@@ -3,9 +3,13 @@ package Business;
 
 import DAO.DAOInterface;
 import DAO.DAOMemory;
+import EDA.Equipamento;
+import EDA.Itens;
+import EDA.Personagem;
 import EDA.Usuario;
 import EDA.Ser;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -64,5 +68,43 @@ public class BusinessFacade {
         instance.registrarUsuarios();
     }
     
-
+    public static ArrayList getArrayLojaEquip(){
+        return instance.getArrayLojaEquip();
+    }
+    
+    public static ArrayList getArrayLojaItens(){
+        return instance.getArrayLojaItens();
+    }
+    
+    public static void setArrayLojaEquip(int quant, int lvl){
+        instance.setArrayLojaEquip(quant, lvl);
+    }
+    
+    public static void setArrayLojaItens(int quant){
+        instance.setArrayLojaItens(quant);
+    }
+    
+    public static Equipamento getArrayEquipIndex(int index){
+        return instance.getArrayEquipIndex(index);
+    }
+    
+    public static Itens getArrayItensIndex(int index){
+        return instance.getArrayItensIndex(index);
+    }
+    
+    public static void removeEquipArrayLoja(int index){
+        instance.removeEquipArrayLoja(index);
+    }
+    
+    public static void removeItensArrayLoja(int index){
+        instance.removeItensArrayLoja(index);
+    }
+    
+    public static boolean comprarEquipamento(int index, Personagem personagem){
+        return instance.comprarEquipamento(index, personagem);
+    }
+    
+    public static boolean comprarItens(int index, Personagem personagem){
+        return instance.comprarEquipamento(index, personagem);
+    }
 }
