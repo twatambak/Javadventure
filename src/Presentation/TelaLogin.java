@@ -21,7 +21,6 @@ public class TelaLogin extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -82,7 +81,7 @@ public class TelaLogin extends javax.swing.JFrame {
         buttonLogin.setBounds(560, 620, 200, 70);
 
         inputSenha.setBackground(new java.awt.Color(0, 0, 0));
-        inputSenha.setFont(new java.awt.Font("Ice Cream Icons", 0, 36)); // NOI18N
+        inputSenha.setFont(new java.awt.Font("Franklin Gothic Book", 0, 30)); // NOI18N
         inputSenha.setForeground(new java.awt.Color(255, 255, 255));
         inputSenha.setMinimumSize(new java.awt.Dimension(6, 36));
         inputSenha.setPreferredSize(new java.awt.Dimension(6, 36));
@@ -90,7 +89,7 @@ public class TelaLogin extends javax.swing.JFrame {
         inputSenha.setBounds(90, 620, 370, 60);
 
         inputUsuario.setBackground(new java.awt.Color(0, 0, 0));
-        inputUsuario.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
+        inputUsuario.setFont(new java.awt.Font("Coolvetica Rg", 0, 36)); // NOI18N
         inputUsuario.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(inputUsuario);
         inputUsuario.setBounds(90, 450, 370, 60);
@@ -105,10 +104,6 @@ public class TelaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    /**
-     * Gerencia o login do usuário.
-     * @param evt 
-     */
     private void buttonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonLoginMouseClicked
         String usuario = inputUsuario.getText();
         String senha = inputSenha.getText();
@@ -126,10 +121,6 @@ public class TelaLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonLoginMouseClicked
     
-    /**
-     * Evento criado por engano.
-     * @param evt 
-     */
     private void buttonLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_buttonLoginFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonLoginFocusGained

@@ -28,7 +28,6 @@ public class Personagem extends Ser{
         this.inteligencia = inteligencia;
         
         defesa = false;
-        
         hpMaximo = vitalidade * 100;
         hp = hpMaximo;
  
@@ -56,11 +55,8 @@ public class Personagem extends Ser{
         
         this.aparencia = aparencia;
     }
-    
 
-
-
-//========== Getters e Setters: Ataque =========================================
+//========== GETTERS E SETTERS: Ataque =========================================
  
     /**
      * @return the xp
@@ -76,7 +72,7 @@ public class Personagem extends Ser{
         this.xp = xp;
     }
 
-//========== Getters e Setters: Dinheiro =======================================
+//========== GETTERS E SETTERS: Dinheiro =======================================
     
     /**
      * Retorna o dinheiro do jogador.
@@ -94,7 +90,7 @@ public class Personagem extends Ser{
         this.dinheiro = dinheiro;
     }
 
-//========== Getters e Setters: Skillpoints ====================================
+//========== GETTERS E SETTERS: Skillpoints ====================================
     
     /**
      * Retorna os pontos de habilidade do jogador.
@@ -112,9 +108,7 @@ public class Personagem extends Ser{
         this.skillpoints = skillpoints;
     }
 
-//========== Métodos ===========================================================
-
-
+//========== GETTERS E SETTERS: Inventário Equipamentos ===========================================================
 
     /**
      * @return the inventario
@@ -130,10 +124,28 @@ public class Personagem extends Ser{
         this.inventario = inventario;
     }
 
-    public Icon aparencia(){
-        return aparencia;
+//========== GETTERS E SETTERS: Consumíveis ====================================
+   
+    /**
+     * @return the consumiveis
+     */
+    public ArrayList<Itens> getConsumiveis() {
+        return consumiveis;
     }
+
+    /**
+     * @param consumiveis the consumiveis to set
+     */
+    public void setConsumiveis(ArrayList<Itens> consumiveis) {
+        this.consumiveis = consumiveis;
+    }
+
+//========== MÉTODOS ===========================================================
     
+    /**
+     * Aumenta o nível da habilidade.
+     * @param skill 
+     */
     public void upar(int skill){
         this.setSkillpoints(this.getSkillpoints() - 1);
         switch(skill){
@@ -152,19 +164,7 @@ public class Personagem extends Ser{
         }
     }
 
-    /**
-     * @return the consumiveis
-     */
-    public ArrayList<Itens> getConsumiveis() {
-        return consumiveis;
-    }
 
-    /**
-     * @param consumiveis the consumiveis to set
-     */
-    public void setConsumiveis(ArrayList<Itens> consumiveis) {
-        this.consumiveis = consumiveis;
-    }
     
     
 }

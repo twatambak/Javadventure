@@ -105,6 +105,10 @@ public class Monstro extends Ser{
     
 //========== Métodos =========================================================== 
     
+    /**
+     * Gerencia o turno do monstro.
+     * @param inimigo 
+     */
     public void turno(Ser inimigo){
         Random x = new Random();
         switch(x.nextInt(3)){
@@ -117,7 +121,10 @@ public class Monstro extends Ser{
         }
     }
 
-    
+    /**
+     * Retorna a aparência do monstro.
+     * @return 
+     */
     public Icon aparencia(){
        return aparencia;     
     }

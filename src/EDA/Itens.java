@@ -24,7 +24,7 @@ public class Itens{
         this.nome = "" + tipo.toString() + " " + eficiencia.toString();
     }
 
-//========== Getters e Setters: Eficiência =====================================
+//========== GETTERS E SETTERS: Eficiência =====================================
     
     /**
      * @return the eficiencia
@@ -40,7 +40,7 @@ public class Itens{
         this.eficiencia = eficiencia;
     }
 
-//========== Getters e Setters: Quantidade =====================================
+//========== GETTERS E SETTERS: Quantidade =====================================
     
     /**
      * @return the quantidade
@@ -56,7 +56,7 @@ public class Itens{
         this.quantidade = quantidade;
     }
 
-//========== Getters e Setters: Tipo ===========================================
+//========== GETTERS E SETTERS: Tipo ===========================================
     
     /**
      * @return the tipo
@@ -72,6 +72,8 @@ public class Itens{
         this.tipo = tipo;
     }
 
+//========== GETTERS E SETTERS: Nome ===========================================
+    
     /**
      * @return the nome
      */
@@ -86,6 +88,8 @@ public class Itens{
         this.nome = nome;
     }
 
+//========== GETTERS E SETTERS: Valor de Compra ================================    
+    
     /**
      * @return the valorCompra
      */

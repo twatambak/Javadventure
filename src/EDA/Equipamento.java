@@ -11,7 +11,7 @@ public abstract class Equipamento {
     int lvl;
     int valorCompra;
     
-//========== Getters e Setters: Nome ===========================================
+//========== GETTERS E SETTERS: Nome ===========================================
     
     /**
      * Retorna o nome do equipamento.
@@ -29,7 +29,7 @@ public abstract class Equipamento {
         this.nome = nome;
     }
 
-//========== Getters e Setters: Level ==========================================
+//========== GETTERS E SETTERS: Level ==========================================
     
     /**
      * Retorna o nível do equipamento.
@@ -47,7 +47,7 @@ public abstract class Equipamento {
         this.lvl = lvl;
     }
     
-//========== Getters e Setters: Valor Compra ===================================
+//========== GETTERS E SETTERS: Valor Compra ===================================
     
     /**
      * Retorna o valor de compra do equipamento.
@@ -80,5 +80,8 @@ public abstract class Equipamento {
     public void setPropriedade(int propriedade) {
         this.propriedade = propriedade;
     }
-
+    
+    public String salvaString(){
+        return "" + getNome() + ";" + getLvl() + ";" + getPropriedade() + ";" + getValorCompra() + "; ";
+     }
 }   

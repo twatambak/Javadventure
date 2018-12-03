@@ -14,7 +14,7 @@ public class Batalha {
         this.monstro = monstro;
     }
 
-//========== Getters e Setters: Jogador ========================================    
+//========== GETTERS E SETTERS: Jogador ========================================    
     
     /**
      * @return the jogador
@@ -30,7 +30,7 @@ public class Batalha {
         this.jogador = jogador;
     }
 
-//========== Getters e Setters: Monstro ========================================    
+//========== GETTERS E SETTERS: Monstro ========================================    
     
     /**
      * @return the monstro
@@ -46,7 +46,7 @@ public class Batalha {
         this.monstro = monstro;
     }
     
-//========== Métodos ===========================================================
+//========== MÉTODOS ===========================================================
 
     public static void batalhaAtacar(){
         

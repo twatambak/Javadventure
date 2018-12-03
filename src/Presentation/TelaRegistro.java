@@ -2,7 +2,6 @@
 package Presentation;
 
 import Business.BusinessFacade;
-import javax.swing.JFrame;
 
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
@@ -31,13 +30,13 @@ public class TelaRegistro extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         inputLogin.setBackground(new java.awt.Color(0, 0, 0));
-        inputLogin.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
+        inputLogin.setFont(new java.awt.Font("Coolvetica Rg", 0, 36)); // NOI18N
         inputLogin.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(inputLogin);
         inputLogin.setBounds(70, 260, 360, 60);
 
         inputSenha.setBackground(new java.awt.Color(0, 0, 0));
-        inputSenha.setFont(new java.awt.Font("Ice Cream Icons", 0, 36)); // NOI18N
+        inputSenha.setFont(new java.awt.Font("Franklin Gothic Book", 0, 30)); // NOI18N
         inputSenha.setForeground(new java.awt.Color(255, 255, 255));
         inputSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

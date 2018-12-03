@@ -5,7 +5,7 @@ import Business.BusinessFacade;
 import EDA.Usuario;
 
 /**
- * @author pixel
+ * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
 
 public class TelaSelecaoPersonagem extends javax.swing.JFrame {

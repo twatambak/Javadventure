@@ -26,7 +26,6 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
         } else {
             buttonVoltar.setEnabled(true);
         }
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -129,11 +128,7 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    /**
-     * Evento criado por engano.
-     * @param evt 
-     */
+
     private void spinnerForcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spinnerForcaMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_spinnerForcaMouseClicked
@@ -183,6 +178,13 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
     private javax.swing.JSpinner spinnerVitalidade;
     // End of variables declaration//GEN-END:variables
 
+//========== MÉTODOS ===========================================================    
+    
+    /**
+     * Realiza a verificação da aparência do personagem para então definir na
+     * label.
+     * @return 
+     */
     public Icon verificaAparencia(){
         int id = listaPersonagens.getSelectedIndex();
         switch(id){
@@ -205,29 +207,5 @@ public class TelaCriacaoPersonagem extends javax.swing.JFrame {
             default:
                 return (new javax.swing.ImageIcon(getClass().getResource("/Images/Personagem1.png")));
         } 
-    }
-
-}
-
-
-
-//==============================================================================
-
-class Viewo implements Runnable{
-    int skillpontos;
-    JLabel labelzinho;
-    JSpinner spineer;
-    
-    public Viewo(int skillpontos, JLabel labelzinho, JSpinner spineer){
-        this.skillpontos = skillpontos;
-        this.labelzinho = labelzinho;
-        this.spineer = spineer;
-    }
-    
-    @Override
-    public void run(){
-        int aux = (Integer) spineer.getValue();
-        skillpontos -= aux;
-        labelzinho.setText("" + aux);
-    }
+    } 
 }

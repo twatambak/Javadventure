@@ -5,15 +5,8 @@ import Business.BusinessFacade;
 import EDA.Monstro;
 import EDA.Personagem;
 import EDA.Usuario;
-import java.awt.Component;
-import java.awt.event.ActionEvent;
 import java.util.Random;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.KeyStroke;
 
 /**
  * @authors Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
@@ -164,6 +157,19 @@ public class TelaMundo extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_buttonLojaActionPerformed
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background;
+    private javax.swing.JButton buttonInvent;
+    private javax.swing.JButton buttonLoja;
+    private javax.swing.JButton buttonStatus;
+    private javax.swing.JLabel player;
+    // End of variables declaration//GEN-END:variables
+    
+//========== MÉTODOS ===========================================================
+    
+    /**
+     * Gera os eventos aleatórios de batalha.
+     */
     public void encontroBatalha(){
         Random x = new Random();
         switch(x.nextInt(10)){
@@ -174,18 +180,7 @@ public class TelaMundo extends javax.swing.JFrame {
             default:
                 break;
         }
-
     }
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel background;
-    private javax.swing.JButton buttonInvent;
-    private javax.swing.JButton buttonLoja;
-    private javax.swing.JButton buttonStatus;
-    private javax.swing.JLabel player;
-    // End of variables declaration//GEN-END:variables
-    
 }
 
 

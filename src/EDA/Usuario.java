@@ -65,8 +65,12 @@ public class Usuario {
         this.personagem = personagem;
     }
     
+    public String toString(){
+        return "" + getLogin();
+    }
+    
     public String salvaString(){
-        return "" + getLogin() + ";" + getSenha() + ";";
+        return "" + getLogin() + ";" + getSenha() + "; ";
     }
     
 }

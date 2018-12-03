@@ -298,9 +298,45 @@ public abstract class Ser {
         this.bota = bota;
         protecaoTotal = protecaoTotal + this.bota.getPropriedade();
     }
+
+//========== GETTERS E SETTERS: Defesa =========================================
+    
+    /**
+     * @return the defesa
+     */
+    public boolean isDefesa() {
+        return defesa;
+    }
+
+    /**
+     * @param defesa the defesa to set
+     */
+    public void setDefesa(boolean defesa) {
+        this.defesa = defesa;
+    }
+
+//========== GETTERS E SETTERS: Quantidade Poções ==============================    
+    
+    /**
+     * @return the qtdPot
+     */
+    public int getQtdPot() {
+        return qtdPot;
+    }
+
+    /**
+     * @param qtdPot the qtdPot to set
+     */
+    public void setQtdPot(int qtdPot) {
+        this.qtdPot = qtdPot;
+    }
     
  //========== Métodos ==========================================================
     
+    /**
+     * Gerencia o ataque.
+     * @param inimigo 
+     */
     public void atacar(Ser inimigo){
         Random x = new Random();
         this.setDefesa(false);
@@ -378,9 +414,11 @@ public abstract class Ser {
         } else {
             JOptionPane.showMessageDialog(null, "" + inimigo.getNome() + " virou estrelinha. " + this.getNome() + " é o vencedor.", "Wow, defesa", JOptionPane.PLAIN_MESSAGE);
         }
-            
     }
     
+    /**
+     * Coloca o ser em modo de defesa.
+     */
     public void defender(){
         this.setDefesa(true);
     }
@@ -393,43 +431,29 @@ public abstract class Ser {
             return false;
         }
     }
-
-    /**
-     * @return the defesa
-     */
-    public boolean isDefesa() {
-        return defesa;
-    }
-
-    /**
-     * @param defesa the defesa to set
-     */
-    public void setDefesa(boolean defesa) {
-        this.defesa = defesa;
-    }
-
-    /**
-     * @return the qtdPot
-     */
-    public int getQtdPot() {
-        return qtdPot;
-    }
-
-    /**
-     * @param qtdPot the qtdPot to set
-     */
-    public void setQtdPot(int qtdPot) {
-        this.qtdPot = qtdPot;
-    }
     
-
+    /**
+     * Retorna a aparência do ser.
+     * @return 
+     */
     public Icon getAparencia() {
         return aparencia;
     }
     
+    /**
+     * Cura o ser.
+     * @param quanti 
+     */
     public void curar(int quanti){
+        int hpstatico = getHp();
         if(getHp() < getHpMaximo()){
-            setHp(quanti + getHp());
+            /*for(int i = getHp(); i < getHpMaximo(); i++){
+                setHp(i + hpstatico);
+            }*/
+            setHp(getHp() + 100);
+            if(getHp() > getHpMaximo()){
+                setHp(getHpMaximo());
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Sua vida tá cheia meu compadre.", "Opa, não rolou", JOptionPane.PLAIN_MESSAGE);
         }

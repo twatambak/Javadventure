@@ -4,4 +4,3 @@ sasuke
 sakura
 naruto
 Esqueleto Anti-Otaco
-Capivara
