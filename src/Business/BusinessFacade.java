@@ -105,6 +105,6 @@ public class BusinessFacade {
     }
     
     public static boolean comprarItens(int index, Personagem personagem){
-        return instance.comprarEquipamento(index, personagem);
+        return instance.comprarItens(index, personagem);
     }
 }

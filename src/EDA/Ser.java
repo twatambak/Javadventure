@@ -426,5 +426,13 @@ public abstract class Ser {
     public Icon getAparencia() {
         return aparencia;
     }
+    
+    public void curar(int quanti){
+        if(getHp() < getHpMaximo()){
+            setHp(quanti + getHp());
+        } else {
+            JOptionPane.showMessageDialog(null, "Sua vida tá cheia meu compadre.", "Opa, não rolou", JOptionPane.PLAIN_MESSAGE);
+        }
+    }
 }
 

@@ -2,7 +2,6 @@ package Presentation;
 
 import Business.BusinessFacade;
 import EDA.*;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -10,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Bencke
+ * @author Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
 public class TelaLoja extends javax.swing.JFrame {
     Usuario usuarioLogado = BusinessFacade.getUsuarioLogado();

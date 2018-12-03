@@ -255,10 +255,14 @@ public class DAOMemory implements DAOInterface{
     }
     
     public boolean comprarItens(int index, Personagem personagem){
-        Itens aux = BusinessFacade.getArrayItensIndex(index);
+        Itens aux = getArrayItensIndex(index);
         if(personagem.getDinheiro() >= aux.getValorCompra()){
             personagem.getInventario().add(aux);
-            BusinessFacade.removeItensArrayLoja(index);
+            if(aux.getQuantidade() > 0){
+                aux.setQuantidade(aux.getQuantidade() - 1);
+            } else {
+                removeItensArrayLoja(index);
+            }
             personagem.setDinheiro(personagem.getDinheiro() - aux.getValorCompra());
             return true;
         }else {

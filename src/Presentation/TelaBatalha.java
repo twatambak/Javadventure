@@ -23,9 +23,8 @@ public class TelaBatalha extends javax.swing.JFrame {
         this.monstro = monstro;
         this.xPlayer = xPlayer;
         this.yPlayer = yPlayer;
-        barraHP.setValue(personagem.getHp());
         labelBicho.setIcon(monstro.getAparencia());
-
+        atualizaHP();
     }
 
     /**
@@ -44,13 +43,13 @@ public class TelaBatalha extends javax.swing.JFrame {
         barraHP = new javax.swing.JProgressBar();
         labelBicho = new javax.swing.JLabel();
         labelFala = new javax.swing.JLabel();
-        labelHPMonstro = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        labelHP = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         background2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1366, 900));
-        setPreferredSize(new java.awt.Dimension(1366, 900));
+        setMinimumSize(new java.awt.Dimension(1366, 768));
+        setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -65,7 +64,7 @@ public class TelaBatalha extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonDefender);
-        buttonDefender.setBounds(930, 690, 190, 50);
+        buttonDefender.setBounds(980, 670, 190, 50);
 
         buttonAtacar.setFont(new java.awt.Font("Coolvetica Rg", 0, 42)); // NOI18N
         buttonAtacar.setText("Atacar");
@@ -78,7 +77,7 @@ public class TelaBatalha extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAtacar);
-        buttonAtacar.setBounds(530, 690, 150, 50);
+        buttonAtacar.setBounds(510, 670, 150, 50);
 
         buttonPocao.setFont(new java.awt.Font("Coolvetica Rg", 0, 42)); // NOI18N
         buttonPocao.setText("Usar itens");
@@ -92,7 +91,7 @@ public class TelaBatalha extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonPocao);
-        buttonPocao.setBounds(700, 690, 210, 50);
+        buttonPocao.setBounds(720, 670, 210, 50);
 
         buttonFugir.setFont(new java.awt.Font("Coolvetica Rg", 0, 42)); // NOI18N
         buttonFugir.setText("Fugir");
@@ -105,7 +104,7 @@ public class TelaBatalha extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonFugir);
-        buttonFugir.setBounds(1140, 690, 130, 50);
+        buttonFugir.setBounds(1210, 670, 130, 50);
 
         barraHP.setBackground(new java.awt.Color(0, 0, 0));
         barraHP.setForeground(new java.awt.Color(0, 255, 0));
@@ -115,12 +114,12 @@ public class TelaBatalha extends javax.swing.JFrame {
             }
         });
         getContentPane().add(barraHP);
-        barraHP.setBounds(110, 700, 280, 40);
+        barraHP.setBounds(20, 690, 420, 40);
 
         labelBicho.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelBicho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png"))); // NOI18N
         getContentPane().add(labelBicho);
-        labelBicho.setBounds(380, 180, 630, 390);
+        labelBicho.setBounds(380, 180, 630, 410);
 
         labelFala.setFont(new java.awt.Font("Regalia Free", 0, 36)); // NOI18N
         labelFala.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,19 +127,22 @@ public class TelaBatalha extends javax.swing.JFrame {
         getContentPane().add(labelFala);
         labelFala.setBounds(780, 160, 490, 50);
 
-        labelHPMonstro.setFont(new java.awt.Font("Bebas Neue", 0, 30)); // NOI18N
-        labelHPMonstro.setForeground(new java.awt.Color(255, 255, 255));
-        labelHPMonstro.setText("HP do monstro:");
-        getContentPane().add(labelHPMonstro);
-        labelHPMonstro.setBounds(10, 600, 160, 80);
-        getContentPane().add(jProgressBar1);
-        jProgressBar1.setBounds(170, 630, 210, 20);
+        labelHP.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
+        labelHP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelHP.setText("0000 / 0000");
+        getContentPane().add(labelHP);
+        labelHP.setBounds(20, 650, 420, 40);
 
-        background2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backBatalha.jpg"))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setPreferredSize(new java.awt.Dimension(10, 10));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 620, 1370, 10);
+
+        background2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/filhodaputa.jpg"))); // NOI18N
         background2.setText("jLabel1");
         background2.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        background2.setMinimumSize(new java.awt.Dimension(1400, 800));
-        background2.setPreferredSize(new java.awt.Dimension(1400, 800));
+        background2.setMinimumSize(new java.awt.Dimension(1366, 768));
+        background2.setPreferredSize(new java.awt.Dimension(1366, 768));
         background2.setRequestFocusEnabled(false);
         getContentPane().add(background2);
         background2.setBounds(0, 0, 1366, 768);
@@ -149,11 +151,7 @@ public class TelaBatalha extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonPocaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPocaoActionPerformed
-        if(personagem.getQtdPot() > 0 && personagem.getHp() < personagem.getHpMaximo()){
-            personagem.setHp(personagem.getHp() + 100);
-            personagem.setQtdPot(personagem.getQtdPot() - 1);
-            barraHP.setValue(personagem.getHp());
-        }
+        personagem.curar(100);
     }//GEN-LAST:event_buttonPocaoActionPerformed
 
     private void buttonAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAtacarActionPerformed
@@ -172,8 +170,8 @@ public class TelaBatalha extends javax.swing.JFrame {
        } else {
             personagem.atacar(monstro);
             monstro.turno(personagem);
-            barraHP.setValue(personagem.getHp());
        }
+        atualizaHP();
     }//GEN-LAST:event_buttonAtacarActionPerformed
 
     private void buttonDefenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDefenderActionPerformed
@@ -192,8 +190,8 @@ public class TelaBatalha extends javax.swing.JFrame {
        } else {
             personagem.setDefesa(true);
             monstro.turno(personagem);
-            barraHP.setValue(personagem.getHp());
        }
+        atualizaHP();
         
     }//GEN-LAST:event_buttonDefenderActionPerformed
 
@@ -207,6 +205,11 @@ public class TelaBatalha extends javax.swing.JFrame {
 
     }//GEN-LAST:event_barraHPPropertyChange
 
+    public void atualizaHP(){
+        barraHP.setValue(personagem.getHp());
+        labelHP.setText("" + personagem.getHp() + " / " + personagem.getHpMaximo());
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background2;
     private javax.swing.JProgressBar barraHP;
@@ -214,9 +217,9 @@ public class TelaBatalha extends javax.swing.JFrame {
     private javax.swing.JButton buttonDefender;
     private javax.swing.JButton buttonFugir;
     private javax.swing.JButton buttonPocao;
-    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelBicho;
     private javax.swing.JLabel labelFala;
-    private javax.swing.JLabel labelHPMonstro;
+    private javax.swing.JLabel labelHP;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,7 +18,6 @@ public class Monstro extends Ser{
     private int coinDrop;
     private static ArrayList<String> arrayMonstros = new ArrayList<>();
     private File arquivoMonstros = new File("Monstros.txt");
-    private Icon aparencia;
     public Monstro(int level){
         try {
             Scanner leitor = new Scanner(new FileReader(arquivoMonstros)).useDelimiter("\\n");
@@ -53,6 +52,7 @@ public class Monstro extends Ser{
             }
             
             this.nome = arrayMonstros.get(x.nextInt(arrayMonstros.size()));
+            
             if(nome.contains("Terminator")){
                 aparencia = (new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png")));
             } else if(nome.contains("Zumbi")){
@@ -119,26 +119,7 @@ public class Monstro extends Ser{
 
     
     public Icon aparencia(){
-        if(nome.contains("Terminator")){
-            return (new javax.swing.ImageIcon(getClass().getResource("/Images/undo.png")));
-        } else if(nome.contains("Zumbi")){
-            return (new javax.swing.ImageIcon(getClass().getResource("/Images/undo (2).png")));
-        } else if(nome.contains("sasuke")){
-            return (new javax.swing.ImageIcon(getClass().getResource("/Images/sasuke.png")));
-        } else if(nome.contains("sakura")){
-            return (new javax.swing.ImageIcon(getClass().getResource("/Images/sakura.png")));
-        } else if(nome.contains("naruto")){
-            return (new javax.swing.ImageIcon(getClass().getResource("/Images/naruto.png")));
-        } else if(nome.contains("Esqueleto")){
-            return (new javax.swing.ImageIcon(getClass().getResource("/Images/esqueleto.GIF")));
-        } else {
-            return null;
-        }
-        
-        
+       return aparencia;     
     }
-
-
-
 
 }
