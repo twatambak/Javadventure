@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Presentation;
 
 import Business.BusinessFacade;
@@ -10,8 +6,7 @@ import EDA.Personagem;
 import EDA.Usuario;
 
 /**
- *
- * @author pixel
+ * @author Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
 public class TelaStatus extends javax.swing.JFrame {
     Usuario usuarioLogado = BusinessFacade.getUsuarioLogado();
@@ -40,16 +35,6 @@ public class TelaStatus extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelInfoXP = new javax.swing.JLabel();
-        labelInfoMoedas = new javax.swing.JLabel();
-        labelInfoDES = new javax.swing.JLabel();
-        labelInfoLvl = new javax.swing.JLabel();
-        labelInfoAtk = new javax.swing.JLabel();
-        labelInfoHP = new javax.swing.JLabel();
-        labelInfoNome = new javax.swing.JLabel();
-        labelInfoINT = new javax.swing.JLabel();
-        labelInfoVIT = new javax.swing.JLabel();
-        labelInfoFOR = new javax.swing.JLabel();
         labelNome = new javax.swing.JLabel();
         labelLvl = new javax.swing.JLabel();
         labelHp = new javax.swing.JLabel();
@@ -68,159 +53,129 @@ public class TelaStatus extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(521, 460));
-        setPreferredSize(new java.awt.Dimension(520, 460));
+        setMinimumSize(new java.awt.Dimension(600, 530));
+        setPreferredSize(new java.awt.Dimension(600, 530));
         getContentPane().setLayout(null);
 
-        labelInfoXP.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
-        labelInfoXP.setText("XP:");
-        getContentPane().add(labelInfoXP);
-        labelInfoXP.setBounds(20, 200, 50, 30);
-
-        labelInfoMoedas.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
-        labelInfoMoedas.setText("Moedas:");
-        getContentPane().add(labelInfoMoedas);
-        labelInfoMoedas.setBounds(20, 240, 70, 30);
-
-        labelInfoDES.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
-        labelInfoDES.setText("DES:");
-        getContentPane().add(labelInfoDES);
-        labelInfoDES.setBounds(220, 90, 50, 30);
-
-        labelInfoLvl.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
-        labelInfoLvl.setText("Level:");
-        getContentPane().add(labelInfoLvl);
-        labelInfoLvl.setBounds(20, 80, 50, 30);
-
-        labelInfoAtk.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
-        labelInfoAtk.setText("Ataque:");
-        getContentPane().add(labelInfoAtk);
-        labelInfoAtk.setBounds(20, 160, 70, 30);
-
-        labelInfoHP.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
-        labelInfoHP.setText("HP:");
-        getContentPane().add(labelInfoHP);
-        labelInfoHP.setBounds(20, 120, 50, 30);
-
-        labelInfoNome.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
-        labelInfoNome.setText("Nome:");
-        getContentPane().add(labelInfoNome);
-        labelInfoNome.setBounds(20, 40, 50, 30);
-
-        labelInfoINT.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
-        labelInfoINT.setText("INT:");
-        getContentPane().add(labelInfoINT);
-        labelInfoINT.setBounds(220, 140, 50, 30);
-
-        labelInfoVIT.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
-        labelInfoVIT.setText("VIT:");
-        getContentPane().add(labelInfoVIT);
-        labelInfoVIT.setBounds(220, 190, 50, 30);
-
-        labelInfoFOR.setFont(new java.awt.Font("Bebas Neue", 0, 24)); // NOI18N
-        labelInfoFOR.setText("FOR:");
-        getContentPane().add(labelInfoFOR);
-        labelInfoFOR.setBounds(220, 40, 50, 30);
-
-        labelNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelNome.setText("-");
+        labelNome.setFont(new java.awt.Font("Bebas Neue", 0, 36)); // NOI18N
+        labelNome.setText("Gilberto");
         getContentPane().add(labelNome);
-        labelNome.setBounds(100, 40, 40, 20);
+        labelNome.setBounds(150, 60, 140, 50);
 
-        labelLvl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelLvl.setText("-");
+        labelLvl.setFont(new java.awt.Font("Bebas Neue", 0, 48)); // NOI18N
+        labelLvl.setText("0");
         getContentPane().add(labelLvl);
-        labelLvl.setBounds(100, 80, 40, 20);
+        labelLvl.setBounds(150, 130, 50, 50);
 
-        labelHp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelHp.setText("-");
+        labelHp.setFont(new java.awt.Font("Bebas Neue", 0, 48)); // NOI18N
+        labelHp.setText("0");
         getContentPane().add(labelHp);
-        labelHp.setBounds(100, 120, 40, 20);
+        labelHp.setBounds(100, 200, 50, 50);
 
-        labelAtk.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelAtk.setText("-");
+        labelAtk.setFont(new java.awt.Font("Bebas Neue", 0, 48)); // NOI18N
+        labelAtk.setText("0");
         getContentPane().add(labelAtk);
-        labelAtk.setBounds(100, 160, 40, 20);
+        labelAtk.setBounds(180, 270, 50, 50);
 
-        labelXP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelXP.setText("-");
+        labelXP.setFont(new java.awt.Font("Bebas Neue", 0, 48)); // NOI18N
+        labelXP.setText("0");
         getContentPane().add(labelXP);
-        labelXP.setBounds(100, 200, 40, 20);
+        labelXP.setBounds(110, 350, 50, 50);
 
-        labelMoedas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelMoedas.setText("-");
+        labelMoedas.setFont(new java.awt.Font("Bebas Neue", 0, 48)); // NOI18N
+        labelMoedas.setText("0");
         getContentPane().add(labelMoedas);
-        labelMoedas.setBounds(100, 240, 40, 20);
+        labelMoedas.setBounds(190, 410, 50, 50);
 
-        labelDES.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelDES.setText("-");
+        labelDES.setFont(new java.awt.Font("Bebas Neue", 0, 48)); // NOI18N
+        labelDES.setText("0");
         getContentPane().add(labelDES);
-        labelDES.setBounds(270, 90, 40, 20);
+        labelDES.setBounds(440, 160, 50, 50);
 
-        labelINT.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelINT.setText("-");
+        labelINT.setFont(new java.awt.Font("Bebas Neue", 0, 48)); // NOI18N
+        labelINT.setText("0");
         getContentPane().add(labelINT);
-        labelINT.setBounds(270, 140, 40, 20);
+        labelINT.setBounds(440, 250, 50, 50);
 
-        labelVIT.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelVIT.setText("-");
+        labelVIT.setFont(new java.awt.Font("Bebas Neue", 0, 48)); // NOI18N
+        labelVIT.setText("0");
+        labelVIT.setToolTipText("");
         getContentPane().add(labelVIT);
-        labelVIT.setBounds(270, 190, 40, 20);
+        labelVIT.setBounds(440, 340, 50, 50);
 
-        labelFOR.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelFOR.setText("-");
+        labelFOR.setFont(new java.awt.Font("Bebas Neue", 0, 48)); // NOI18N
+        labelFOR.setText("0");
         getContentPane().add(labelFOR);
-        labelFOR.setBounds(270, 40, 40, 20);
+        labelFOR.setBounds(440, 70, 50, 50);
 
+        voltar.setFont(new java.awt.Font("Coolvetica Rg", 0, 36)); // NOI18N
         voltar.setText("Voltar");
+        voltar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        voltar.setContentAreaFilled(false);
+        voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 voltarActionPerformed(evt);
             }
         });
         getContentPane().add(voltar);
-        voltar.setBounds(20, 390, 61, 23);
+        voltar.setBounds(330, 420, 240, 50);
 
+        buttonUparFOR.setFont(new java.awt.Font("Coolvetica Rg", 0, 14)); // NOI18N
         buttonUparFOR.setText("Upar");
+        buttonUparFOR.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        buttonUparFOR.setContentAreaFilled(false);
+        buttonUparFOR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonUparFOR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonUparFORActionPerformed(evt);
             }
         });
         getContentPane().add(buttonUparFOR);
-        buttonUparFOR.setBounds(360, 40, 55, 23);
+        buttonUparFOR.setBounds(490, 80, 80, 30);
 
+        buttonUparDES.setFont(new java.awt.Font("Coolvetica Rg", 0, 14)); // NOI18N
         buttonUparDES.setText("Upar");
+        buttonUparDES.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        buttonUparDES.setContentAreaFilled(false);
+        buttonUparDES.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonUparDES.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonUparDESActionPerformed(evt);
             }
         });
         getContentPane().add(buttonUparDES);
-        buttonUparDES.setBounds(360, 90, 55, 23);
+        buttonUparDES.setBounds(490, 170, 80, 30);
 
+        buttonUparINT.setFont(new java.awt.Font("Coolvetica Rg", 0, 14)); // NOI18N
         buttonUparINT.setText("Upar");
+        buttonUparINT.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        buttonUparINT.setContentAreaFilled(false);
+        buttonUparINT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonUparINT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonUparINTActionPerformed(evt);
             }
         });
         getContentPane().add(buttonUparINT);
-        buttonUparINT.setBounds(360, 140, 55, 20);
+        buttonUparINT.setBounds(490, 260, 80, 30);
 
+        buttonUparVIT.setFont(new java.awt.Font("Coolvetica Rg", 0, 14)); // NOI18N
         buttonUparVIT.setText("Upar");
+        buttonUparVIT.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        buttonUparVIT.setContentAreaFilled(false);
         buttonUparVIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonUparVITActionPerformed(evt);
             }
         });
         getContentPane().add(buttonUparVIT);
-        buttonUparVIT.setBounds(360, 190, 55, 23);
+        buttonUparVIT.setBounds(490, 350, 80, 30);
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backgroundCriacaoPersonagem.jpg"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backStatus.jpg"))); // NOI18N
         background.setToolTipText("");
         getContentPane().add(background);
-        background.setBounds(0, 0, 520, 460);
+        background.setBounds(0, 0, 600, 530);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -232,29 +187,25 @@ public class TelaStatus extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarActionPerformed
 
     private void buttonUparFORActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUparFORActionPerformed
-        personagem.setSkillpoints(personagem.getSkillpoints() - 1);
-        personagem.setForca(personagem.getForca() + 1);
+        personagem.upar(1);
         atualizaLabel();
         botoes();
     }//GEN-LAST:event_buttonUparFORActionPerformed
 
     private void buttonUparDESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUparDESActionPerformed
-        personagem.setSkillpoints(personagem.getSkillpoints() - 1);
-        personagem.setDestreza(personagem.getDestreza() + 1);
+        personagem.upar(2);
         atualizaLabel();
         botoes();
     }//GEN-LAST:event_buttonUparDESActionPerformed
 
     private void buttonUparINTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUparINTActionPerformed
-        personagem.setSkillpoints(personagem.getSkillpoints() - 1);
-        personagem.setInteligencia(personagem.getInteligencia() + 1);
+        personagem.upar(3);
         atualizaLabel();
         botoes();
     }//GEN-LAST:event_buttonUparINTActionPerformed
 
     private void buttonUparVITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUparVITActionPerformed
-        personagem.setSkillpoints(personagem.getSkillpoints() - 1);
-        personagem.setVitalidade(personagem.getVitalidade() + 1);
+        personagem.upar(4);
         atualizaLabel();
         botoes();
     }//GEN-LAST:event_buttonUparVITActionPerformed
@@ -296,16 +247,6 @@ public class TelaStatus extends javax.swing.JFrame {
     private javax.swing.JLabel labelFOR;
     private javax.swing.JLabel labelHp;
     private javax.swing.JLabel labelINT;
-    private javax.swing.JLabel labelInfoAtk;
-    private javax.swing.JLabel labelInfoDES;
-    private javax.swing.JLabel labelInfoFOR;
-    private javax.swing.JLabel labelInfoHP;
-    private javax.swing.JLabel labelInfoINT;
-    private javax.swing.JLabel labelInfoLvl;
-    private javax.swing.JLabel labelInfoMoedas;
-    private javax.swing.JLabel labelInfoNome;
-    private javax.swing.JLabel labelInfoVIT;
-    private javax.swing.JLabel labelInfoXP;
     private javax.swing.JLabel labelLvl;
     private javax.swing.JLabel labelMoedas;
     private javax.swing.JLabel labelNome;

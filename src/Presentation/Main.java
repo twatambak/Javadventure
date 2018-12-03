@@ -45,7 +45,10 @@ public class Main {
     }
 
     public static void abrir(JFrame janela){
-        janela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        if((janela instanceof TelaStatus)){
+        } else {
+            janela.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        }
         janela.setVisible(true);
         
     }

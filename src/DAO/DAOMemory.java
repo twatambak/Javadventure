@@ -34,7 +34,6 @@ public class DAOMemory implements DAOInterface{
     
     ArrayList<Itens> arrayItensLoja = new ArrayList<>();
     ArrayList<Equipamento> arrayEquipamentoLoja = new ArrayList<>();
-    
     Usuario usuarioLogado;
     
     private DAOMemory(){
@@ -96,6 +95,7 @@ public class DAOMemory implements DAOInterface{
         }
         Usuario usuario = new Usuario(login, senha);
         arrayUsuario.add(usuario);
+        registrarUsuarios();
         return true;
     }
     
@@ -189,6 +189,8 @@ public class DAOMemory implements DAOInterface{
             
             arrayUsuario.add(new Usuario(usuario, senha));
         }
+        
+        scan.close();
     }
     
     @Override
@@ -257,7 +259,7 @@ public class DAOMemory implements DAOInterface{
     public boolean comprarItens(int index, Personagem personagem){
         Itens aux = getArrayItensIndex(index);
         if(personagem.getDinheiro() >= aux.getValorCompra()){
-            personagem.getInventario().add(aux);
+            personagem.getConsumiveis().add(aux);
             if(aux.getQuantidade() > 0){
                 aux.setQuantidade(aux.getQuantidade() - 1);
             } else {
@@ -268,5 +270,25 @@ public class DAOMemory implements DAOInterface{
         }else {
             return false;
         }
+    }
+    
+    @Override
+    public void removeEquipInventario(int index, Personagem personagem){
+        personagem.getInventario().remove(index);
+    }
+    
+    @Override
+    public void removeItensCosumiveis(int index, Personagem personagem){
+        personagem.getConsumiveis().remove(index);
+    }
+    
+    @Override
+    public void addEquipInventario(Equipamento equip, Personagem personagem){
+        personagem.getInventario().add(equip);
+    }
+    
+    @Override
+    public void addItensConsumiveis(Itens itens, Personagem personagem){
+        personagem.getConsumiveis().add(itens);
     }
 }

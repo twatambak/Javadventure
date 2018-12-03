@@ -97,7 +97,7 @@ public class TelaMundo extends javax.swing.JFrame {
         player.setBounds(600, 270, 210, 430);
 
         background.setFont(new java.awt.Font("Imaginary Forces", 0, 100)); // NOI18N
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Wall2 clone (3).png"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/chao.png"))); // NOI18N
         background.setToolTipText("");
         background.setFocusable(false);
         background.addKeyListener(new java.awt.event.KeyAdapter() {

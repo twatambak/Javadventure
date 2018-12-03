@@ -17,6 +17,7 @@ public class Personagem extends Ser{
     private int skillpoints;
     private int xp;
     private ArrayList<Equipamento> inventario = new ArrayList<>();
+    private ArrayList<Itens> consumiveis = new ArrayList<>();
     
     public Personagem(String nome, int vitalidade, int inteligencia, int destreza, int forca, Icon aparencia) throws FileNotFoundException{
         this.nome = nome;
@@ -132,4 +133,38 @@ public class Personagem extends Ser{
     public Icon aparencia(){
         return aparencia;
     }
+    
+    public void upar(int skill){
+        this.setSkillpoints(this.getSkillpoints() - 1);
+        switch(skill){
+            case 1:
+                this.setForca(this.getForca() + 1);
+                break;
+            case 2:
+                this.setDestreza(this.getDestreza() + 1);
+                break;
+            case 3:
+                this.setInteligencia(this.getInteligencia() + 1);
+                break;
+            case 4:
+                this.setVitalidade(this.getVitalidade() + 1);
+                break;
+        }
+    }
+
+    /**
+     * @return the consumiveis
+     */
+    public ArrayList<Itens> getConsumiveis() {
+        return consumiveis;
+    }
+
+    /**
+     * @param consumiveis the consumiveis to set
+     */
+    public void setConsumiveis(ArrayList<Itens> consumiveis) {
+        this.consumiveis = consumiveis;
+    }
+    
+    
 }

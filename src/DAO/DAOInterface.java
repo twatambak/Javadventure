@@ -43,4 +43,11 @@ public interface DAOInterface {
     
     public boolean comprarEquipamento(int index, Personagem personagem);
     public boolean comprarItens(int index, Personagem personagem);
+    
+    public void removeEquipInventario(int index, Personagem personagem);
+    public void removeItensCosumiveis(int index, Personagem personagem);
+    
+    public void addEquipInventario(Equipamento equip, Personagem personagem);
+    public void addItensConsumiveis(Itens itens, Personagem personagem);
+    
 }

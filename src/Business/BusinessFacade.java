@@ -107,4 +107,20 @@ public class BusinessFacade {
     public static boolean comprarItens(int index, Personagem personagem){
         return instance.comprarItens(index, personagem);
     }
+    
+    public static void removeEquipInventario(int index, Personagem personagem){
+        instance.removeEquipInventario(index, personagem);
+    }
+    
+    public static void removeItensConsumiveis(int index, Personagem personagem){
+        instance.removeItensCosumiveis(index, personagem);
+    }
+    
+    public static void addEquipInventario(Equipamento equip, Personagem personagem){
+        instance.addEquipInventario(equip, personagem);
+    }
+    
+    public static void addItensConsumiveis(Itens itens, Personagem personagem){
+        instance.addItensConsumiveis(itens, personagem);
+    }
 }

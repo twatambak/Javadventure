@@ -66,7 +66,7 @@ public class Usuario {
     }
     
     public String salvaString(){
-        return "" + getLogin() + ";" + getSenha() + ";";
+        return "" + getLogin() + ";" + getSenha() + "; ";
     }
     
 }

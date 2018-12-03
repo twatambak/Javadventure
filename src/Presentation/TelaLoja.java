@@ -1,3 +1,4 @@
+
 package Presentation;
 
 import Business.BusinessFacade;
@@ -8,7 +9,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
  * @author Matheus Bencke Nantes Coelho e Thiago Luiz Watambak
  */
 public class TelaLoja extends javax.swing.JFrame {
@@ -22,14 +22,18 @@ public class TelaLoja extends javax.swing.JFrame {
 
     public TelaLoja(int xPlayer, int yPlayer) {
         initComponents();
-        
+        Random x = new Random();
+        if(x.nextInt(2) == 0){
+            labelVendedor.setIcon((new javax.swing.ImageIcon(getClass().getResource("/Images/Vendedor.png"))));
+        } else {
+            labelVendedor.setIcon((new javax.swing.ImageIcon(getClass().getResource("/Images/Vendedor2.png"))));
+        }
         BusinessFacade.setArrayLojaEquip(5, personagem.getLvl());
         BusinessFacade.setArrayLojaItens(5);
         
-        labelGrana.setText("" + personagem.getDinheiro());
+
         this.xPlayer = xPlayer;
         this.yPlayer = yPlayer;
-        Random x = new Random();
         
         atualizaTabela();
     }
@@ -56,7 +60,7 @@ public class TelaLoja extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         labelGrana = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        labelVendedor = new javax.swing.JLabel();
         labelImgFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -182,10 +186,10 @@ public class TelaLoja extends javax.swing.JFrame {
         getContentPane().add(labelGrana);
         labelGrana.setBounds(140, 560, 60, 30);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Vendedor.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(540, 60, 240, 590);
+        labelVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Vendedor.png"))); // NOI18N
+        labelVendedor.setText("jLabel4");
+        getContentPane().add(labelVendedor);
+        labelVendedor.setBounds(540, 60, 240, 590);
 
         labelImgFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backLoja.png"))); // NOI18N
         labelImgFundo.setMaximumSize(new java.awt.Dimension(1366, 768));
@@ -246,6 +250,7 @@ public class TelaLoja extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoComprarActionPerformed
 
     public void atualizaTabela(){
+        labelGrana.setText("" + personagem.getDinheiro());
         tabelaArmas.removeAll();
         tabelaItens.removeAll();
         
@@ -286,7 +291,6 @@ public class TelaLoja extends javax.swing.JFrame {
     private javax.swing.JButton botaoSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelArmas;
@@ -294,6 +298,7 @@ public class TelaLoja extends javax.swing.JFrame {
     private javax.swing.JLabel labelGrana;
     private javax.swing.JLabel labelImgFundo;
     private javax.swing.JLabel labelValor;
+    private javax.swing.JLabel labelVendedor;
     private javax.swing.JTable tabelaArmas;
     private javax.swing.JTable tabelaItens;
     // End of variables declaration//GEN-END:variables

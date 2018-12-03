@@ -9,12 +9,8 @@ import javax.swing.JFrame;
  */
 public class TelaRegistro extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaRegistro
-     */
     public TelaRegistro() {
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     
     @SuppressWarnings("unchecked")
