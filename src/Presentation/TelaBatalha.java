@@ -134,11 +134,10 @@ public class TelaBatalha extends javax.swing.JFrame {
         labelHP.setBounds(20, 650, 420, 40);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setPreferredSize(new java.awt.Dimension(10, 10));
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 620, 1370, 10);
 
-        background2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/filhodaputa.jpg"))); // NOI18N
+        background2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backBatalha.jpg"))); // NOI18N
         background2.setText("jLabel1");
         background2.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         background2.setMinimumSize(new java.awt.Dimension(1366, 768));
